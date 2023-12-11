@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import About from "./About";
 import Resume from "./Resume";
 import Projects from "./Projects";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const menus = [
   { id: "about", name: "About", height: "50vh", component: About },
