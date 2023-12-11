@@ -41,7 +41,7 @@ const Profile = ({ isActive, menus }) => {
             my={1}
             sx={{ fontWeight: 900, color: "var(--secondary-color)" }}
           >
-            Msc. Computer Security | Africa Institue of Mathematical Sciences
+            Msc. Computer Security | Africa Institue for Mathematical Sciences
             (AIMS-Senegal)
           </Typography>
           <Typography
