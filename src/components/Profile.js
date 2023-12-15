@@ -51,10 +51,11 @@ const Profile = ({ isActive, menus }) => {
               fontStyle: "italic",
             }}
           >
-            My passion for innovation and dedication to delivering unparalleled
-            digital experiences empower businesses to thrive in the online
-            landscape. Elevate your brand with a website that not only meets but
-            exceeds your vision, leaving a lasting impression on your audience.
+            Dive into a world of innovation and excellence with me! I'm all
+            about creating amazing online experiences that help businesses
+            thrive. Boost your brand with a website that goes beyond your
+            expectations, leaving a lasting impression on your audience. Let's
+            make your digital journey extraordinary!
           </Typography>
         </Box>
       </Box>
