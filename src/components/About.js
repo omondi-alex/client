@@ -11,9 +11,9 @@ const About = () => {
         marginTop: "30px",
       }}
     >
-      <ScreenHeading title="About Me" subHeading="Get to know me" />
+      <ScreenHeading title="whoami" subHeading="Get to know me" />
       <Typography variant="body1" mt={2} sx={{ fontWeight: 400 }}>
-        "Hello World!👋, I'm a tech enthusiast and dedicated software developer
+        "Hello!👋, I'm a tech enthusiast and dedicated software developer
         interested in exploring emerging technologies such as data science and
         Artificial Intelligence (AI)🚀, Originating from Kenya. I hold a
         Bachelor of Computer Science and have achieved remarkable success in my
