@@ -42,7 +42,7 @@ const Profile = ({ isActive, menus }) => {
             sx={{ fontWeight: 900, color: "var(--secondary-color)" }}
           >
             The Solution To All Your Software Needs | Simplifying Your Digital
-            Journy.
+            Journey.
           </Typography>
           <Typography
             variant="body1"
