@@ -13,8 +13,8 @@ const About = () => {
     >
       <ScreenHeading title="whoami" subHeading="Get to know me" />
       <Typography variant="body1" mt={2} sx={{ fontWeight: 400 }}>
-        "Hello!👋, I'm a tech enthusiast and dedicated software developer
-        interested in exploring emerging technologies such as data science and
+        "Hello!👋, I'm a tech enthusiast and dedicated Software Developer and Security Engineer
+        interested in exploring emerging technologies such as Data science and
         Artificial Intelligence (AI)🚀, Originating from Kenya. I hold a
         Bachelor of Computer Science and have achieved remarkable success in my
         academic and professional pursuits, alongside my leadership journey. I'm
