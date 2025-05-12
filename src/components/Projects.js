@@ -42,7 +42,7 @@ const Projects = ({ data }) => {
         ))}
       <AnimatePresence>
         {data &&
-          data?.slice(0, 5).map((work, i) => (
+          data?.slice(0, 6).map((work, i) => (
             <motion.div
               style={{ marginBottom: "30px" }}
               key={i}
@@ -55,7 +55,7 @@ const Projects = ({ data }) => {
             </motion.div>
           ))}
       </AnimatePresence>
-      <Typography
+      {/* <Typography
         sx={{
           marginTop: "50px",
           textDecoration: "none",
@@ -70,7 +70,7 @@ const Projects = ({ data }) => {
         to="archive"
       >
         View Project Archive <CallMadeIcon />
-      </Typography>
+      </Typography> */}
       <Divider />
     </Container>
   );
