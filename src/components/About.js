@@ -7,6 +7,17 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const underlineAnimation = keyframes`
   from { width: 0; }
   to { width: 100%; }
@@ -36,32 +47,36 @@ const About = () => {
           paddingX: { xs: 0, sm: 2 },
           borderRadius: "8px",
           transition: "all 0.3s ease",
+          opacity: 0,
+          animation: `${fadeInUp} 0.8s ease-out 0s forwards`,
           "&:hover": {
             backgroundColor: "rgba(var(--secondary-color-rgb), 0.05)",
             transform: "translateX(5px)",
           },
           "& strong": {
             color: "var(--secondary-color)",
-            transition: "all 0.3s ease",
             position: "relative",
+            display: "inline-block",
+            transition: "color 0.3s ease, transform 0.3s ease",
             "&::after": {
               content: '""',
               position: "absolute",
-              bottom: -2,
+              bottom: 0,
               left: 0,
               width: "100%",
-              height: "1px",
-              background: "var(--accent-color)",
+              height: "2px",
+              background: "linear-gradient(90deg, var(--secondary-color), transparent)",
               transform: "scaleX(0)",
-              transformOrigin: "right",
-              transition: "transform 0.3s ease",
+              transformOrigin: "left",
+              transition: "transform 0.3s ease, background 0.3s ease",
             },
-            "&:hover": {
-              color: "var(--accent-color)",
-              "&::after": {
-                transform: "scaleX(1)",
-                transformOrigin: "left",
-              },
+          },
+          "&:hover strong": {
+            color: "var(--accent-color)",
+            transform: "translateY(-2px)",
+            "&::after": {
+              transform: "scaleX(1)",
+              background: "linear-gradient(90deg, var(--accent-color), transparent)",
             },
           },
         }}
@@ -88,32 +103,36 @@ const About = () => {
           paddingX: { xs: 0, sm: 2 },
           borderRadius: "8px",
           transition: "all 0.3s ease",
+          opacity: 0,
+          animation: `${fadeInUp} 0.8s ease-out 0.2s forwards`,
           "&:hover": {
             backgroundColor: "rgba(var(--secondary-color-rgb), 0.05)",
             transform: "translateX(5px)",
           },
           "& strong": {
             color: "var(--secondary-color)",
-            transition: "all 0.3s ease",
             position: "relative",
+            display: "inline-block",
+            transition: "color 0.3s ease, transform 0.3s ease",
             "&::after": {
               content: '""',
               position: "absolute",
-              bottom: -2,
+              bottom: 0,
               left: 0,
               width: "100%",
-              height: "1px",
-              background: "var(--accent-color)",
+              height: "2px",
+              background: "linear-gradient(90deg, var(--secondary-color), transparent)",
               transform: "scaleX(0)",
-              transformOrigin: "right",
-              transition: "transform 0.3s ease",
+              transformOrigin: "left",
+              transition: "transform 0.3s ease, background 0.3s ease",
             },
-            "&:hover": {
-              color: "var(--accent-color)",
-              "&::after": {
-                transform: "scaleX(1)",
-                transformOrigin: "left",
-              },
+          },
+          "&:hover strong": {
+            color: "var(--accent-color)",
+            transform: "translateY(-2px)",
+            "&::after": {
+              transform: "scaleX(1)",
+              background: "linear-gradient(90deg, var(--accent-color), transparent)",
             },
           },
         }}
@@ -143,32 +162,36 @@ const About = () => {
           paddingX: { xs: 0, sm: 2 },
           borderRadius: "8px",
           transition: "all 0.3s ease",
+          opacity: 0,
+          animation: `${fadeInUp} 0.8s ease-out 0.4s forwards`,
           "&:hover": {
             backgroundColor: "rgba(var(--secondary-color-rgb), 0.05)",
             transform: "translateX(5px)",
           },
           "& strong": {
             color: "var(--secondary-color)",
-            transition: "all 0.3s ease",
             position: "relative",
+            display: "inline-block",
+            transition: "color 0.3s ease, transform 0.3s ease",
             "&::after": {
               content: '""',
               position: "absolute",
-              bottom: -2,
+              bottom: 0,
               left: 0,
               width: "100%",
-              height: "1px",
-              background: "var(--accent-color)",
+              height: "2px",
+              background: "linear-gradient(90deg, var(--secondary-color), transparent)",
               transform: "scaleX(0)",
-              transformOrigin: "right",
-              transition: "transform 0.3s ease",
+              transformOrigin: "left",
+              transition: "transform 0.3s ease, background 0.3s ease",
             },
-            "&:hover": {
-              color: "var(--accent-color)",
-              "&::after": {
-                transform: "scaleX(1)",
-                transformOrigin: "left",
-              },
+          },
+          "&:hover strong": {
+            color: "var(--accent-color)",
+            transform: "translateY(-2px)",
+            "&::after": {
+              transform: "scaleX(1)",
+              background: "linear-gradient(90deg, var(--accent-color), transparent)",
             },
           },
         }}
