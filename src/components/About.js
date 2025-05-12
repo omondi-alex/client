@@ -15,7 +15,7 @@ const About = () => {
       <Typography
         variant="body1"
         mt={2}
-        sx={{ fontWeight: 400, fontSize: "1.2vh" }}
+        sx={{ fontWeight: 400,}}
       >
         I'm a <strong>Cybersecurity Solutions Developer</strong> and{" "}
         <strong>Full-Stack Engineer</strong>, currently designing and developing
