@@ -28,8 +28,8 @@ const Resume = ({ data }) => {
         }}
         variant="h5"
         component={Link}
-        to="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/Resume_OmondiAlex.pdf?alt=media&token=ff87daad-1c04-4852-b21b-e41e75e074e8"
-        target="_blank"
+        to="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/Resume_OmondiAlex.pdf?alt=media&token=1beaad5e-f50d-48f5-bdd6-247eb306c8d4"
+        target="_blank" 
       >
         View Resume <CallMadeIcon />
       </Typography>
