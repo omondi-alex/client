@@ -337,7 +337,7 @@ const Profile = ({ isActive, menus, profileImage = fazitech }) => {
               },
             }}
           >
-            Welcome to my digital realm! I'm a{" "}
+            Welcome to the digital realm! I'm a{" "}
             <strong>visionary developer</strong> and{" "}
             <strong>security architect</strong> who transforms complex challenges
             into elegant solutions. With a passion for both{" "}

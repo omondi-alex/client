@@ -49,12 +49,11 @@ const View = ({ children, setIsActive, menuId }) => {
         // animate={control}
         transition={{ duration: 1 }}
         style={{
-          width: "80%",
+          width: "100%",
           height: "100%",
           display: "flex",
           justifyContent: "center",
           position: "relative",
-
           overflow: "hidden",
         }}
       >

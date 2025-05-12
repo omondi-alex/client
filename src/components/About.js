@@ -16,10 +16,13 @@ const About = () => {
   return (
     <Box
       className="fade-in"
-      textAlign="justify"
       sx={{
         marginTop: "30px",
         animation: `${fadeIn} 1s ease-out`,
+        textAlign: { xs: "center", sm: "center", md: "justify" },
+        maxWidth: { xs: '100%', sm: 600, md: 'none' },
+        mx: { xs: 0, sm: 'auto', md: 0 },
+        px: { xs: 0, sm: 4 },
       }}
     >
       <ScreenHeading title="whoami" subHeading="Get to know me" />
@@ -29,7 +32,8 @@ const About = () => {
         sx={{ 
           fontWeight: 400,
           lineHeight: 1.8,
-          padding: "15px",
+          paddingY: "15px",
+          paddingX: { xs: 0, sm: 2 },
           borderRadius: "8px",
           transition: "all 0.3s ease",
           "&:hover": {
@@ -80,7 +84,8 @@ const About = () => {
         sx={{ 
           fontWeight: 400,
           lineHeight: 1.8,
-          padding: "15px",
+          paddingY: "15px",
+          paddingX: { xs: 0, sm: 2 },
           borderRadius: "8px",
           transition: "all 0.3s ease",
           "&:hover": {
@@ -134,7 +139,8 @@ const About = () => {
         sx={{ 
           fontWeight: 400,
           lineHeight: 1.8,
-          padding: "15px",
+          paddingY: "15px",
+          paddingX: { xs: 0, sm: 2 },
           borderRadius: "8px",
           transition: "all 0.3s ease",
           "&:hover": {
