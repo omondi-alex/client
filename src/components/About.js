@@ -1,6 +1,16 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, keyframes } from "@mui/material";
 import React from "react";
 import ScreenHeading from "./ScreenHeading/ScreenHeading";
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const underlineAnimation = keyframes`
+  from { width: 0; }
+  to { width: 100%; }
+`;
 
 const About = () => {
   return (
@@ -9,13 +19,48 @@ const About = () => {
       textAlign="justify"
       sx={{
         marginTop: "30px",
+        animation: `${fadeIn} 1s ease-out`,
       }}
     >
       <ScreenHeading title="whoami" subHeading="Get to know me" />
       <Typography
         variant="body1"
         mt={2}
-        sx={{ fontWeight: 400,}}
+        sx={{ 
+          fontWeight: 400,
+          lineHeight: 1.8,
+          padding: "15px",
+          borderRadius: "8px",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            backgroundColor: "rgba(var(--secondary-color-rgb), 0.05)",
+            transform: "translateX(5px)",
+          },
+          "& strong": {
+            color: "var(--secondary-color)",
+            transition: "all 0.3s ease",
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              bottom: -2,
+              left: 0,
+              width: "100%",
+              height: "1px",
+              background: "var(--accent-color)",
+              transform: "scaleX(0)",
+              transformOrigin: "right",
+              transition: "transform 0.3s ease",
+            },
+            "&:hover": {
+              color: "var(--accent-color)",
+              "&::after": {
+                transform: "scaleX(1)",
+                transformOrigin: "left",
+              },
+            },
+          },
+        }}
       >
         I'm a <strong>Cybersecurity Solutions Developer</strong> and{" "}
         <strong>Full-Stack Engineer</strong>, currently designing and developing
@@ -29,14 +74,52 @@ const About = () => {
         presented at Kirinyaga University's 8th Annual International Conference.
       </Typography>
 
-      <Typography variant="body1" mt={2} sx={{ fontWeight: 400 }}>
+      <Typography 
+        variant="body1" 
+        mt={2} 
+        sx={{ 
+          fontWeight: 400,
+          lineHeight: 1.8,
+          padding: "15px",
+          borderRadius: "8px",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            backgroundColor: "rgba(var(--secondary-color-rgb), 0.05)",
+            transform: "translateX(5px)",
+          },
+          "& strong": {
+            color: "var(--secondary-color)",
+            transition: "all 0.3s ease",
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              bottom: -2,
+              left: 0,
+              width: "100%",
+              height: "1px",
+              background: "var(--accent-color)",
+              transform: "scaleX(0)",
+              transformOrigin: "right",
+              transition: "transform 0.3s ease",
+            },
+            "&:hover": {
+              color: "var(--accent-color)",
+              "&::after": {
+                transform: "scaleX(1)",
+                transformOrigin: "left",
+              },
+            },
+          },
+        }}
+      >
         Beyond development, I'm passionate about{" "}
         <strong>Mentorship and Volunteering</strong>. At the Young Professional
         Mentorship Program, I served as a Mentor for the Class of 2024. I
         currently hold dual roles as <strong>Web Manager</strong> (overseeing
         site maintenance, content updates, and performance analytics) and{" "}
         <strong>Graphic Designer</strong>, creating compelling visuals for their
-        social media platforms. As a former ICT Officer for Kenya’s Ministry of
+        social media platforms. As a former ICT Officer for Kenya's Ministry of
         Education, I trained pupils, students, and educators in Digital
         Literacy, cyber resilience, and secure IT practices - bridging the gap
         between technology and end-users. Additionally, I developed and
@@ -45,7 +128,45 @@ const About = () => {
         educators and students.
       </Typography>
 
-      <Typography variant="body1" mt={2} sx={{ fontWeight: 400 }}>
+      <Typography 
+        variant="body1" 
+        mt={2} 
+        sx={{ 
+          fontWeight: 400,
+          lineHeight: 1.8,
+          padding: "15px",
+          borderRadius: "8px",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            backgroundColor: "rgba(var(--secondary-color-rgb), 0.05)",
+            transform: "translateX(5px)",
+          },
+          "& strong": {
+            color: "var(--secondary-color)",
+            transition: "all 0.3s ease",
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              bottom: -2,
+              left: 0,
+              width: "100%",
+              height: "1px",
+              background: "var(--accent-color)",
+              transform: "scaleX(0)",
+              transformOrigin: "right",
+              transition: "transform 0.3s ease",
+            },
+            "&:hover": {
+              color: "var(--accent-color)",
+              "&::after": {
+                transform: "scaleX(1)",
+                transformOrigin: "left",
+              },
+            },
+          },
+        }}
+      >
         My technical versatility spans:
         <br />• <strong>Web Development & Management</strong> (Full-stack
         solutions, CMS optimization)

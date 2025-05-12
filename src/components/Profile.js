@@ -98,7 +98,7 @@ const Profile = ({ isActive, menus, profileImage = fazitech }) => {
           flexDirection: "column",
           alignItems: "center",
           gap: 2,
-          pt: 10,
+          pt: 1,
           position: "relative",
           overflow: "hidden",
         }}
@@ -107,9 +107,10 @@ const Profile = ({ isActive, menus, profileImage = fazitech }) => {
         <Box
           sx={{
             position: "relative",
-            width: "220px",
-            height: "220px",
+            width: { xs: "180px", sm: "220px" },
+            height: { xs: "180px", sm: "220px" },
             perspective: "1000px",
+            margin: "0 auto",
             "&:hover": {
               "& .profile-image": {
                 transform: "rotateY(180deg)",
@@ -137,6 +138,7 @@ const Profile = ({ isActive, menus, profileImage = fazitech }) => {
               transformStyle: "preserve-3d",
               backfaceVisibility: "hidden",
               position: "absolute",
+              aspectRatio: "1/1",
             }}
           />
           
@@ -157,6 +159,7 @@ const Profile = ({ isActive, menus, profileImage = fazitech }) => {
               backfaceVisibility: "hidden",
               position: "absolute",
               animation: `${pulseScale} 2s ease-in-out infinite`,
+              aspectRatio: "1/1",
               "&::before": {
                 content: '""',
                 position: "absolute",
@@ -214,6 +217,18 @@ const Profile = ({ isActive, menus, profileImage = fazitech }) => {
             }}
           >
             OMONDI ALEX
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 700,
+              color: "var(--secondary-color)",
+              mb: 0.5,
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+            }}
+          >
+            Omondi Alex
           </Typography>
           <Typography
             variant="subtitle1"
