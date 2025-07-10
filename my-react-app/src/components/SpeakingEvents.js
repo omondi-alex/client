@@ -300,7 +300,7 @@ const SpeakingEvents = () => {
     // Compose email
     const emailSubject = `Speaking Invitation: ${inviteForm.topic}`;
     const emailBody = `
-Dear Alex Omondi,
+Dear Omondi Alex,
 
 I would like to invite you to speak at our event. Here are the details:
 
@@ -330,7 +330,7 @@ ${inviteForm.name}
     `.trim();
 
     // Open email client
-    const mailtoLink = `mailto:alex.omondi@aims-senegal.org?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:omondialex3517@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     window.open(mailtoLink, '_blank');
 
     // Show success message
@@ -704,10 +704,10 @@ ${inviteForm.name}
           <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
             <CardContent sx={{ p: 4, textAlign: 'center' }}>
               <Typography variant="h6" fontWeight={600} sx={{ mb: 2, color: '#1f2937' }}>
-                Invite Alex to Speak
+                Invite Me to Speak
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-                Looking for a speaker for your event? Alex is available for conferences, workshops, university lectures, and corporate training.
+                Looking for a speaker for your event? I'm is available for conferences, workshops, university lectures, and corporate training.
               </Typography>
               <Button
                 variant="contained"
@@ -1023,10 +1023,10 @@ ${inviteForm.name}
               <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
                 <CardContent>
                   <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
-                    Invite Alex to Speak
+                    Invite Me to Speak
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    Looking for a speaker for your event? Alex is available for conferences, workshops, university lectures, and corporate training.
+                    Looking for a speaker for your event? I'm available for conferences, workshops, university lectures, and corporate training.
                   </Typography>
                   <Button
                     variant="outlined"
@@ -1057,7 +1057,7 @@ ${inviteForm.name}
         <DialogTitle sx={{ pb: 1 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="h5" fontWeight={600}>
-              Invite Alex to Speak
+              Invite Me to Speak
             </Typography>
             <IconButton onClick={() => setOpenInviteDialog(false)}>
               <CloseIcon />

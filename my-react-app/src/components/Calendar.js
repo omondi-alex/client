@@ -92,7 +92,7 @@ const Calendar = () => {
     // Compose email
     const emailSubject = `Meeting Request: ${bookingForm.subject}`;
     const emailBody = `
-Dear Alex Omondi,
+Dear Omondi Alex,
 
 I would like to schedule a meeting with you. Here are the details:
 
@@ -119,7 +119,7 @@ ${bookingForm.name}
     `.trim();
 
     // Open email client
-    const mailtoLink = `mailto:alex.omondi@aims-senegal.org?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:omondialex3517@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     window.open(mailtoLink, '_blank');
 
     // Show success message
@@ -154,7 +154,7 @@ ${bookingForm.name}
               Schedule a Meeting
             </Typography>
             <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-              Book a consultation or meeting with Alex Omondi
+              Book a consultation or meeting with Me
             </Typography>
           </Box>
         </Grid>
@@ -172,7 +172,7 @@ ${bookingForm.name}
               <Box>
                 <Alert severity="info" sx={{ mb: 3 }}>
                   <Typography variant="body2">
-                    <strong>How it works:</strong> Fill out the form below and we'll open your email client with a pre-filled message to Alex. Simply send the email to complete your meeting request.<br />
+                    <strong>How it works:</strong> Fill out the form below and we'll open your email client with a pre-filled message. Simply send the email to complete your meeting request.<br />
                     <strong>Available Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM (EAT)<br />
                     <strong>Response Time:</strong> Within 24 hours for meeting confirmations
                   </Typography>
@@ -418,7 +418,7 @@ ${bookingForm.name}
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <EmailIcon color="primary" />
-                    <Typography variant="body2">alex.omondi@aims-senegal.org</Typography>
+                    <Typography variant="body2">omondialex3517@gmail.com</Typography>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <PhoneIcon color="primary" />

@@ -17,7 +17,7 @@ The Calendar component provides a simple and effective way for visitors to your 
 - Visitor fills out the meeting request form
 - Clicks "Send Meeting Request" button
 - Their default email client opens with:
-  - **To:** alex.omondi@aims-senegal.org
+  - **To:** omondialex3517@gmail.com
   - **Subject:** "Meeting Request: [Subject]"
   - **Body:** Formatted message with all meeting details
 
@@ -42,7 +42,7 @@ The email includes:
 The system generates emails in this format:
 
 ```
-Dear Alex Omondi,
+Dear Omondi Alex,
 
 I would like to schedule a meeting with you. Here are the details:
 

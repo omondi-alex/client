@@ -31,8 +31,8 @@ function TabPanel(props) {
 }
 
 const info = [
-  { label: 'Full Name', value: 'Alex Omieno Omondi' },
-  { label: 'Email', value: 'omondialex3517@gmail.com' },
+  { label: 'Full Name', value: 'Omondi Alex Omieno' },
+  { label: 'Email', value: 'omondialex3517@gmail.com ' },
   { label: 'Alternate Email', value: 'alex.omondi@aims-senegal.org' },
   { label: 'Address', value: 'Nairobi, Kenya' },
   { label: 'WhatsApp', value: '+254 707 750879' },
@@ -83,7 +83,7 @@ const ProfileDashboard = () => {
                 />
               </Box>
               <Typography variant="h4" fontWeight={700} sx={{ mb: 1, color: '#1f2937' }}>
-                Alex Omieno Omondi
+                Omondi Alex
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 3, fontSize: '1.1rem' }}>
                 Cybersecurity & Software Engineering Specialist
@@ -193,7 +193,7 @@ const ProfileDashboard = () => {
                       Full Name
                     </Typography>
                     <Typography variant="body1" fontWeight={500}>
-                      Alex Omieno Omondi
+                      Omondi Alex Omieno
                     </Typography>
                   </Box>
                 </Grid>
@@ -798,7 +798,7 @@ const ProfileDashboard = () => {
             <Box sx={{ position: 'relative', mb: 2 }}>
               <Avatar src={fazitechImg} sx={{ width: isMobile ? 70 : 100, height: isMobile ? 70 : 100, border: '3px solid #e5e7eb', boxShadow: 2 }} />
             </Box>
-            <Typography variant="h6" fontWeight={700} align="center" sx={{ mb: 0.5, fontSize: isMobile ? '1.1rem' : '1.25rem' }}>Alex Omieno Omondi</Typography>
+            <Typography variant="h6" fontWeight={700} align="center" sx={{ mb: 0.5, fontSize: isMobile ? '1.1rem' : '1.25rem' }}>Omondi Alex Omieno</Typography>
             <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 2, fontSize: isMobile ? '0.85rem' : '1rem' }}>omondialex3517@gmail.com</Typography>
             <Divider sx={{ my: 2, width: '100%' }} />
             <Typography variant="subtitle1" fontWeight={600} mb={2} align="left" sx={{ fontSize: isMobile ? '1rem' : '1.1rem' }}>Personal Info</Typography>
@@ -876,7 +876,7 @@ const ProfileDashboard = () => {
             <TabPanel value={tab} index={0}>
               <Grid container spacing={3} sx={{ mt: 0.5 }}>
                 <Grid item xs={12} md={6}>
-                  <TextField label={<><b>Full Name</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="Alex Omieno Omondi" />
+                  <TextField label={<><b>Full Name</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="Omondi Alex Omieno" />
                   <TextField label="LinkedIn Link" fullWidth margin="normal" value="https://www.linkedin.com/in/omondi-alex/" InputProps={{ startAdornment: <InputAdornment position="start"><LinkedInIcon /></InputAdornment> }} />
                   <TextField label="Alternative Email" fullWidth margin="normal" value="alex.omondi@aims-senegal.org" InputProps={{ startAdornment: <InputAdornment position="start"><EmailIcon /></InputAdornment> }} />
                   <TextField label="Facebook Link" fullWidth margin="normal" placeholder="Enter Facebook profile link" />
