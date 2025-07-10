@@ -775,20 +775,30 @@ const ProfileDashboard = () => {
     <Box sx={{
       flexGrow: 1,
       mt: { xs: 8, md: 10 },
-      ml: { xs: 1, md: 28 },
+      ml: 0,
       pr: { xs: 1, md: 4 },
       minHeight: '90vh',
       display: 'flex',
       alignItems: 'flex-start',
       justifyContent: 'center',
     }}>
-      <Grid container spacing={isMobile ? 2 : 6} sx={{ maxWidth: 1200 }} alignItems="stretch" direction={isMobile ? 'column' : 'row'}>
-        <Grid item xs={12} md={4} sx={{ display: 'flex' }}>
+      <Grid 
+        container 
+        spacing={isMobile ? 2 : 6} 
+        sx={{ 
+          maxWidth: { xs: '100%', md: 1200 }, 
+          flexWrap: { xs: 'wrap', md: 'nowrap' },
+        }} 
+        alignItems="stretch" 
+        direction={isMobile ? 'column' : 'row'}
+      >
+        <Grid item xs={12} md={4} sx={{ display: 'flex', mr: { md: 4 } }}>
           <Card sx={{
             p: { xs: 2, md: 4 },
             borderRadius: 3,
             boxShadow: 3,
-            minWidth: { xs: 'unset', md: 340 },
+            minWidth: { xs: 'unset', md: 420 },
+            maxWidth: { xs: 'unset', md: 440 },
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
@@ -834,7 +844,8 @@ const ProfileDashboard = () => {
           <Paper elevation={3} sx={{
             borderRadius: 3,
             p: 0,
-            minWidth: { xs: 'unset', md: 750 },
+            minWidth: { xs: 'unset', md: 900 },
+            maxWidth: { xs: 'unset', md: 1000 },
             width: '100%',
             height: '100%',
             display: 'flex',

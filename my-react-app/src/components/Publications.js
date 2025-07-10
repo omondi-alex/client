@@ -63,6 +63,16 @@ const Publications = () => {
   });
   const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
 
+  // Function to handle PDF download
+  const handleDownloadPDF = (pdfUrl, title) => {
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = `${title}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const publications = [
     {
       id: 1,
@@ -82,12 +92,26 @@ const Publications = () => {
       downloads: 0,
       impact: "High",
       category: "Cybersecurity",
-      volume: "",
-      issue: "",
+      volume: "166",
+      issue: "1",
       pages: "",
-      doi: "",
-      methodology: [],
-      findings: [],
+      publishedDate: "14 February 2025",
+      doi: "10.47119/IJRP1001661220257565",
+      methodology: [
+        `The research design employed a mixed-method approach, integrating descriptive research with experimental designs. The information gathered from participants for this descriptive research enabled better comprehension of cloud security challenges that affect Kenyan FinTech organizations. Research data collection was achieved through questionnaires that reached employees from the involved FinTech organizations. Scientists implemented experimental research methods to understand technical issues in cloud computing. An investigation using a private cloud service platform called OwnCloud in a FinTech environment detected vulnerabilities that users might face during operation. The research used the Goal-Question-Metric (GQM) approach to build an assessment system designed for cloud security measurements. This methodology allowed scientists to build an assessment framework that measured security strengths across cloud systems. Given the absence of universally recognized cloud security metrics, the framework underwent customizing to address FinTech business requirements through goal-oriented metric alignment.`
+      ],
+      findings: [
+        "The developed security measurement framework successfully addresses key cloud security challenges for Kenyan FinTechs, including internal threats, data destruction, and regulatory compliance.",
+        "Internal threats, especially rogue administrators, are a significant risk. The ability of administrators to reset user passwords without exposing password visibility was identified as a critical vulnerability.",
+        "Deleted files can remain accessible in the cloud for up to 30 days, posing privacy and security risks, especially for sensitive financial data.",
+        "The framework is organized into five primary domains: Identify, Protect, Detect, Respond, and Recover. Each domain includes specific metrics and sub-metrics to measure cloud security effectiveness.",
+        "The framework introduces a Security Index (SecIndex) calculated using the maximum value among key security metrics, providing a clear indicator of whether a FinTech’s cloud environment is secure.",
+        "The framework was validated against global security standards (COBIT, ITIL, ISO) and tested through experimental analysis and questionnaire-based data collection.",
+        "The framework provides a step-by-step process for FinTechs to: understand the framework and metrics, identify critical systems and assets, compute their Security Index, implement high-priority sub-metrics, and develop and execute an action plan for continuous improvement.",
+        "Recommendations: FinTechs should implement the framework to measure and improve cloud security; continuous monitoring and collaboration with cloud providers are essential; training and awareness programs are recommended to minimize internal threats and ensure compliance."
+      ],
+      pdfUrl: "/papers/Development and Evaluation of a Cloud Security Framework for Kenyan FinTechs.pdf",
+      abstractUrl: "https://ijrp.org/paper-detail/7544"
     },
     {
       id: 2,
@@ -107,12 +131,33 @@ const Publications = () => {
       downloads: 0,
       impact: "High",
       category: "Cybersecurity",
-      volume: "",
-      issue: "",
-      pages: "",
-      doi: "",
-      methodology: [],
-      findings: [],
+      volume: "X",
+      issue: "II",
+      pages: "409-424",
+      publishedDate: "13 March 2025",
+      doi: "10.51584/IJRIAS.2025.10020037",
+      methodology: [
+        "The research design employed a mixed-method approach which integrated descriptive research with experimental designs. The information gathered from participants for this descriptive research enabled better comprehension of cloud security challenges that affect Kenyan FinTech organizations.",
+        "Research data collection was achieved through questionnaires that reached employees from the involved fintech organizations. Scientists employed a descriptive survey type because it let them collect mass-scale assessments about cloud security matters from survey participants.",
+        "The target population consisted of all 51 Fintech companies in Kenya registered with the Central Bank of Kenya as of 2024. The participants in the study were selected from five different departments within the Fintech companies, with one individual from each department providing insights through questionnaires.",
+        "This research employed a census approach. All 51 Fintech companies registered by the Central Bank of Kenya (CBK) was included in this study. One representative from each company was chosen from five key departments, resulting in a total sample size of 255 participants (51 companies × 5 departments).",
+        "Given the challenge of accessing backend cloud security threats directly, the study simulated a private cloud environment using OwnCloud, a widely accepted SaaS platform for cloud computing.",
+        "Analysis took place across two distinct phases of the research study. This study presents simulation results from OwnCloud-based cloud security tests that led to experimental outcomes. A descriptive statistics approach analyzed all gathered participant data obtained through questionnaire surveys during phase two of the analysis.",
+        "The researchers demonstrated the results through textual and numeric representations, including graphs and tables alongside charts along with frequencies and percentages. GQM techniques led to the development of the framework that generated crucial information about the FINTECH sector cloud security status."
+      ],
+      findings: [
+        "The research objective examined data file operations in cloud environments while identifying security threats from cloud providers. The experiment was conducted using OwnCloud version 10.15, with different individuals receiving separate user accounts to use the OwnCloud client software version 5.3.1.",
+        "Cloud security faces serious threats because internal misbehaving employees and system administrators exploit their access privileges to sensitive information. Three types of stakeholders exist who pose an insider threat: cloud provider employees as well as their clients and independent partners who work within cloud operations.",
+        "OwnCloud allows administrators to reset user passwords without exposing password visibility to themselves. Internal personnel access remains the main security risk this scenario demonstrates. The ability to reset a user password by an administrator allows their entry into affected systems as that user while giving them unrestricted access to data and system security vulnerability potential.",
+        "Users received immediate loss of files following their cloud upload and deletion process on their local computer, but those files still existed in the cloud storage for another 30 days. Cloud-based files became visible in the cloud storage for thirty days until complete deletion occurred. Security and privacy risks develop because files stay inside the cloud system accessible to unauthorized users during the thirty-day catchment period.",
+        "The research distributed 255 questionnaires which were sent to employees from each of the 51 FinTech organizations validated by the Central Bank of Kenya by 2024. Out of the distributed questionnaires, 74.2% (189) were filled up and returned for assessment, achieving a very good response rate according to established standards.",
+        "A study on Kenyan fintech companies reveals significant cloud security challenges, with participants highlighting major concerns such as data accessibility risks due to internet outages, unauthorized access by malicious cloud administrators, and insufficient password security measures, emphasizing the need for multifactor authentication and advanced protection techniques.",
+        "Respondents also expressed unease over cloud vendors' uncontrolled data management practices, lack of transparency in data deletion, and inadequate incident response responsibilities, underscoring the necessity for stronger vendor supervision, compliance measures, and improved security defenses.",
+        "The research findings align with recent cybersecurity reports highlighting threats in Kenya's fintech industry, including over 860 million cyberattacks reported in the past year and vulnerabilities in public and private entities like Kenya Power and Kenya Railways.",
+        "The implementation of cloud computing provides Fintech organizations with substantial advantages to both develop innovative approaches and achieve market expansion. However, past implementations show that the many advantages Fintechs gain require managing serious security challenges.",
+        "The research provides Fintechs with a definitive methodology to implement secure cloud services that emphasize stages necessary for optimization and security enhancement. By implementing the structured framework developed in this research, Fintechs can create trusted cloud platform operations."
+      ],
+      pdfUrl: "/papers/Cloud Security Challenges and Framework Development for Kenyan.pdf",
     },
   ];
 
@@ -918,18 +963,10 @@ const Publications = () => {
                     <Button 
                       variant="contained" 
                       startIcon={<DownloadIcon />}
-                      onClick={() => window.open(selectedPublication.pdfUrl, '_blank')}
+                      onClick={() => handleDownloadPDF(selectedPublication.pdfUrl, selectedPublication.title)}
                       sx={{ background: '#2563eb' }}
                     >
                       Download PDF
-                    </Button>
-                    <Button 
-                      variant="outlined" 
-                      startIcon={<ViewIcon />}
-                      onClick={() => window.open(selectedPublication.abstractUrl, '_blank')}
-                      sx={{ borderColor: '#2563eb', color: '#2563eb' }}
-                    >
-                      View Abstract
                     </Button>
                   </Box>
                 </Grid>
