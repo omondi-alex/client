@@ -44,6 +44,7 @@ const ProfileDashboard = () => {
   const initialTab = parseInt(searchParams.get('tab') || '0');
   const [tab, setTab] = React.useState(initialTab);
   const isMobile = useMediaQuery('(max-width:1280px)');
+  const isMediumLarge = useMediaQuery('(max-width:1440px)');
 
   // Update tab when URL params change
   React.useEffect(() => {
@@ -770,48 +771,35 @@ const ProfileDashboard = () => {
     );
   }
 
-  // Desktop layout (unchanged - your existing code)
+  // Desktop layout (fluid, responsive)
   return (
-    <Box sx={{
-      flexGrow: 1,
-      mt: { xs: 8, md: 10 },
-      ml: 0,
-      pr: { xs: 1, md: 4 },
-      minHeight: '90vh',
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'center',
-    }}>
+    <Container maxWidth="lg" sx={{ py: 4, mt: { xs: 8, md: 10 }, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
       <Grid 
         container 
-        spacing={isMobile ? 2 : 6} 
-        sx={{ 
-          maxWidth: { xs: '100%', md: 1200 }, 
-          flexWrap: { xs: 'wrap', md: 'nowrap' },
-        }} 
+        spacing={isMobile ? 2 : 4} 
+        justifyContent="center"
         alignItems="stretch" 
         direction={isMobile ? 'column' : 'row'}
       >
-        <Grid item xs={12} md={4} sx={{ display: 'flex', mr: { md: 4 } }}>
+        <Grid item xs={12} md={4}>
           <Card sx={{
-            p: { xs: 2, md: 4 },
+            width: '100%',
             borderRadius: 3,
             boxShadow: 3,
-            minWidth: { xs: 'unset', md: 420 },
-            maxWidth: { xs: 'unset', md: 440 },
-            width: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             height: '100%',
+            p: { xs: 2, md: 3 },
+            mb: { xs: 2, md: 0 },
           }}>
             <Box sx={{ position: 'relative', mb: 2 }}>
               <Avatar src={fazitechImg} sx={{ width: isMobile ? 70 : 100, height: isMobile ? 70 : 100, border: '3px solid #e5e7eb', boxShadow: 2 }} />
             </Box>
-            <Typography variant="h6" fontWeight={700} align="center" sx={{ mb: 0.5, fontSize: isMobile ? '1.1rem' : '1.25rem' }}>Omondi Alex Omieno</Typography>
-            <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 2, fontSize: isMobile ? '0.85rem' : '1rem' }}>omondialex3517@gmail.com</Typography>
+            <Typography variant="h6" fontWeight={700} align="center" sx={{ mb: 0.5, fontSize: isMobile ? '1.1rem' : isMediumLarge ? '1.1rem' : '1.25rem' }}>Omondi Alex Omieno</Typography>
+            <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 2, fontSize: isMobile ? '0.85rem' : isMediumLarge ? '0.95rem' : '1rem' }}>omondialex3517@gmail.com</Typography>
             <Divider sx={{ my: 2, width: '100%' }} />
-            <Typography variant="subtitle1" fontWeight={600} mb={2} align="left" sx={{ fontSize: isMobile ? '1rem' : '1.1rem' }}>Personal Info</Typography>
+            <Typography variant="subtitle1" fontWeight={600} mb={2} align="left" sx={{ fontSize: isMobile ? '1rem' : isMediumLarge ? '1rem' : '1.1rem' }}>Personal Info</Typography>
             <Box sx={{ width: '100%' }}>
               <Grid container spacing={1.2}>
                 {info.map((item, i) => (
@@ -830,6 +818,8 @@ const ProfileDashboard = () => {
                         >
                           <LinkedInIcon fontSize="medium" />
                         </IconButton>
+                      ) : item.label === 'Email' ? (
+                        <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 400, py: 0.5, fontSize: isMobile ? '0.85rem' : '1rem', wordBreak: 'break-all', overflowWrap: 'anywhere' }}>{item.value}</Typography>
                       ) : (
                         <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 400, py: 0.5, fontSize: isMobile ? '0.85rem' : '1rem' }}>{item.value}</Typography>
                       )}
@@ -840,16 +830,14 @@ const ProfileDashboard = () => {
             </Box>
           </Card>
         </Grid>
-        <Grid item xs={12} md={8} sx={{ display: 'flex' }}>
+        <Grid item xs={12} md={8}>
           <Paper elevation={3} sx={{
             borderRadius: 3,
-            p: 0,
-            minWidth: { xs: 'unset', md: 900 },
-            maxWidth: { xs: 'unset', md: 1000 },
             width: '100%',
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
+            p: 0,
           }}>
             <Tabs
               value={tab}
@@ -859,17 +847,31 @@ const ProfileDashboard = () => {
               sx={{
                 borderBottom: 1,
                 borderColor: 'divider',
-                px: 3,
+                px: isMediumLarge ? 1 : 2,
                 pt: 2,
-                '& .MuiTabs-indicator': { backgroundColor: '#2563eb', height: 3 },
+                display: 'flex',
+                flexWrap: 'nowrap',
+                overflowX: isMobile ? 'auto' : 'visible',
+                '& .MuiTabs-flexContainer': {
+                  flexWrap: 'nowrap',
+                },
+                '& .MuiTabs-scroller': {
+                  overflowX: isMobile ? 'auto' : 'visible',
+                },
                 '& .MuiTab-root': {
                   fontWeight: 600,
                   color: '#94a3b8',
                   opacity: 0.7,
-                  minWidth: 110,
-                  px: 2,
+                  minWidth: 80,
+                  maxWidth: 140,
+                  px: 1,
+                  mx: 0.2,
                   transition: 'color 0.2s, opacity 0.2s',
-                  fontSize: isMobile ? '0.95rem' : '1.05rem',
+                  fontSize: isMobile ? '0.85rem' : isMediumLarge ? '0.92rem' : '0.98rem',
+                  lineHeight: 1.1,
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
+                  overflow: 'hidden',
                 },
                 '& .Mui-selected': {
                   color: '#2563eb !important',
@@ -1600,7 +1602,7 @@ Framework for FINTECHs in Kenya." sx={{ mb: 2 }} InputProps={{ readOnly: true }}
           </Paper>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 };
 

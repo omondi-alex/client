@@ -365,10 +365,10 @@ ${inviteForm.name}
   };
 
   return (
-    <Box sx={{ flexGrow: 1, mt: 10, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+    <Box sx={{ flexGrow: 1, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
       {isMobile ? (
         // Mobile Layout
-        <Container maxWidth="sm" sx={{ px: 2 }}>
+        <Container maxWidth="sm" sx={{ px: 2, mt: 10 }}>
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Typography variant="h4" fontWeight={700} sx={{ mb: 2, color: '#1f2937' }}>
@@ -726,8 +726,9 @@ ${inviteForm.name}
           </Card>
         </Container>
       ) : (
-        // Desktop Layout (unchanged)
-        <Grid container spacing={4} sx={{ maxWidth: 1200 }}>
+        // Desktop Layout (fluid, responsive)
+        <Container maxWidth="lg" sx={{ py: 4, mt: 10, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+          <Grid container spacing={4} justifyContent="center">
           {/* Header */}
           <Grid item xs={12}>
             <Box sx={{ textAlign: 'center', mb: 4 }}>
@@ -755,8 +756,8 @@ ${inviteForm.name}
           </Grid>
 
           {/* Main Content */}
-          <Grid item xs={12} md={8} sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-            <Paper elevation={3} sx={{ borderRadius: 3, p: 4, width: '100%', maxWidth: 700 }}>
+          <Grid item xs={12} md={8}>
+            <Paper elevation={3} sx={{ borderRadius: 3, p: { xs: 2, md: 4 }, width: '100%' }}>
               <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)} sx={{ mb: 3 }}>
                 <Tab label="Past Events" icon={<EventIcon />} />
                 <Tab label="Upcoming Events" icon={<ScheduleIcon />} />
@@ -1041,7 +1042,8 @@ ${inviteForm.name}
               </Card>
             </Box>
           </Grid>
-        </Grid>
+          </Grid>
+        </Container>
       )}
 
       {/* Invite Dialog */}

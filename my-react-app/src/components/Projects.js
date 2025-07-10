@@ -519,10 +519,10 @@ const Projects = () => {
         </Box>
       )}
 
-      {/* Desktop Design (unchanged) */}
+      {/* Desktop Design (fluid, responsive) */}
       {!isMobile && (
-        <Box sx={{ flexGrow: 1, mt: 10, ml: 28, pr: 4, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-          <Grid container spacing={4} sx={{ maxWidth: 1200 }}>
+        <Container maxWidth="lg" sx={{ py: 4, mt: 10, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+          <Grid container spacing={4} justifyContent="center">
             {/* Header */}
             <Grid item xs={12}>
               <Box sx={{ textAlign: 'center', mb: 4 }}>
@@ -583,6 +583,7 @@ const Projects = () => {
                         boxShadow: 2,
                         transition: 'all 0.3s ease',
                         cursor: 'pointer',
+                        width: '100%',
                         '&:hover': {
                           transform: 'translateY(-8px)',
                           boxShadow: 4,
@@ -638,7 +639,7 @@ const Projects = () => {
               </Grid>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       )}
 
       {/* Project Details Dialog */}

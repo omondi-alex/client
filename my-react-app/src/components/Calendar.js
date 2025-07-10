@@ -22,7 +22,9 @@ import {
   MenuItem,
   Avatar,
   Tabs,
-  Tab
+  Tab,
+  Container,
+  useMediaQuery
 } from "@mui/material";
 import {
   CalendarToday as CalendarIcon,
@@ -39,6 +41,7 @@ import {
 } from "@mui/icons-material";
 
 const Calendar = () => {
+  const isMobile = useMediaQuery('(max-width:1280px)');
   const [bookingForm, setBookingForm] = useState({
     name: "",
     email: "",
@@ -145,8 +148,14 @@ ${bookingForm.name}
   };
 
   return (
-    <Box sx={{ flexGrow: 1, mt: 10, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-      <Grid container spacing={4} sx={{ maxWidth: 1200 }}>
+    <Container maxWidth="lg" sx={{ py: 4, mt: { xs: 8, md: 10 }, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+      <Grid 
+        container 
+        spacing={isMobile ? 2 : 4} 
+        justifyContent="center"
+        direction={isMobile ? 'column' : 'row'}
+        alignItems="stretch"
+      >
         {/* Header */}
         <Grid item xs={12}>
           <Box sx={{ textAlign: 'center', mb: 4 }}>
@@ -160,8 +169,8 @@ ${bookingForm.name}
         </Grid>
 
         {/* Main Content */}
-        <Grid item xs={12} md={8} sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <Paper elevation={3} sx={{ borderRadius: 3, p: 4, width: '100%', maxWidth: 700 }}>
+        <Grid item xs={12} md={8} sx={{ width: '100%' }}>
+          <Paper elevation={3} sx={{ borderRadius: 3, p: isMobile ? 2 : 4, width: '100%' }}>
             <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)} sx={{ mb: 3 }}>
               <Tab label="Book Meeting" icon={<AddIcon />} />
               <Tab label="My Availability" icon={<ScheduleIcon />} />
@@ -390,7 +399,7 @@ ${bookingForm.name}
         </Grid>
 
         {/* Sidebar */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} sx={{ width: '100%' }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             {/* Meeting Types */}
             <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
@@ -484,7 +493,7 @@ ${bookingForm.name}
           {snackbar.message}
         </Alert>
       </Snackbar>
-    </Box>
+    </Container>
   );
 };
 

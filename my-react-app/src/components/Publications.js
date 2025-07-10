@@ -488,10 +488,10 @@ const Publications = () => {
         </Box>
       )}
 
-      {/* Desktop Design (unchanged) */}
+      {/* Desktop Design (fluid, responsive) */}
       {!isMobile && (
-        <Box sx={{ flexGrow: 1, mt: 10, ml: 28, pr: 4, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-          <Grid container spacing={4} sx={{ maxWidth: 1200 }}>
+        <Container maxWidth="lg" sx={{ py: 4, mt: 10, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+          <Grid container spacing={4} justifyContent="center">
             {/* Header */}
             <Grid item xs={12}>
               <Box sx={{ textAlign: 'center', mb: 6, mt: 2 }}>
@@ -528,11 +528,11 @@ const Publications = () => {
                           overflow: 'visible',
                           transition: 'box-shadow 0.2s, transform 0.2s',
                           cursor: 'pointer',
+                          background: '#fff',
                           '&:hover': {
                             boxShadow: 8,
                             transform: 'translateY(-6px) scale(1.01)',
                           },
-                          background: '#fff',
                         }}
                         onClick={() => handlePublicationClick(publication)}
                       >
@@ -648,7 +648,7 @@ const Publications = () => {
               </Box>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       )}
 
       {/* Get in Touch Modal */}

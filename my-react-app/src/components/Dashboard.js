@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, CardContent, Typography, Grid, Chip, Button, useMediaQuery } from "@mui/material";
+import { Box, Card, CardContent, Typography, Grid, Chip, Button, useMediaQuery, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
 import WorkIcon from '@mui/icons-material/Work';
@@ -14,7 +14,7 @@ import fazitechImg from './imgs/fazitech.png';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const isMobile = useMediaQuery('(max-width:768px)');
+  const isMobile = useMediaQuery('(max-width:1280px)');
 
   const quickStats = [
     { label: "Years Experience", value: "3+", icon: <WorkIcon />, color: "#2563eb" },
@@ -39,17 +39,8 @@ const Dashboard = () => {
   ];
 
   return (
-    <Box sx={{ 
-      flexGrow: 1, 
-      mt: { xs: 8, md: 10 }, 
-      ml: { xs: 2, md: 28 }, 
-      pr: { xs: 2, md: 4 }, 
-      minHeight: '90vh', 
-      display: 'flex', 
-      alignItems: 'flex-start', 
-      justifyContent: 'center' 
-    }}>
-      <Grid container spacing={{ xs: 2, md: 4 }} sx={{ maxWidth: 1200 }}>
+    <Container maxWidth="lg" sx={{ py: 4, mt: { xs: 8, md: 10 }, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+      <Grid container spacing={{ xs: 2, md: 4 }} justifyContent="center">
         {/* Hero Section */}
         <Grid item xs={12}>
           <Card sx={{ borderRadius: 3, boxShadow: 3, background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
@@ -352,7 +343,7 @@ const Dashboard = () => {
           </Card>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 };
 
