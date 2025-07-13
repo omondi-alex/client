@@ -54,6 +54,8 @@ import {
   Email as EmailIcon
 } from "@mui/icons-material";
 import iyqnaImg from './imgs/image.png';
+import ieeeImg from './imgs/ieee.png';
+import indabaImg from './imgs/indaba.png';
 import image2 from './imgs/image2.png';
 import image3 from './imgs/image3.png';
 import image4 from './imgs/image4.png';
@@ -136,9 +138,9 @@ const SpeakingEvents = () => {
     { value: "custom", label: "Custom duration" }
   ];
 
-  // Past speaking engagements
-  const pastEvents = [
-    // Only keep events with an image property
+  // All events (past and upcoming)
+  const allEvents = [
+    // --- Past events (static, with date or endDate in the past) ---
     {
       id: 0,
       title: "SCHOLARSHIP MENTORSHIP Q&A Session",
@@ -253,19 +255,71 @@ const SpeakingEvents = () => {
         "School Improvement"
       ]
     },
+    // --- Upcoming events (dynamic, will move to past when endDate/date is in the past) ---
+    {
+      id: 6,
+      title: "IEEE Tech Ignite Summer School",
+      type: "workshop",
+      organization: "IEEE & Strathmore University",
+      location: "Strathmore University, Nairobi, Kenya",
+      startDate: "2025-08-12",
+      endDate: "2025-08-15",
+      audience: "Students, Researchers, Young Professionals",
+      status: "Upcoming",
+      image: ieeeImg,
+      description: `The IEEE Tech Ignite Summer School is a five-day program designed to equip students, researchers, and young professionals with cutting-edge knowledge and hands-on experience in emerging technologies driving Africa’s digital transformation. Hosted at Strathmore University, Nairobi, this event will bring together experts, industry leaders, and innovators to explore key advancements in sensors, electronics, artificial intelligence, robotics, and digital systems integration.`
+    },
+    {
+      id: 7,
+      title: "Deep Learning Indaba 2025",
+      type: "conference",
+      organization: "Deep Learning Indaba",
+      location: "Kigali, Rwanda",
+      startDate: "2025-08-17",
+      endDate: "2025-08-22",
+      audience: "African Machine Learning and AI Community",
+      status: "Upcoming",
+      image: indabaImg,
+      description: `The Deep Learning Indaba is the annual meeting of the African machine learning and AI community with the mission to Strengthen African AI. In 2025, the Indaba and Africa’s artificial intelligence community will meet for a week-long event of learning, research exchange, ideation, and debate around the state of the art in machine learning and artificial intelligence in Kigali, Rwanda from the 17th to the 22nd August 2025.`
+    },
   ];
 
-  // Upcoming events
-  const upcomingEvents = [
-    // No upcoming events for now
-  ];
+  // Split events into past and upcoming based on today's date
+  const today = new Date();
+  const pastEvents = allEvents.filter(event => {
+    // Use endDate if present, otherwise date
+    const end = event.endDate || event.date;
+    if (!end) return false;
+    // If only a year, treat as past if year < current year
+    if (/^\d{4}$/.test(end)) return parseInt(end) < today.getFullYear();
+    // Otherwise, compare date
+    return new Date(end) < today;
+  });
+  const upcomingEvents = allEvents.filter(event => {
+    // Use endDate if present, otherwise date
+    const end = event.endDate || event.date;
+    if (!end) return false;
+    // If only a year, treat as upcoming if year >= current year
+    if (/^\d{4}$/.test(end)) return parseInt(end) >= today.getFullYear();
+    // Otherwise, compare date
+    return new Date(end) >= today;
+  });
 
-  // Helper function to render event date
-  const renderEventDate = (date) => {
-    // If date is only a year (e.g., '2023'), return as is
-    if (/^\d{4}$/.test(date)) return date;
+  // Helper function to render event date or date range
+  const renderEventDate = (event) => {
+    // If event has startDate and endDate, show as range
+    if (event.startDate && event.endDate) {
+      const start = new Date(event.startDate);
+      const end = new Date(event.endDate);
+      const startStr = start.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      const endStr = end.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      return `${startStr} – ${endStr}`;
+    }
+    // If event.date is only a year (e.g., '2023'), return as is
+    if (event.date && /^\d{4}$/.test(event.date)) return event.date;
     // Otherwise, format as locale date
-    return new Date(date).toLocaleDateString();
+    if (event.date) return new Date(event.date).toLocaleDateString();
+    return '';
   };
 
   const handleInviteSubmit = () => {
@@ -555,7 +609,7 @@ ${inviteForm.name}
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                           <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
                           <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                            {renderEventDate(event.date)}
+                            {renderEventDate(event)}
                           </Typography>
                         </Box>
                         
@@ -647,7 +701,25 @@ ${inviteForm.name}
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   {upcomingEvents.map((event) => (
-                    <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)' }}>
+                    <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+                      {event.image && (
+                        <Box
+                          sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #2563eb', cursor: 'pointer' }}
+                          onClick={() => { setDialogImageSrc(event.image); setOpenImageDialog(true); }}
+                        >
+                          <img
+                            src={event.image}
+                            alt={event.title}
+                            style={{
+                              maxWidth: '100%',
+                              maxHeight: '100%',
+                              objectFit: 'contain',
+                              display: 'block',
+                              margin: '0 auto',
+                            }}
+                          />
+                        </Box>
+                      )}
                       <CardContent sx={{ p: 3 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
                           <Avatar sx={{ bgcolor: getEventTypeColor(event.type), width: 40, height: 40 }}>
@@ -678,7 +750,7 @@ ${inviteForm.name}
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                           <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
                           <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                            {renderEventDate(event.date)}
+                            {renderEventDate(event)}
                           </Typography>
                         </Box>
                         
@@ -816,7 +888,7 @@ ${inviteForm.name}
                             </Box>
                             
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                              {renderEventDate(event.date)} • {event.audience}
+                              {renderEventDate(event)} • {event.audience}
                             </Typography>
                             
                             <Typography variant="body1" sx={{ mb: 2 }}>
@@ -886,7 +958,25 @@ ${inviteForm.name}
                   <Grid container spacing={3}>
                     {upcomingEvents.map((event) => (
                       <Grid item xs={12} key={event.id}>
-                        <Card sx={{ borderRadius: 2, boxShadow: 2 }}>
+                        <Card sx={{ borderRadius: 2, boxShadow: 2, overflow: 'hidden' }}>
+                          {event.image && (
+                            <Box
+                              sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #2563eb', cursor: 'pointer' }}
+                              onClick={() => { setDialogImageSrc(event.image); setOpenImageDialog(true); }}
+                            >
+                              <img
+                                src={event.image}
+                                alt={event.title}
+                                style={{
+                                  maxWidth: '100%',
+                                  maxHeight: '100%',
+                                  objectFit: 'contain',
+                                  display: 'block',
+                                  margin: '0 auto',
+                                }}
+                              />
+                            </Box>
+                          )}
                           <CardContent>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
                               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -910,7 +1000,7 @@ ${inviteForm.name}
                             </Box>
                             
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                              {renderEventDate(event.date)} • {event.audience}
+                              {renderEventDate(event)} • {event.audience}
                             </Typography>
                             
                             <Typography variant="body1">

@@ -93,27 +93,67 @@ const ProfileDashboard = () => {
               {/* Quick Stats */}
               <Grid container spacing={2} sx={{ mb: 3 }}>
                 <Grid item xs={6}>
-                  <Box sx={{ 
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
-                    borderRadius: 3, 
-                    p: 2, 
-                    color: 'white',
-                    textAlign: 'center'
+                  <Box sx={{
+                    background: 'white',
+                    borderRadius: 3,
+                    boxShadow: '0 4px 16px rgba(30, 64, 175, 0.08)',
+                    border: '1.5px solid #e0e7ef',
+                    minHeight: 110,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    py: 2,
+                    px: 1,
+                    mb: { xs: 2, sm: 0 }
                   }}>
-                    <Typography variant="h5" fontWeight={700}>3+</Typography>
-                    <Typography variant="caption">Years Experience</Typography>
+                    <Box sx={{
+                      width: 38,
+                      height: 38,
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      color: 'white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mb: 1
+                    }}>
+                      <WorkIcon sx={{ fontSize: 22 }} />
+                    </Box>
+                    <Typography variant="h5" fontWeight={700} sx={{ color: '#2563eb', mb: 0.5 }}>3+</Typography>
+                    <Typography variant="caption" color="text.secondary">Years Experience</Typography>
                   </Box>
                 </Grid>
                 <Grid item xs={6}>
-                  <Box sx={{ 
-                    background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', 
-                    borderRadius: 3, 
-                    p: 2, 
-                    color: 'white',
-                    textAlign: 'center'
+                  <Box sx={{
+                    background: 'white',
+                    borderRadius: 3,
+                    boxShadow: '0 4px 16px rgba(30, 64, 175, 0.08)',
+                    border: '1.5px solid #e0e7ef',
+                    minHeight: 110,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    py: 2,
+                    px: 1,
+                    mb: { xs: 2, sm: 0 }
                   }}>
-                    <Typography variant="h5" fontWeight={700}>MSc</Typography>
-                    <Typography variant="caption">Education</Typography>
+                    <Box sx={{
+                      width: 38,
+                      height: 38,
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                      color: 'white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mb: 1
+                    }}>
+                      <SchoolIcon sx={{ fontSize: 22 }} />
+                    </Box>
+                    <Typography variant="h5" fontWeight={700} sx={{ color: '#10b981', mb: 0.5 }}>MSc</Typography>
+                    <Typography variant="caption" color="text.secondary">Education</Typography>
                   </Box>
                 </Grid>
               </Grid>

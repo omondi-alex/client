@@ -343,41 +343,44 @@ const Projects = () => {
                 </Typography>
                 
                 {/* Quick Stats */}
-                <Grid container spacing={2} sx={{ mb: 3 }}>
-                  <Grid item xs={4}>
+                <Grid container spacing={2} sx={{ mb: 3, flexWrap: 'wrap' }}>
+                  <Grid item xs={12} sm={4}>
                     <Box sx={{ 
                       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
                       borderRadius: 3, 
                       p: 2, 
                       color: 'white',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      minWidth: 0
                     }}>
-                      <Typography variant="h5" fontWeight={700}>{projects.length}</Typography>
-                      <Typography variant="caption">Total Projects</Typography>
+                      <Typography variant="h5" fontWeight={700} sx={{ minWidth: 0, overflowWrap: 'break-word' }}>{projects.length}</Typography>
+                      <Typography variant="caption" sx={{ minWidth: 0, overflowWrap: 'break-word' }}>Total Projects</Typography>
                     </Box>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={12} sm={4}>
                     <Box sx={{ 
                       background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', 
                       borderRadius: 3, 
                       p: 2, 
                       color: 'white',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      minWidth: 0
                     }}>
-                      <Typography variant="h5" fontWeight={700}>{projects.filter(p => p.status === 'Completed').length}</Typography>
-                      <Typography variant="caption">Completed</Typography>
+                      <Typography variant="h5" fontWeight={700} sx={{ minWidth: 0, overflowWrap: 'break-word' }}>{projects.filter(p => p.status === 'Completed').length}</Typography>
+                      <Typography variant="caption" sx={{ minWidth: 0, overflowWrap: 'break-word' }}>Completed</Typography>
                     </Box>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={12} sm={4}>
                     <Box sx={{ 
                       background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', 
                       borderRadius: 3, 
                       p: 2, 
                       color: 'white',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      minWidth: 0
                     }}>
-                      <Typography variant="h5" fontWeight={700}>{categories.length - 1}</Typography>
-                      <Typography variant="caption">Categories</Typography>
+                      <Typography variant="h5" fontWeight={700} sx={{ minWidth: 0, overflowWrap: 'break-word' }}>{categories.length - 1}</Typography>
+                      <Typography variant="caption" sx={{ minWidth: 0, overflowWrap: 'break-word' }}>Categories</Typography>
                     </Box>
                   </Grid>
                 </Grid>

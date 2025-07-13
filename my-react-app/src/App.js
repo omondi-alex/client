@@ -10,10 +10,19 @@ import Calendar from "./components/Calendar";
 import SpeakingEvents from "./components/SpeakingEvents";
 import Announcements from "./components/Announcements";
 import { Box, useMediaQuery, Drawer } from '@mui/material';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme();
+
+// ScrollToTop component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function App() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -32,6 +41,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
+        <ScrollToTop />
         <div style={{ display: 'flex', minHeight: '100vh', background: '#e7edf5' }}>
           <CssBaseline />
           {/* Sidebar: permanent on desktop, Drawer on mobile */}
