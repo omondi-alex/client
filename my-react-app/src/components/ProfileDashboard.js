@@ -87,7 +87,7 @@ const ProfileDashboard = () => {
                 Omondi Alex
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 3, fontSize: '1.1rem' }}>
-                Cybersecurity & Software Engineering Specialist
+                Cybersecurity, GRC & Software Engineering Specialist
               </Typography>
               
               {/* Quick Stats */}
@@ -781,6 +781,7 @@ const ProfileDashboard = () => {
                       <Chip label="IT Support" size="small" sx={{ background: '#2563eb', color: 'white' }} />
                       <Chip label="Virtual Assistant" size="small" sx={{ background: '#2563eb', color: 'white' }} />
                       <Chip label="Graphics Design" size="small" sx={{ background: '#2563eb', color: 'white' }} />
+                      <Chip label="GRC" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                     </Box>
                   </Box>
                 </Grid>
@@ -1590,6 +1591,7 @@ Framework for FINTECHs in Kenya." sx={{ mb: 2 }} InputProps={{ readOnly: true }}
                         <Chip label="IT Support and Trainings" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                         <Chip label="Virtual Assistant" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                         <Chip label="Graphics Design" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
+                        <Chip label="GRC" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                       </Box>
                     </Box>
                   </Grid>

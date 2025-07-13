@@ -16,11 +16,40 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width:1280px)');
 
+  const services = [
+    { title: "Cybersecurity Solutions", description: "Protect your digital assets with advanced security frameworks", icon: "🔒" },
+    { title: "Software Development", description: "Custom applications built with modern technologies", icon: "💻" },
+    { title: "IT Support & Training", description: "Comprehensive technical support and digital literacy training", icon: "🛠️" },
+    { title: "Virtual Assistance", description: "Professional administrative and technical support services", icon: "📋" },
+    { title: "Graphic Design", description: "Creative graphic design for branding, marketing, and digital presence", icon: "🎨" },
+    { title: "GRC Consulting", description: "Governance, Risk, and Compliance advisory for secure, compliant organizations.", icon: "🛡️" },
+  ];
+
+  // Carousel state for large screens
+  const [carouselServices, setCarouselServices] = React.useState(services);
+  const [isSliding, setIsSliding] = React.useState(false);
+  React.useEffect(() => {
+    if (!isMobile) {
+      const interval = setInterval(() => {
+        setIsSliding(true);
+        setTimeout(() => {
+          setCarouselServices((prev) => {
+            const next = [...prev];
+            next.push(next.shift()); // move first to end
+            return next;
+          });
+          setIsSliding(false);
+        }, 600); // match transition duration
+      }, 3500);
+      return () => clearInterval(interval);
+    }
+  }, [isMobile]);
+
   const quickStats = [
     { label: "Years Experience", value: "3+", icon: <WorkIcon />, color: "#2563eb" },
     { label: "Education Level", value: "MSc", icon: <SchoolIcon />, color: "#10b981" },
     { label: "Certifications", value: "6", icon: <VerifiedIcon />, color: "#f59e0b" },
-    { label: "Expertise Areas", value: "5", icon: <StarIcon />, color: "#8b5cf6" },
+    { label: "Expertise Areas", value: services.length, icon: <StarIcon />, color: "#8b5cf6" },
   ];
 
   const quickActions = [
@@ -28,14 +57,6 @@ const Dashboard = () => {
     { title: "Work Experience", description: "See proven track record", path: "/profile", icon: <WorkIcon />, tab: 2 },
     { title: "Education", description: "Review academic credentials", path: "/profile", icon: <SchoolIcon />, tab: 3 },
     { title: "Certifications", description: "Check professional qualifications", path: "/profile", icon: <VerifiedIcon />, tab: 4 },
-  ];
-
-  const services = [
-    { title: "Cybersecurity Solutions", description: "Protect your digital assets with advanced security frameworks", icon: "🔒" },
-    { title: "Software Development", description: "Custom applications built with modern technologies", icon: "💻" },
-    { title: "IT Support & Training", description: "Comprehensive technical support and digital literacy training", icon: "🛠️" },
-    { title: "Virtual Assistance", description: "Professional administrative and technical support services", icon: "📋" },
-    { title: "Graphic Design", description: "Creative graphic design for branding, marketing, and digital presence", icon: "🎨" },
   ];
 
   return (
@@ -65,7 +86,7 @@ const Dashboard = () => {
                     Omondi Alex
                   </Typography>
                   <Typography variant="h6" sx={{ opacity: 0.9, mb: 2, fontSize: { xs: '1rem', md: '1.25rem' } }}>
-                    Cybersecurity & Software Engineering Specialist
+                    Cybersecurity, GRC & Software Engineering Specialist
                   </Typography>
                   <Typography variant="body1" sx={{ opacity: 0.8, mb: 3, fontSize: { xs: '0.875rem', md: '1rem' } }}>
                     Transforming digital challenges into secure, innovative solutions. 
@@ -169,88 +190,182 @@ const Dashboard = () => {
           <Typography variant="h5" fontWeight={600} sx={{ mb: 3, color: '#1f2937', fontSize: { xs: '1.25rem', md: '1.5rem' } }}>
             Services I Offer
           </Typography>
-          <Grid container spacing={3}>
-            {services.map((service, index) => (
-              <Grid item xs={12} sm={6} md={3} lg={2.4} key={index}>
-                <Card
-                  sx={{
-                    borderRadius: 3,
-                    boxShadow: 2,
-                    height: '100%',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: 4,
-                    },
-                    ...(index === 4 && {
-                      animation: 'wiggle 2s infinite',
-                      '@keyframes wiggle': {
-                        '0%': { transform: 'rotate(-4deg)' },
-                        '20%': { transform: 'rotate(4deg)' },
-                        '40%': { transform: 'rotate(-4deg)' },
-                        '60%': { transform: 'rotate(4deg)' },
-                        '80%': { transform: 'rotate(-4deg)' },
-                        '100%': { transform: 'rotate(0deg)' },
+          {isMobile ? (
+            <Grid container spacing={3}>
+              {services.map((service, index) => (
+                <Grid item xs={12} sm={6} md={3} lg={2.4} key={index}>
+                  <Card
+                    sx={{
+                      borderRadius: 3,
+                      boxShadow: 2,
+                      height: '100%',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-4px)',
+                        boxShadow: 4,
                       },
-                    }),
-                  }}
-                >
-                  <CardContent sx={{ p: { xs: 2, md: 3 }, textAlign: 'center' }}>
-                    <Typography
-                      variant="h2"
+                      ...(index === 4 && {
+                        animation: 'wiggle 2s infinite',
+                        '@keyframes wiggle': {
+                          '0%': { transform: 'rotate(-4deg)' },
+                          '20%': { transform: 'rotate(4deg)' },
+                          '40%': { transform: 'rotate(-4deg)' },
+                          '60%': { transform: 'rotate(4deg)' },
+                          '80%': { transform: 'rotate(-4deg)' },
+                          '100%': { transform: 'rotate(0deg)' },
+                        },
+                      }),
+                    }}
+                  >
+                    <CardContent sx={{ p: { xs: 2, md: 3 }, textAlign: 'center' }}>
+                      <Typography
+                        variant="h2"
+                        sx={{
+                          mb: 2,
+                          fontSize: { xs: 40, md: 56 },
+                          display: 'inline-block',
+                          ...(index === 0 && {
+                            animation: 'pulseLock 1.8s infinite',
+                            '@keyframes pulseLock': {
+                              '0%': { transform: 'scale(1)' },
+                              '50%': { transform: 'scale(1.12)' },
+                              '100%': { transform: 'scale(1)' },
+                            },
+                          }),
+                          ...(index === 1 && {
+                            animation: 'blinkLaptop 1.2s infinite',
+                            '@keyframes blinkLaptop': {
+                              '0%': { opacity: 1 },
+                              '40%': { opacity: 0.5 },
+                              '60%': { opacity: 1 },
+                              '100%': { opacity: 1 },
+                            },
+                          }),
+                          ...(index === 2 && {
+                            animation: 'rotateGear 2.5s linear infinite',
+                            '@keyframes rotateGear': {
+                              '0%': { transform: 'rotate(0deg)' },
+                              '100%': { transform: 'rotate(360deg)' },
+                            },
+                          }),
+                          ...(index === 3 && {
+                            animation: 'bounceClip 1.6s infinite',
+                            '@keyframes bounceClip': {
+                              '0%': { transform: 'translateY(0)' },
+                              '30%': { transform: 'translateY(-10px)' },
+                              '50%': { transform: 'translateY(0)' },
+                              '70%': { transform: 'translateY(-6px)' },
+                              '100%': { transform: 'translateY(0)' },
+                            },
+                          }),
+                        }}
+                      >
+                        {service.icon}
+                      </Typography>
+                      <Typography variant="h6" fontWeight={600} sx={{ mb: 2, color: '#1f2937', fontSize: { xs: '1rem', md: '1.25rem' } }}>
+                        {service.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' } }}>
+                        {service.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          ) : (
+            <Box sx={{ width: '100%', overflow: 'hidden', position: 'relative' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  transition: isSliding ? 'transform 0.6s cubic-bezier(0.4,0.2,0.2,1)' : 'none',
+                  transform: isSliding ? 'translateX(-16.66%)' : 'translateX(0)',
+                  width: '120%',
+                }}
+              >
+                {carouselServices.map((service, index) => (
+                  <Box key={index} sx={{ flex: '0 0 16.66%', maxWidth: '16.66%', px: 1 }}>
+                    <Card
                       sx={{
-                        mb: 2,
-                        fontSize: { xs: 40, md: 56 },
-                        display: 'inline-block',
-                        ...(index === 0 && {
-                          animation: 'pulseLock 1.8s infinite',
-                          '@keyframes pulseLock': {
-                            '0%': { transform: 'scale(1)' },
-                            '50%': { transform: 'scale(1.12)' },
-                            '100%': { transform: 'scale(1)' },
-                          },
-                        }),
-                        ...(index === 1 && {
-                          animation: 'blinkLaptop 1.2s infinite',
-                          '@keyframes blinkLaptop': {
-                            '0%': { opacity: 1 },
-                            '40%': { opacity: 0.5 },
-                            '60%': { opacity: 1 },
-                            '100%': { opacity: 1 },
-                          },
-                        }),
-                        ...(index === 2 && {
-                          animation: 'rotateGear 2.5s linear infinite',
-                          '@keyframes rotateGear': {
-                            '0%': { transform: 'rotate(0deg)' },
-                            '100%': { transform: 'rotate(360deg)' },
-                          },
-                        }),
-                        ...(index === 3 && {
-                          animation: 'bounceClip 1.6s infinite',
-                          '@keyframes bounceClip': {
-                            '0%': { transform: 'translateY(0)' },
-                            '30%': { transform: 'translateY(-10px)' },
-                            '50%': { transform: 'translateY(0)' },
-                            '70%': { transform: 'translateY(-6px)' },
-                            '100%': { transform: 'translateY(0)' },
+                        borderRadius: 3,
+                        boxShadow: 2,
+                        height: '100%',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          transform: 'translateY(-4px)',
+                          boxShadow: 4,
+                        },
+                        ...(index === 4 && {
+                          animation: 'wiggle 2s infinite',
+                          '@keyframes wiggle': {
+                            '0%': { transform: 'rotate(-4deg)' },
+                            '20%': { transform: 'rotate(4deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '60%': { transform: 'rotate(4deg)' },
+                            '80%': { transform: 'rotate(-4deg)' },
+                            '100%': { transform: 'rotate(0deg)' },
                           },
                         }),
                       }}
                     >
-                      {service.icon}
-                    </Typography>
-                    <Typography variant="h6" fontWeight={600} sx={{ mb: 2, color: '#1f2937', fontSize: { xs: '1rem', md: '1.25rem' } }}>
-                      {service.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' } }}>
-                      {service.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+                      <CardContent sx={{ p: { xs: 2, md: 3 }, textAlign: 'center' }}>
+                        <Typography
+                          variant="h2"
+                          sx={{
+                            mb: 2,
+                            fontSize: { xs: 40, md: 56 },
+                            display: 'inline-block',
+                            ...(index === 0 && {
+                              animation: 'pulseLock 1.8s infinite',
+                              '@keyframes pulseLock': {
+                                '0%': { transform: 'scale(1)' },
+                                '50%': { transform: 'scale(1.12)' },
+                                '100%': { transform: 'scale(1)' },
+                              },
+                            }),
+                            ...(index === 1 && {
+                              animation: 'blinkLaptop 1.2s infinite',
+                              '@keyframes blinkLaptop': {
+                                '0%': { opacity: 1 },
+                                '40%': { opacity: 0.5 },
+                                '60%': { opacity: 1 },
+                                '100%': { opacity: 1 },
+                              },
+                            }),
+                            ...(index === 2 && {
+                              animation: 'rotateGear 2.5s linear infinite',
+                              '@keyframes rotateGear': {
+                                '0%': { transform: 'rotate(0deg)' },
+                                '100%': { transform: 'rotate(360deg)' },
+                              },
+                            }),
+                            ...(index === 3 && {
+                              animation: 'bounceClip 1.6s infinite',
+                              '@keyframes bounceClip': {
+                                '0%': { transform: 'translateY(0)' },
+                                '30%': { transform: 'translateY(-10px)' },
+                                '50%': { transform: 'translateY(0)' },
+                                '70%': { transform: 'translateY(-6px)' },
+                                '100%': { transform: 'translateY(0)' },
+                              },
+                            }),
+                          }}
+                        >
+                          {service.icon}
+                        </Typography>
+                        <Typography variant="h6" fontWeight={600} sx={{ mb: 2, color: '#1f2937', fontSize: { xs: '1rem', md: '1.25rem' } }}>
+                          {service.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' } }}>
+                          {service.description}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          )}
         </Grid>
 
         {/* Quick Actions */}
