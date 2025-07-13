@@ -733,11 +733,6 @@ ${inviteForm.name}
                               {event.organization}
                             </Typography>
                           </Box>
-                          <Chip 
-                            label={event.status} 
-                            size="small"
-                            color={getStatusColor(event.status)}
-                          />
                         </Box>
                         
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
@@ -992,11 +987,6 @@ ${inviteForm.name}
                                   </Typography>
                                 </Box>
                               </Box>
-                              <Chip 
-                                label={event.status} 
-                                size="small"
-                                color={getStatusColor(event.status)}
-                              />
                             </Box>
                             
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>

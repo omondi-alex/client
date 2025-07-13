@@ -248,40 +248,68 @@ const Publications = () => {
                 
                 {/* Quick Stats */}
                 <Grid container spacing={2} sx={{ mb: 3 }}>
-                  <Grid item xs={4}>
-                    <Box sx={{ 
-                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
-                      borderRadius: 3, 
-                      p: 2, 
-                      color: 'white',
-                      textAlign: 'center'
+                  <Grid item xs={6}>
+                    <Box sx={{
+                      background: 'white',
+                      borderRadius: 3,
+                      boxShadow: '0 4px 16px rgba(30, 64, 175, 0.08)',
+                      border: '1.5px solid #e0e7ef',
+                      minHeight: 110,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      py: 2,
+                      px: 1,
+                      mb: { xs: 2, sm: 0 }
                     }}>
-                      <Typography variant="h5" fontWeight={700}>{publications.length}</Typography>
-                      <Typography variant="caption">Publications</Typography>
+                      <Box sx={{
+                        width: 38,
+                        height: 38,
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        color: 'white',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        mb: 1
+                      }}>
+                        <SecurityIcon sx={{ fontSize: 22 }} />
+                      </Box>
+                      <Typography variant="h5" fontWeight={700} sx={{ color: '#2563eb', mb: 0.5 }}>{publications.length}</Typography>
+                      <Typography variant="caption" color="text.secondary">Publications</Typography>
                     </Box>
                   </Grid>
-                  <Grid item xs={4}>
-                    <Box sx={{ 
-                      background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', 
-                      borderRadius: 3, 
-                      p: 2, 
-                      color: 'white',
-                      textAlign: 'center'
+                  <Grid item xs={6}>
+                    <Box sx={{
+                      background: 'white',
+                      borderRadius: 3,
+                      boxShadow: '0 4px 16px rgba(30, 64, 175, 0.08)',
+                      border: '1.5px solid #e0e7ef',
+                      minHeight: 110,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      py: 2,
+                      px: 1,
+                      mb: { xs: 2, sm: 0 }
                     }}>
-                      <Typography variant="h5" fontWeight={700}>{publications.filter(p => p.impact === 'High').length}</Typography>
-                      <Typography variant="caption">High Impact</Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <Box sx={{ 
-                      background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', 
-                      borderRadius: 3, 
-                      p: 2, 
-                      color: 'white',
-                      textAlign: 'center'
-                    }}>
-                      <Typography variant="h5" fontWeight={700}>{publications[0]?.year || 2025}</Typography>
-                      <Typography variant="caption">Latest Year</Typography>
+                      <Box sx={{
+                        width: 38,
+                        height: 38,
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                        color: 'white',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        mb: 1
+                      }}>
+                        <CalendarIcon sx={{ fontSize: 22 }} />
+                      </Box>
+                      <Typography variant="h5" fontWeight={700} sx={{ color: '#f59e0b', mb: 0.5 }}>{publications[0]?.year || 2025}</Typography>
+                      <Typography variant="caption" color="text.secondary">Latest Year</Typography>
                     </Box>
                   </Grid>
                 </Grid>

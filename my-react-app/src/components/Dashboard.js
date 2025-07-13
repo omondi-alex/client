@@ -71,15 +71,28 @@ const Dashboard = () => {
                     Transforming digital challenges into secure, innovative solutions. 
                     Ready to collaborate on your next project.
                   </Typography>
-                  <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                    <Button 
-                      variant="contained" 
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      gap: 2,
+                      flexWrap: 'wrap',
+                      flexDirection: isMobile ? 'column' : 'row',
+                      alignItems: 'center',
+                      justifyContent: isMobile ? 'center' : 'flex-start',
+                      width: '100%',
+                      mt: 2,
+                    }}
+                  >
+                    <Button
+                      variant="contained"
                       startIcon={<EmailIcon />}
                       size={isMobile ? "small" : "medium"}
-                      sx={{ 
-                        background: 'rgba(255,255,255,0.2)', 
+                      sx={{
+                        background: 'rgba(255,255,255,0.2)',
                         color: 'white',
                         border: '1px solid rgba(255,255,255,0.3)',
+                        width: isMobile ? '100%' : 'auto',
+                        mb: isMobile ? 1.5 : 0,
                         '&:hover': {
                           background: 'rgba(255,255,255,0.3)',
                         }
@@ -88,13 +101,14 @@ const Dashboard = () => {
                     >
                       Get In Touch
                     </Button>
-                    <Button 
-                      variant="outlined" 
+                    <Button
+                      variant="outlined"
                       startIcon={<LinkedInIcon />}
                       size={isMobile ? "small" : "medium"}
-                      sx={{ 
-                        borderColor: 'rgba(255,255,255,0.5)', 
+                      sx={{
+                        borderColor: 'rgba(255,255,255,0.5)',
                         color: 'white',
+                        width: isMobile ? '100%' : 'auto',
                         '&:hover': {
                           borderColor: 'white',
                           background: 'rgba(255,255,255,0.1)',
