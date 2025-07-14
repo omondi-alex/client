@@ -35,7 +35,8 @@ import {
   Close as CloseIcon,
   CheckCircle as CheckCircleIcon,
   Star as StarIcon,
-  People as PeopleIcon
+  People as PeopleIcon,
+  Download as DownloadIcon
 } from "@mui/icons-material";
 
 const Projects = () => {
@@ -51,6 +52,15 @@ const Projects = () => {
     { label: "Travel & Adventure", icon: <StarIcon /> },
     { label: "Community & Social Impact", icon: <PeopleIcon /> },
   ];
+
+  const handleDownload = (pdfUrl, filename) => {
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const projects = [
     {
@@ -70,13 +80,14 @@ const Projects = () => {
       github: "",
       status: "Completed",
       rating: 5.0,
-      year: 2024
+      year: 2024,
+      pdfUrl: "/papers/A Cloud Computing Security Assessment Framework for FINTECHs in Kenya.pdf"
     },
     {
       id: 13,
       title: "ThreatSeal SOC Platform",
       category: "Cybersecurity & Cloud",
-      description: "Our AI powered SOC platform.",
+      description: "AI powered SOC platform.",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
       technologies: ["AI", "SOC", "Cybersecurity"],
       features: [
@@ -486,28 +497,52 @@ const Projects = () => {
                                 <Typography variant="caption" color="text.secondary">
                                   {project.year}
                                 </Typography>
-                                {project.live && (
-                                  <Button 
-                                    size="small" 
-                                    variant="outlined"
-                                    startIcon={<LanguageIcon sx={{ fontSize: 16 }} />}
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      window.open(project.live, '_blank');
-                                    }}
-                                    sx={{ 
-                                      fontSize: '0.7rem',
-                                      borderColor: '#2563eb', 
-                                      color: '#2563eb',
-                                      '&:hover': {
-                                        borderColor: '#1d4ed8',
-                                        color: '#1d4ed8',
-                                      }
-                                    }}
-                                  >
-                                    View Live
-                                  </Button>
-                                )}
+                                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                                  {project.live && (
+                                    <Button 
+                                      size="small" 
+                                      variant="outlined"
+                                      startIcon={<LanguageIcon sx={{ fontSize: 16 }} />}
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        window.open(project.live, '_blank');
+                                      }}
+                                      sx={{ 
+                                        fontSize: '0.7rem',
+                                        borderColor: '#2563eb', 
+                                        color: '#2563eb',
+                                        '&:hover': {
+                                          borderColor: '#1d4ed8',
+                                          color: '#1d4ed8',
+                                        }
+                                      }}
+                                    >
+                                      View Live
+                                    </Button>
+                                  )}
+                                  {project.pdfUrl && (
+                                    <Button 
+                                      size="small" 
+                                      variant="outlined"
+                                      startIcon={<DownloadIcon sx={{ fontSize: 16 }} />}
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleDownload(project.pdfUrl, project.title);
+                                      }}
+                                      sx={{ 
+                                        fontSize: '0.7rem',
+                                        borderColor: '#10b981', 
+                                        color: '#10b981',
+                                        '&:hover': {
+                                          borderColor: '#059669',
+                                          color: '#059669',
+                                        }
+                                      }}
+                                    >
+                                      View Framework
+                                    </Button>
+                                  )}
+                                </Box>
                               </Box>
                             </CardContent>
                           </Card>
@@ -716,6 +751,16 @@ const Projects = () => {
                     sx={{ borderColor: '#2563eb', color: '#2563eb' }}
                   >
                     Live Demo
+                  </Button>
+                )}
+                {selectedProject.pdfUrl && (
+                  <Button 
+                    variant="outlined" 
+                    startIcon={<DownloadIcon />}
+                    onClick={() => handleDownload(selectedProject.pdfUrl, selectedProject.title)}
+                    sx={{ borderColor: '#10b981', color: '#10b981' }}
+                  >
+                    View Framework
                   </Button>
                 )}
               </Box>
