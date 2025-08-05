@@ -426,7 +426,7 @@ ${inviteForm.name}
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Typography variant="h4" fontWeight={700} sx={{ mb: 2, color: '#1f2937' }}>
-              Speaking & Events
+            Engagements
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
               Cybersecurity talks, lectures, mentorship, and upcoming engagements
@@ -800,7 +800,7 @@ ${inviteForm.name}
           <Grid item xs={12}>
             <Box sx={{ textAlign: 'center', mb: 4 }}>
               <Typography variant="h3" fontWeight={700} sx={{ mb: 2, color: '#1f2937' }}>
-                Speaking & Events
+              Engagements
               </Typography>
               <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
                 Cybersecurity talks, lectures, mentorship, and upcoming engagements

@@ -781,7 +781,7 @@ const ProfileDashboard = () => {
                       <Chip label="IT Support" size="small" sx={{ background: '#2563eb', color: 'white' }} />
                       <Chip label="Virtual Assistant" size="small" sx={{ background: '#2563eb', color: 'white' }} />
                       <Chip label="Graphics Design" size="small" sx={{ background: '#2563eb', color: 'white' }} />
-                      <Chip label="GRC" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
+                      <Chip label="GRC" size="small" sx={{ background: '#2563eb', color: 'white' }} />
                     </Box>
                   </Box>
                 </Grid>
@@ -1026,7 +1026,7 @@ const ProfileDashboard = () => {
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Part-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                        <TextField fullWidth value="Volunteer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
@@ -1196,7 +1196,7 @@ const ProfileDashboard = () => {
                       </Grid>
                       <Grid item xs={12}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Honors / Awards</Typography>
-                        <TextField fullWidth value="In Progress" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                        <TextField fullWidth value="Very Good Pass" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
                       </Grid>
                       <Grid item xs={12}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Thesis / Project Title</Typography>
@@ -1588,7 +1588,7 @@ Framework for FINTECHs in Kenya." sx={{ mb: 2 }} InputProps={{ readOnly: true }}
                       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, flex: 1, justifyContent: 'center' }}>
                         <Chip label="Software Security" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                         <Chip label="Software Development" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
-                        <Chip label="IT Support and Trainings" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
+                        <Chip label="IT Support" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                         <Chip label="Virtual Assistant" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                         <Chip label="Graphics Design" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />
                         <Chip label="GRC" color="primary" variant="outlined" sx={{ fontWeight: 500, fontSize: 15, borderRadius: 1 }} />

@@ -47,10 +47,10 @@ const Projects = () => {
 
   const categories = [
     { label: "All Projects", icon: <CodeIcon /> },
-    { label: "Cybersecurity & Cloud", icon: <SecurityIcon /> },
-    { label: "Web Development & SaaS", icon: <WebIcon /> },
-    { label: "Travel & Adventure", icon: <StarIcon /> },
-    { label: "Community & Social Impact", icon: <PeopleIcon /> },
+    { label: "Cybersecurity", icon: <SecurityIcon /> },
+    { label: "AI & Healthcare", icon: <StorageIcon /> },
+    { label: "Web & Digital Solutions", icon: <WebIcon /> },
+    { label: "Community & Impact", icon: <PeopleIcon /> },
   ];
 
   const handleDownload = (pdfUrl, filename) => {
@@ -66,7 +66,7 @@ const Projects = () => {
     {
       id: 1,
       title: "A Cloud Computing Security Assessment Framework for FINTECHs in Kenya",
-      category: "Cybersecurity & Cloud",
+      category: "Cybersecurity",
       description: "A framework I developed this year for assessing cloud security in Kenyan fintechs.",
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
       technologies: ["Cloud Security", "FinTech", "Framework"],
@@ -84,9 +84,28 @@ const Projects = () => {
       pdfUrl: "/papers/A Cloud Computing Security Assessment Framework for FINTECHs in Kenya.pdf"
     },
     {
+      id: 14,
+      title: "BoneHealth AI",
+      category: "AI & Healthcare",
+      description: "BoneHealth AI leverages cutting-edge artificial intelligence to predict osteoporosis risk, enabling early detection and prevention of this silent but devastating disease.",
+      image: "/assets/imgs/boneAI.png",
+      technologies: ["AI", "Healthcare", "Machine Learning", "Osteoporosis"],
+      features: [
+        "AI-powered risk analysis",
+        "Early detection capabilities",
+        "Data-driven insights",
+        "Healthcare provider support"
+      ],
+      live: "https://bonehealth-ai.vercel.app/",
+      github: "",
+      status: "Completed",
+      rating: 4.9,
+      year: 2024
+    },
+    {
       id: 13,
       title: "ThreatSeal SOC Platform",
-      category: "Cybersecurity & Cloud",
+      category: "Cybersecurity",
       description: "AI powered SOC platform.",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
       technologies: ["AI", "SOC", "Cybersecurity"],
@@ -104,9 +123,9 @@ const Projects = () => {
     {
       id: 12,
       title: "BetaAfya Cloud Care",
-      category: "Cybersecurity & Cloud",
+      category: "AI & Healthcare",
       description: "Modern healthcare record management. Secure, cloud-based EHR system.",
-      image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=600&q=80", // hospital/healthcare themed
+      image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=600&q=80",
       technologies: ["Healthcare", "Cloud", "EHR"],
       features: [
         "Electronic health records",
@@ -122,7 +141,7 @@ const Projects = () => {
     {
       id: 2,
       title: "FaziLabs Dev",
-      category: "Web Development & SaaS",
+      category: "Web & Digital Solutions",
       description: "FaziLabs delivers professional software services from custom platforms to CMS-based websites. Let our passionate trio bring your vision to life.",
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
       technologies: ["React", "Node.js", "CMS", "Custom Platforms"],
@@ -140,7 +159,7 @@ const Projects = () => {
     {
       id: 3,
       title: "FaziLabs Portfolio",
-      category: "Web Development & SaaS",
+      category: "Web & Digital Solutions",
       description: "Portfolio for Brian Murithi: I craft exceptional digital experiences through innovative web applications, scalable backend systems, and modern user interfaces. Let's build something amazing together.",
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
       technologies: ["React", "Node.js", "UI/UX", "Backend"],
@@ -158,9 +177,9 @@ const Projects = () => {
     {
       id: 4,
       title: "Trio Hub Women",
-      category: "Community & Social Impact",
+      category: "Community & Impact",
       description: "Empowering girls and women for a resilient and equitable community.",
-      image: "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80", // female students, Muslim representation
+      image: "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80",
       technologies: ["Community", "Empowerment", "Education"],
       features: [
         "Menstrual hygiene education",
@@ -177,7 +196,7 @@ const Projects = () => {
     {
       id: 6,
       title: "TripTick Travels",
-      category: "Travel & Adventure",
+      category: "Web & Digital Solutions",
       description: "Plan Your Dream Adventure Today! Let us help you create unforgettable memories on your next trip.",
       image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
       technologies: ["Travel", "Adventure", "Booking"],
@@ -195,9 +214,9 @@ const Projects = () => {
     {
       id: 7,
       title: "Young Professional Mentorship Program",
-      category: "Community & Social Impact",
+      category: "Community & Impact",
       description: "Supporting young people to Rethink, Refocus & Succeed.",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80", // diverse group of youths outdoors
+      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
       technologies: ["Mentorship", "Youth", "Career"],
       features: [
         "Mentorship sessions",
@@ -213,7 +232,7 @@ const Projects = () => {
     {
       id: 8,
       title: "SM Fundraising & Business Development Consultants",
-      category: "Web Development & SaaS",
+      category: "Web & Digital Solutions",
       description: "Your one-stop solution for successful organizational fundraising and business development.",
       image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
       technologies: ["Fundraising", "Business Development", "Consulting"],
@@ -231,7 +250,7 @@ const Projects = () => {
     {
       id: 9,
       title: "SG Big Data",
-      category: "Cybersecurity & Cloud",
+      category: "Web & Digital Solutions",
       description: "Providing Insight Beyond Tomorrow. Empowering organizations to turn data into smarter decisions.",
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
       technologies: ["Big Data", "Analytics", "Automation"],
@@ -250,9 +269,9 @@ const Projects = () => {
     {
       id: 10,
       title: "Celebrating Our Stories",
-      category: "Web Development & SaaS",
+      category: "Community & Impact",
       description: "A platform for sharing and celebrating personal stories.",
-      image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80", // Maasai culture themed
+      image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80",
       technologies: ["Storytelling", "Community", "Web Platform"],
       features: [
         "Story sharing",
@@ -268,9 +287,9 @@ const Projects = () => {
     {
       id: 11,
       title: "TechDJ",
-      category: "Web Development & SaaS",
+      category: "Web & Digital Solutions",
       description: "Discover, Download & Enjoy. Connect your Spotify account and unlock a world of music.",
-      image: "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=600&q=80", // club DJ themed
+      image: "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=600&q=80",
       technologies: ["Music", "Spotify", "Web App"],
       features: [
         "Spotify integration",
