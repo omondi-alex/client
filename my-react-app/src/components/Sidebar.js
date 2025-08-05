@@ -14,8 +14,8 @@ const navItems = [
   { text: "Profile", icon: <PersonIcon />, path: "/profile" },
   { text: "Projects", icon: <SchoolIcon />, path: "/projects" },
   { text: "Publications", icon: <ClassIcon />, path: "/publications" },
-  { text: "Calendar", icon: <CalendarMonthIcon />, path: "/calendar" },
   { text: "Engagements", icon: <MicIcon />, path: "/speaking" },
+  { text: "Calendar", icon: <CalendarMonthIcon />, path: "/calendar" },
   // { text: "Announcements", icon: <AnnouncementIcon />, path: "/announcements" }, // Temporarily hidden as requested
 ];
 
