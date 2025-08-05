@@ -512,10 +512,7 @@ const Projects = () => {
                                   />
                                 )}
                               </Box>
-                              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <Typography variant="caption" color="text.secondary">
-                                  {project.year}
-                                </Typography>
+                              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                                   {project.live && (
                                     <Button 
