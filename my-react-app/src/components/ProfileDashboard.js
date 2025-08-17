@@ -356,6 +356,39 @@ const ProfileDashboard = () => {
                   Work Experience
                 </Typography>
               </Box>
+
+               <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ 
+                      width: 32, 
+                      height: 32, 
+                      borderRadius: '50%', 
+                      background: '#2563eb',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'white'
+                    }}>
+                      <WorkIcon sx={{ fontSize: 16 }} />
+                    </Box>
+                    <Box>
+                      <Typography fontWeight={600}>Platforms Developer</Typography>
+                      <Typography variant="caption" color="text.secondary">Agriwatt Hub Limited • 2025-08 to date</Typography>
+                    </Box>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                    • Graphics Design<br/>
+                    • Virtual Assistant<br/>
+                    • Create data visualization dashboards for farm analytics<br/>
+                    • Develop mobile data collection modules (online-first approach)<br/>
+                    • Build farmer feedback systems (SMS/USSD platforms)<br/>
+                    • Collaborate on website improvements and user experience enhancements
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
               
               <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -502,7 +535,7 @@ const ProfileDashboard = () => {
                 <AccordionDetails>
                   <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
                     <strong>Thesis:</strong> A Cloud Computing Security Assessment Framework for FINTECHs in Kenya<br/>
-                    <strong>Status:</strong> In Progress
+                    <strong>Status:</strong> 2025-07 <br/>
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -1013,6 +1046,50 @@ const ProfileDashboard = () => {
                   InputProps={{ readOnly: true }}
                 />
                 <Box sx={{ maxHeight: 420, overflowY: 'auto', pr: 1 }}>
+                  {/* Experience 0: Platforms Developer at Agriwatt Hub Limited (current) */}
+
+                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
+                        <TextField fullWidth value="Platforms Developer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
+                        <TextField fullWidth value="Agriwatt Hub Limited" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
+                        <TextField fullWidth value="Part-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
+                        <TextField fullWidth value="Nairobi, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
+                        <TextField fullWidth value="2025-08" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
+                        <TextField fullWidth value="To date" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
+                        <Box sx={{ pl: 2 }}>
+                          <ul style={{ margin: 0, paddingLeft: 18 }}>
+                            <li>Graphics Design</li>
+                            <li>Virtual Assistant</li>
+                            <li>Create data visualization dashboards for farm analytics</li>
+                            <li>Develop mobile data collection modules (online-first approach)</li>
+                            <li>Collaborate on website improvements and user experience enhancement</li>
+                            <li>Build farmer feedback systems (SMS/USSD platforms)</li>
+
+                          </ul>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Box>
                   {/* Experience 1: ICT Support Volunteer (current) */}
                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
                     <Grid container spacing={2}>
@@ -1073,7 +1150,7 @@ const ProfileDashboard = () => {
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2024-02" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                        <TextField fullWidth value="2024-03" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
@@ -1113,7 +1190,7 @@ const ProfileDashboard = () => {
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Full-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                        <TextField fullWidth value="Internship" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
