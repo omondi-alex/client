@@ -257,19 +257,6 @@ const SpeakingEvents = () => {
     },
     // --- Upcoming events (dynamic, will move to past when endDate/date is in the past) ---
     {
-      id: 6,
-      title: "IEEE Tech Ignite Summer School",
-      type: "workshop",
-      organization: "IEEE & Strathmore University",
-      location: "Strathmore University, Nairobi, Kenya",
-      startDate: "2025-08-12",
-      endDate: "2025-08-15",
-      audience: "Students, Researchers, Young Professionals",
-      status: "Upcoming",
-      image: ieeeImg,
-      description: `The IEEE Tech Ignite Summer School is a five-day program designed to equip students, researchers, and young professionals with cutting-edge knowledge and hands-on experience in emerging technologies driving Africa’s digital transformation. Hosted at Strathmore University, Nairobi, this event will bring together experts, industry leaders, and innovators to explore key advancements in sensors, electronics, artificial intelligence, robotics, and digital systems integration.`
-    },
-    {
       id: 7,
       title: "Deep Learning Indaba 2025",
       type: "conference",
@@ -279,13 +266,22 @@ const SpeakingEvents = () => {
       endDate: "2025-08-22",
       audience: "African Machine Learning and AI Community",
       status: "Upcoming",
+      topic: "Machine Learning & AI",
       image: indabaImg,
-      description: `The Deep Learning Indaba is the annual meeting of the African machine learning and AI community with the mission to Strengthen African AI. In 2025, the Indaba and Africa’s artificial intelligence community will meet for a week-long event of learning, research exchange, ideation, and debate around the state of the art in machine learning and artificial intelligence in Kigali, Rwanda from the 17th to the 22nd August 2025.`
+      description: `The Deep Learning Indaba is the annual meeting of the African machine learning and AI community with the mission to Strengthen African AI. In 2025, the Indaba and Africa's artificial intelligence community will meet for a week-long event of learning, research exchange, ideation, and debate around the state of the art in machine learning and artificial intelligence in Kigali, Rwanda from the 17th to the 22nd August 2025.`,
+      highlights: [
+        "Machine Learning",
+        "AI Research",
+        "African AI Community",
+        "Knowledge Exchange",
+        "Innovation & Debate"
+      ]
     },
   ];
 
-  // Split events into past and upcoming based on today's date
+  // Split events into past, active, and upcoming based on today's date
   const today = new Date();
+  
   const pastEvents = allEvents.filter(event => {
     // Use endDate if present, otherwise date
     const end = event.endDate || event.date;
@@ -295,6 +291,18 @@ const SpeakingEvents = () => {
     // Otherwise, compare date
     return new Date(end) < today;
   });
+  
+  const activeEvents = allEvents.filter(event => {
+    // Only events with startDate and endDate can be active
+    if (!event.startDate || !event.endDate) return false;
+    
+    const start = new Date(event.startDate);
+    const end = new Date(event.endDate);
+    
+    // Event is active if today is between start and end dates (inclusive)
+    return today >= start && today <= end;
+  });
+  
   const upcomingEvents = allEvents.filter(event => {
     // Use endDate if present, otherwise date
     const end = event.endDate || event.date;
@@ -303,6 +311,14 @@ const SpeakingEvents = () => {
     if (/^\d{4}$/.test(end)) return parseInt(end) >= today.getFullYear();
     // Otherwise, compare date
     return new Date(end) >= today;
+  }).filter(event => {
+    // Exclude events that are currently active
+    if (event.startDate && event.endDate) {
+      const start = new Date(event.startDate);
+      const end = new Date(event.endDate);
+      return !(today >= start && today <= end);
+    }
+    return true;
   });
 
   // Helper function to render event date or date range
@@ -320,6 +336,51 @@ const SpeakingEvents = () => {
     // Otherwise, format as locale date
     if (event.date) return new Date(event.date).toLocaleDateString();
     return '';
+  };
+
+  // Helper function to safely get highlights
+  const getEventHighlights = (event) => {
+    return event.highlights || [];
+  };
+
+  // Helper function to safely get topic
+  const getEventTopic = (event) => {
+    return event.topic || "Speaking Engagement";
+  };
+
+  // Helper function to safely get audience
+  const getEventAudience = (event) => {
+    return event.audience || "General Audience";
+  };
+
+  // Helper function to safely get organization
+  const getEventOrganization = (event) => {
+    return event.organization || "Organization";
+  };
+
+  // Helper function to safely get location
+  const getEventLocation = (event) => {
+    return event.location || "Location TBD";
+  };
+
+  // Helper function to safely get description
+  const getEventDescription = (event) => {
+    return event.description || "Description coming soon...";
+  };
+
+  // Helper function to safely get title
+  const getEventTitle = (event) => {
+    return event.title || "Event Title";
+  };
+
+  // Helper function to safely get image
+  const getEventImage = (event) => {
+    return event.image || null;
+  };
+
+  // Helper function to safely get type
+  const getEventType = (event) => {
+    return event.type || "conference";
   };
 
   const handleInviteSubmit = () => {
@@ -454,7 +515,7 @@ ${inviteForm.name}
                 Speaking Statistics
               </Typography>
               <Grid container spacing={2}>
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                   <Box sx={{ 
                     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
                     borderRadius: 3, 
@@ -465,9 +526,20 @@ ${inviteForm.name}
                     <Typography variant="caption">Past Events</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                   <Box sx={{ 
                     background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', 
+                    borderRadius: 3, 
+                    p: 2, 
+                    color: 'white'
+                  }}>
+                    <Typography variant="h5" fontWeight={700}>{activeEvents.length}</Typography>
+                    <Typography variant="caption">Active Events</Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4}>
+                  <Box sx={{ 
+                    background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)', 
                     borderRadius: 3, 
                     p: 2, 
                     color: 'white'
@@ -478,7 +550,7 @@ ${inviteForm.name}
                 </Grid>
                 <Grid item xs={6}>
                   <Box sx={{ 
-                    background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)', 
+                    background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', 
                     borderRadius: 3, 
                     p: 2, 
                     color: 'white'
@@ -489,7 +561,7 @@ ${inviteForm.name}
                 </Grid>
                 <Grid item xs={6}>
                   <Box sx={{ 
-                    background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', 
+                    background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', 
                     borderRadius: 3, 
                     p: 2, 
                     color: 'white'
@@ -554,6 +626,7 @@ ${inviteForm.name}
           <Paper elevation={3} sx={{ borderRadius: 4, overflow: 'hidden', mb: 3 }}>
             <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)} variant="fullWidth">
               <Tab label="Past Events" icon={<EventIcon />} />
+              <Tab label="Active Events" icon={<ScheduleIcon />} />
               <Tab label="Upcoming Events" icon={<ScheduleIcon />} />
             </Tabs>
 
@@ -567,13 +640,13 @@ ${inviteForm.name}
                   {pastEvents.map((event) => (
                     <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
                       {/* Event image */}
-                      {event.image && (
+                      {getEventImage(event) && (
                         <Box sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #2563eb', cursor: 'pointer' }}
-                          onClick={() => { setDialogImageSrc(event.image); setOpenImageDialog(true); }}
+                          onClick={() => { setDialogImageSrc(getEventImage(event)); setOpenImageDialog(true); }}
                         >
                           <img
-                            src={event.image}
-                            alt={event.title}
+                            src={getEventImage(event)}
+                            alt={getEventTitle(event)}
                             style={{
                               maxWidth: '100%',
                               maxHeight: '100%',
@@ -586,15 +659,15 @@ ${inviteForm.name}
                       )}
                       <CardContent sx={{ p: 3 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                          <Avatar sx={{ bgcolor: getEventTypeColor(event.type), width: 40, height: 40 }}>
-                            {getEventTypeIcon(event.type)}
+                          <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)), width: 40, height: 40 }}>
+                            {getEventTypeIcon(getEventType(event))}
                           </Avatar>
                           <Box sx={{ flex: 1 }}>
                             <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem' }}>
-                              {event.title}
+                              {getEventTitle(event)}
                             </Typography>
                             <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                              {event.organization}
+                              {getEventOrganization(event)}
                             </Typography>
                           </Box>
                         </Box>
@@ -602,7 +675,7 @@ ${inviteForm.name}
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                           <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
                           <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                            {event.location}
+                            {getEventLocation(event)}
                           </Typography>
                         </Box>
                         
@@ -616,12 +689,12 @@ ${inviteForm.name}
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                           <GroupIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
                           <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                            {event.audience}
+                            {getEventAudience(event)}
                           </Typography>
                         </Box>
                         
                         <Chip 
-                          label={event.topic} 
+                          label={getEventTopic(event)} 
                           size="small"
                           color="primary"
                           variant="outlined"
@@ -629,11 +702,11 @@ ${inviteForm.name}
                         />
                         
                         <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151' }}>
-                          {event.description.length > 200 ? `${event.description.substring(0, 200)}...` : event.description}
+                          {getEventDescription(event).length > 200 ? `${getEventDescription(event).substring(0, 200)}...` : getEventDescription(event)}
                         </Typography>
                         
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                          {event.highlights.slice(0, 3).map((highlight, index) => (
+                          {getEventHighlights(event).slice(0, 3).map((highlight, index) => (
                             <Chip 
                               key={index} 
                               label={highlight} 
@@ -642,9 +715,9 @@ ${inviteForm.name}
                               sx={{ fontSize: '0.7rem' }}
                             />
                           ))}
-                          {event.highlights.length > 3 && (
+                          {getEventHighlights(event).length > 3 && (
                             <Chip 
-                              label={`+${event.highlights.length - 3} more`} 
+                              label={`+${getEventHighlights(event).length - 3} more`} 
                               size="small" 
                               variant="outlined"
                               sx={{ fontSize: '0.7rem' }}
@@ -658,8 +731,119 @@ ${inviteForm.name}
               </Box>
             )}
 
-            {/* Upcoming Events Tab */}
+            {/* Active Events Tab */}
             {activeTab === 1 && (
+              <Box sx={{ p: 3 }}>
+                <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
+                  Currently Active Events
+                </Typography>
+                {activeEvents.length > 0 ? (
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                    {activeEvents.map((event) => (
+                      <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden', border: '3px solid #10b981' }}>
+                        {/* Event image */}
+                        {getEventImage(event) && (
+                          <Box sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #10b981', cursor: 'pointer' }}
+                            onClick={() => { setDialogImageSrc(getEventImage(event)); setOpenImageDialog(true); }}
+                          >
+                            <img
+                              src={getEventImage(event)}
+                              alt={getEventTitle(event)}
+                              style={{
+                                maxWidth: '100%',
+                                maxHeight: '100%',
+                                objectFit: 'contain',
+                                display: 'block',
+                                margin: '0 auto',
+                              }}
+                            />
+                          </Box>
+                        )}
+                        <CardContent sx={{ p: 3 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                            <Avatar sx={{ bgcolor: '#10b981', width: 40, height: 40 }}>
+                              <ScheduleIcon />
+                            </Avatar>
+                            <Box sx={{ flex: 1 }}>
+                              <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem' }}>
+                                {getEventTitle(event)}
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                                {getEventOrganization(event)}
+                              </Typography>
+                            </Box>
+                            <Chip 
+                              label="LIVE NOW" 
+                              size="small"
+                              color="success"
+                              sx={{ fontWeight: 700, fontSize: '0.7rem' }}
+                            />
+                          </Box>
+                          
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                            <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                              {getEventLocation(event)}
+                            </Typography>
+                          </Box>
+                          
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                            <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                              {renderEventDate(event)}
+                            </Typography>
+                          </Box>
+                          
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                            <GroupIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                              {getEventAudience(event)}
+                            </Typography>
+                          </Box>
+                          
+                          <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151' }}>
+                            {getEventDescription(event)}
+                          </Typography>
+                          
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                            {getEventHighlights(event).slice(0, 3).map((highlight, index) => (
+                              <Chip 
+                                key={index} 
+                                label={highlight} 
+                                size="small" 
+                                variant="outlined"
+                                sx={{ fontSize: '0.7rem' }}
+                              />
+                            ))}
+                            {getEventHighlights(event).length > 3 && (
+                              <Chip 
+                                label={`+${getEventHighlights(event).length - 3} more`} 
+                                size="small" 
+                                variant="outlined"
+                                sx={{ fontSize: '0.7rem' }}
+                              />
+                            )}
+                          </Box>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </Box>
+                ) : (
+                  <Box sx={{ textAlign: 'center', py: 4 }}>
+                    <ScheduleIcon sx={{ fontSize: 64, color: 'text.secondary', mb: 2 }} />
+                    <Typography variant="h6" color="text.secondary" sx={{ mb: 1 }}>
+                      No Active Events
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      There are no events currently happening. Check the upcoming events tab for future engagements.
+                    </Typography>
+                  </Box>
+                )}
+              </Box>
+            )}
+
+            {/* Upcoming Events Tab */}
+            {activeTab === 2 && (
               <Box sx={{ p: 3 }}>
                 <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
                   Upcoming Engagements
@@ -702,14 +886,14 @@ ${inviteForm.name}
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   {upcomingEvents.map((event) => (
                     <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
-                      {event.image && (
+                      {getEventImage(event) && (
                         <Box
                           sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #2563eb', cursor: 'pointer' }}
-                          onClick={() => { setDialogImageSrc(event.image); setOpenImageDialog(true); }}
+                          onClick={() => { setDialogImageSrc(getEventImage(event)); setOpenImageDialog(true); }}
                         >
                           <img
-                            src={event.image}
-                            alt={event.title}
+                            src={getEventImage(event)}
+                            alt={getEventTitle(event)}
                             style={{
                               maxWidth: '100%',
                               maxHeight: '100%',
@@ -722,15 +906,15 @@ ${inviteForm.name}
                       )}
                       <CardContent sx={{ p: 3 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                          <Avatar sx={{ bgcolor: getEventTypeColor(event.type), width: 40, height: 40 }}>
-                            {getEventTypeIcon(event.type)}
+                          <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)), width: 40, height: 40 }}>
+                            {getEventTypeIcon(getEventType(event))}
                           </Avatar>
                           <Box sx={{ flex: 1 }}>
                             <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem' }}>
-                              {event.title}
+                              {getEventTitle(event)}
                             </Typography>
                             <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                              {event.organization}
+                              {getEventOrganization(event)}
                             </Typography>
                           </Box>
                         </Box>
@@ -738,7 +922,7 @@ ${inviteForm.name}
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                           <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
                           <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                            {event.location}
+                            {getEventLocation(event)}
                           </Typography>
                         </Box>
                         
@@ -752,12 +936,12 @@ ${inviteForm.name}
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                           <GroupIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
                           <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
-                            {event.audience}
+                            {getEventAudience(event)}
                           </Typography>
                         </Box>
                         
                         <Typography variant="body2" sx={{ lineHeight: 1.6, color: '#374151' }}>
-                          {event.description}
+                          {getEventDescription(event)}
                         </Typography>
                       </CardContent>
                     </Card>
@@ -827,6 +1011,7 @@ ${inviteForm.name}
             <Paper elevation={3} sx={{ borderRadius: 3, p: { xs: 2, md: 4 }, width: '100%' }}>
               <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)} sx={{ mb: 3 }}>
                 <Tab label="Past Events" icon={<EventIcon />} />
+                <Tab label="Active Events" icon={<ScheduleIcon />} />
                 <Tab label="Upcoming Events" icon={<ScheduleIcon />} />
               </Tabs>
 
@@ -841,13 +1026,13 @@ ${inviteForm.name}
                       <Grid item xs={12} key={event.id}>
                         <Card sx={{ borderRadius: 3, boxShadow: 4, overflow: 'hidden' }}>
                           {/* Show event image as a large banner if present */}
-                          {event.image && (
+                          {getEventImage(event) && (
                             <Box sx={{ width: '100%', height: 340, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '3px solid #2563eb', boxShadow: '0 8px 32px rgba(30,64,175,0.13)', cursor: 'pointer' }}
-                              onClick={() => { setDialogImageSrc(event.image); setOpenImageDialog(true); }}
+                              onClick={() => { setDialogImageSrc(getEventImage(event)); setOpenImageDialog(true); }}
                             >
                               <img
-                                src={event.image}
-                                alt={event.title}
+                                src={getEventImage(event)}
+                                alt={getEventTitle(event)}
                                 style={{
                                   maxWidth: '100%',
                                   maxHeight: '100%',
@@ -862,20 +1047,20 @@ ${inviteForm.name}
                           <CardContent>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
                               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                                <Avatar sx={{ bgcolor: getEventTypeColor(event.type) }}>
-                                  {getEventTypeIcon(event.type)}
+                                <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)) }}>
+                                  {getEventTypeIcon(getEventType(event))}
                                 </Avatar>
                                 <Box>
                                   <Typography variant="h6" fontWeight={600}>
-                                    {event.title}
+                                    {getEventTitle(event)}
                                   </Typography>
                                   <Typography variant="body2" color="text.secondary">
-                                    {event.organization} • {event.location}
+                                    {getEventOrganization(event)} • {getEventLocation(event)}
                                   </Typography>
                                 </Box>
                               </Box>
                               <Chip 
-                                label={event.topic} 
+                                label={getEventTopic(event)} 
                                 size="small"
                                 color="primary"
                                 variant="outlined"
@@ -883,15 +1068,15 @@ ${inviteForm.name}
                             </Box>
                             
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                              {renderEventDate(event)} • {event.audience}
+                              {renderEventDate(event)} • {getEventAudience(event)}
                             </Typography>
                             
                             <Typography variant="body1" sx={{ mb: 2 }}>
-                              {event.description}
+                              {getEventDescription(event)}
                             </Typography>
                             
                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                              {event.highlights.map((highlight, index) => (
+                              {getEventHighlights(event).map((highlight, index) => (
                                 <Chip 
                                   key={index} 
                                   label={highlight} 
@@ -909,8 +1094,119 @@ ${inviteForm.name}
                 </Box>
               )}
 
-              {/* Upcoming Events Tab */}
+              {/* Active Events Tab */}
               {activeTab === 1 && (
+                <Box>
+                  <Typography variant="h6" fontWeight={600} sx={{ mb: 3 }}>
+                    Currently Active Events
+                  </Typography>
+                  {activeEvents.length > 0 ? (
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                      {activeEvents.map((event) => (
+                        <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden', border: '3px solid #10b981' }}>
+                          {/* Event image */}
+                          {getEventImage(event) && (
+                            <Box sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #10b981', cursor: 'pointer' }}
+                              onClick={() => { setDialogImageSrc(getEventImage(event)); setOpenImageDialog(true); }}
+                            >
+                              <img
+                                src={getEventImage(event)}
+                                alt={getEventTitle(event)}
+                                style={{
+                                  maxWidth: '100%',
+                                  maxHeight: '100%',
+                                  objectFit: 'contain',
+                                  display: 'block',
+                                  margin: '0 auto',
+                                }}
+                              />
+                            </Box>
+                          )}
+                          <CardContent sx={{ p: 3 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                              <Avatar sx={{ bgcolor: '#10b981', width: 40, height: 40 }}>
+                                <ScheduleIcon />
+                              </Avatar>
+                              <Box sx={{ flex: 1 }}>
+                                <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem' }}>
+                                  {getEventTitle(event)}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                                  {getEventOrganization(event)}
+                                </Typography>
+                              </Box>
+                              <Chip 
+                                label="LIVE NOW" 
+                                size="small"
+                                color="success"
+                                sx={{ fontWeight: 700, fontSize: '0.7rem' }}
+                              />
+                            </Box>
+                            
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                              <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                                {getEventLocation(event)}
+                              </Typography>
+                            </Box>
+                            
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                              <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                                {renderEventDate(event)}
+                              </Typography>
+                            </Box>
+                            
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                              <GroupIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                                {getEventAudience(event)}
+                              </Typography>
+                            </Box>
+                            
+                            <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151' }}>
+                              {getEventDescription(event)}
+                            </Typography>
+                            
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                              {getEventHighlights(event).slice(0, 3).map((highlight, index) => (
+                                <Chip 
+                                  key={index} 
+                                  label={highlight} 
+                                  size="small" 
+                                  variant="outlined"
+                                  sx={{ fontSize: '0.7rem' }}
+                                />
+                              ))}
+                              {getEventHighlights(event).length > 3 && (
+                                <Chip 
+                                  label={`+${getEventHighlights(event).length - 3} more`} 
+                                  size="small" 
+                                  variant="outlined"
+                                  sx={{ fontSize: '0.7rem' }}
+                                />
+                              )}
+                            </Box>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </Box>
+                  ) : (
+                    <Box sx={{ textAlign: 'center', py: 4 }}>
+                      <ScheduleIcon sx={{ fontSize: 64, color: 'text.secondary', mb: 2 }} />
+                      <Typography variant="h6" color="text.secondary" sx={{ mb: 1 }}>
+                        No Active Events
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        There are no events currently happening. Check the upcoming events tab for future engagements.
+                      </Typography>
+                    </Box>
+                  )}
+                </Box>
+              )}
+
+              {/* Upcoming Events Tab */}
+              {activeTab === 2 && (
                 <Box>
                   <Typography variant="h6" fontWeight={600} sx={{ mb: 3 }}>
                     Upcoming Engagements
@@ -954,14 +1250,14 @@ ${inviteForm.name}
                     {upcomingEvents.map((event) => (
                       <Grid item xs={12} key={event.id}>
                         <Card sx={{ borderRadius: 2, boxShadow: 2, overflow: 'hidden' }}>
-                          {event.image && (
+                          {getEventImage(event) && (
                             <Box
                               sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #2563eb', cursor: 'pointer' }}
-                              onClick={() => { setDialogImageSrc(event.image); setOpenImageDialog(true); }}
+                              onClick={() => { setDialogImageSrc(getEventImage(event)); setOpenImageDialog(true); }}
                             >
                               <img
-                                src={event.image}
-                                alt={event.title}
+                                src={getEventImage(event)}
+                                alt={getEventTitle(event)}
                                 style={{
                                   maxWidth: '100%',
                                   maxHeight: '100%',
@@ -975,26 +1271,26 @@ ${inviteForm.name}
                           <CardContent>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
                               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                                <Avatar sx={{ bgcolor: getEventTypeColor(event.type) }}>
-                                  {getEventTypeIcon(event.type)}
+                                <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)) }}>
+                                  {getEventTypeIcon(getEventType(event))}
                                 </Avatar>
                                 <Box>
                                   <Typography variant="h6" fontWeight={600}>
-                                    {event.title}
+                                    {getEventTitle(event)}
                                   </Typography>
                                   <Typography variant="body2" color="text.secondary">
-                                    {event.organization} • {event.location}
+                                    {getEventOrganization(event)} • {getEventLocation(event)}
                                   </Typography>
                                 </Box>
                               </Box>
                             </Box>
                             
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                              {renderEventDate(event)} • {event.audience}
+                              {renderEventDate(event)} • {getEventAudience(event)}
                             </Typography>
                             
                             <Typography variant="body1">
-                              {event.description}
+                              {getEventDescription(event)}
                             </Typography>
                           </CardContent>
                         </Card>
@@ -1074,18 +1370,18 @@ ${inviteForm.name}
                     </Grid>
                     <Grid item xs={6}>
                       <Typography variant="h4" fontWeight={700} sx={{ color: '#10b981' }}>
-                        {upcomingEvents.length}
+                        {activeEvents.length}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Upcoming
+                        Active Events
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
                       <Typography variant="h4" fontWeight={700} sx={{ color: '#8b5cf6' }}>
-                        5+
+                        {upcomingEvents.length}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Topics
+                        Upcoming
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
