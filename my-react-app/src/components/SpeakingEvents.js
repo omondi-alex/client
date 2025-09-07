@@ -141,123 +141,9 @@ const SpeakingEvents = () => {
   // All events (past and upcoming)
   const allEvents = [
     // --- Past events (static, with date or endDate in the past) ---
-    {
+
+     {
       id: 0,
-      title: "SCHOLARSHIP MENTORSHIP Q&A Session",
-      type: "mentorship",
-      organization: "Igoye Young Professional Mentorship Institute (IYPMI)",
-      location: "Online / Uganda",
-      date: "2025-06-15",
-      audience: "Young Professionals, Scholarship Seekers",
-      topic: "Scholarship Mentorship",
-      image: iyqnaImg,
-      description: `Thrilled to have been part of the Young Professional Mentorship Program (YPMP) panel as a speaker, sharing insights alongside brilliant minds like Pech Lim Gatluak, Robert Omwa, Esther Chebijira, and Olivia Brendah.\n\nAs an alumnus of YPMP, it was a full-circle moment to give back to a community that played a pivotal role in my growth. We dove into scholarship opportunities, General Scholarship Information, Academic Requirements & Preparation, Local Scholarships (Africa), International Scholarships, Application Process, Language Requirements, Financial Considerations, Field of Study Considerations, The wait (weight) after the application, Support and Resources, Alternative Funding Options, Special Circumstances, Technology and Digital Literacy. Because success is sweeter when we lift others along the way.\n\nHuge thanks to Agnes Igoye (Chief Mentor) for the incredible platform. To every young person: Never settle, keep going, keep growing! 🌱`,
-      highlights: [
-        "Panel Speaker",
-        "Scholarship Opportunities",
-        "Academic Preparation",
-        "Mentorship Matters",
-        "Alumni Impact"
-      ]
-    },
-    {
-      id: 1,
-      title: "A Cloud Computing Security Assessment Framework for FINTECHs in Kenya - Cyber Carnival 2025",
-      type: "conference",
-      organization: "Africa Cyber Defense Forum, ACDF®",
-      location: "Nairobi Street Kitchen & Kalamata Restaurant, Nairobi, Kenya",
-      date: "2025-06-12",
-      audience: "Industry Leaders, Policymakers, Technologists, Business Leaders",
-      topic: "Cloud Security & FinTech",
-      image: image2,
-      description: `On June 12th, 2025, I had the incredible opportunity to present my research on \"A Cloud Computing Security Assessment Framework for FINTECHs in Kenya\" at the Cyber Carnival 2025, hosted by the Africa Cyber Defense Forum, ACDF®, at Nairobi Street Kitchen & Kalamata Restaurant. This framework addresses the critical gap in tailored cloud security standards for Kenyan FinTechs, integrating global 🌍 best practices with local regulatory requirements like Kenya’s Data Protection Act! 📜. Through surveys and experimental simulations using OwnCloud☁️, the study highlights key vulnerabilities, such as insider threats and data retention risks, and proposes actionable metrics to strengthen cloud security. The response from industry leaders and peers was overwhelmingly positive, reinforcing the urgent need for scalable, context-aware solutions in our rapidly evolving digital landscape...\n\nA heartfelt thank you to Africa Cyber Defense Forum, ACDF®, for this transformative platform, where policymakers, technologists, and business leaders collaborate to shape Africa’s cybersecurity future 💡. Special gratitude to the attendees whose insights enriched the discussion. As cyber threats in East Africa surge by 50 %+ 📈, frameworks like this are vital to safeguarding financial innovation while fostering trust 🛡️...\n\nLet’s keep the conversation going, reach out if you’d like to explore how this framework can empower your organization or collaborate on securing Africa’s digital economy🤝 ...`,
-      highlights: [
-        "Conference Speaker",
-        "Cloud Security Research",
-        "FinTech Innovation",
-        "Cybersecurity Frameworks",
-        "Industry Collaboration"
-      ]
-    },
-    {
-      id: 2,
-      title: "Kirinyaga University 8th Annual International Conference",
-      type: "conference",
-      organization: "Kirinyaga University",
-      location: "Virtual (Kenya)",
-      date: "2025-03-26",
-      audience: "Academics, Researchers, Industry Experts, Policy Makers",
-      topic: "Innovation & Technology",
-      image: image3,
-      description: `I’m thrilled to share my experience at the Kirinyaga University 8th Annual International Conference, held virtually on March 26-27, 2025, under the theme \"Integration of Innovation and Technology for Sustainable Interdisciplinary Collaboration.\"\n\nThe conference kicked off with an inspiring keynote by Benson MULEMI, PhD, who delved into \"Grants Mobilization as a Catalyst for Innovation: Leveraging Multidisciplinary Collaboration for Sustainable Research Impact.\" His insights underscored the transformative power of cross-disciplinary partnerships in securing grants and driving impactful research, a timely reminder of how collaboration fuels progress in our fast-evolving technological landscape.\n\nI was honored to present two research papers in the ICT and Digital Transformation category, addressing critical challenges and solutions in Kenya’s FinTech sector:\n\n👨🏽‍💻 Development and Evaluation of a Cloud Security Framework for Kenyan FinTechs (https://lnkd.in/e-6TxGSp)\n\n👨🏽‍💻 Cloud Security Challenges and Assessment Framework for Kenyan FinTechs (https://lnkd.in/eDGHc2gm)\n\nThese papers explore actionable frameworks to bolster cybersecurity resilience in FinTech, a sector pivotal to Kenya’s digital economy. The discussions that followed were incredibly enriching, with peers and experts sharing perspectives on scalability, regulatory alignment, and emerging threats like AI-driven fraud.\n\nBeyond my presentations, I had the privilege of engaging with groundbreaking work across diverse fields:\n\n🍎 AI in Agriculture: Innovative machine learning models aimed at boosting crop productivity and sustainability, showcasing how technology can revolutionize farming in Africa.\n\n🩺 Health Tech Breakthroughs: Researchers demonstrated how tech can bridge gaps in healthcare access and quality from low-cost malaria diagnostics to AI-driven nursing education advancements.\n\n💰 Sustainable Finance: Dynamic panel debates explored the intersection of green investments, regulatory frameworks, and ethical financial practices, which are critical topics for emerging economies.\n\nA huge thank you to Kirinyaga University for organizing such an insightful hybrid conference, proving that virtual platforms can foster deep, global collaboration.\n\nAs we navigate the Fourth Industrial Revolution, conferences like these are vital for bridging academia, industry, and policy, turning research into real-world solutions. Grateful for the chance to contribute and learn! ...`,
-      highlights: [
-        "Conference Speaker",
-        "Cloud Security Research",
-        "AI in Agriculture",
-        "Health Tech Breakthroughs",
-        "Sustainable Finance"
-      ]
-    },
-    {
-      id: 3,
-      title: "YPMP INFO SESSION",
-      type: "mentorship",
-      organization: "Young Professional Mentorship Program (YPMP)",
-      location: "Online",
-      date: "2024-12-27",
-      audience: "Young Professionals, Students",
-      topic: "Mentorship & Info Session",
-      image: image4,
-      description: `Participated as a speaker in the YPMP Info Session, sharing insights and guidance with young professionals and students on career development, mentorship, and opportunities within the YPMP community. The session fostered engagement, Q&A, and networking among attendees, supporting the next generation of leaders.`,
-      highlights: [
-        "Info Session Speaker",
-        "Mentorship Guidance",
-        "Career Development",
-        "Community Engagement",
-        "Q&A Session"
-      ]
-    },
-    {
-      id: 4,
-      title: "Is the YPMP Program Worth my Time?",
-      type: "mentorship",
-      organization: "Young Professional Mentorship Program (YPMP)",
-      location: "Online",
-      date: "2023-12-02",
-      audience: "Young Professionals, Students",
-      topic: "Mentorship Experience",
-      image: image5,
-      description: `Served as a panelist and mentor in the YPMP session titled 'Is the YPMP Program Worth my Time?', sharing personal experiences, program benefits, and answering questions from prospective and current members. The session provided valuable insights into the impact and opportunities offered by YPMP, helping attendees make informed decisions about their mentorship journey.`,
-      highlights: [
-        "Panelist & Mentor",
-        "Mentorship Experience",
-        "Program Impact",
-        "Q&A Session",
-        "Community Engagement"
-      ]
-    },
-    {
-      id: 5,
-      title: "Digital Literacy",
-      type: "training",
-      organization: "Ministry of Education, State Department for Basic Education",
-      location: "Kenya (Various Schools)",
-      date: "2023",
-      audience: "Teachers, Pupils, Training Participants",
-      topic: "ICT Training & Digital Literacy",
-      image: image6,
-      description: `In 2023, I offered transformative ICT training and Digital Literacy programs, empowering teachers, pupils, and training participants to navigate the ever-evolving landscape of technology with confidence and mastery. These initiatives enabled schools to improve their use of digital learning and helped participants unlock the limitless potential of the digital age.`,
-      highlights: [
-        "ICT Training Facilitator",
-        "Digital Literacy Program",
-        "Teacher Empowerment",
-        "Pupil Engagement",
-        "School Improvement"
-      ]
-    },
-    // --- Upcoming events (dynamic, will move to past when endDate/date is in the past) ---
-    {
-      id: 7,
       title: "Deep Learning Indaba 2025",
       type: "conference",
       organization: "Deep Learning Indaba",
@@ -277,6 +163,122 @@ const SpeakingEvents = () => {
         "Innovation & Debate"
       ]
     },
+    {
+      id: 1,
+      title: "SCHOLARSHIP MENTORSHIP Q&A Session",
+      type: "mentorship",
+      organization: "Igoye Young Professional Mentorship Institute (IYPMI)",
+      location: "Online / Uganda",
+      date: "2025-06-15",
+      audience: "Young Professionals, Scholarship Seekers",
+      topic: "Scholarship Mentorship",
+      image: iyqnaImg,
+      description: `Thrilled to have been part of the Young Professional Mentorship Program (YPMP) panel as a speaker, sharing insights alongside brilliant minds like Pech Lim Gatluak, Robert Omwa, Esther Chebijira, and Olivia Brendah.\n\nAs an alumnus of YPMP, it was a full-circle moment to give back to a community that played a pivotal role in my growth. We dove into scholarship opportunities, General Scholarship Information, Academic Requirements & Preparation, Local Scholarships (Africa), International Scholarships, Application Process, Language Requirements, Financial Considerations, Field of Study Considerations, The wait (weight) after the application, Support and Resources, Alternative Funding Options, Special Circumstances, Technology and Digital Literacy. Because success is sweeter when we lift others along the way.\n\nHuge thanks to Agnes Igoye (Chief Mentor) for the incredible platform. To every young person: Never settle, keep going, keep growing! 🌱`,
+      highlights: [
+        "Panel Speaker",
+        "Scholarship Opportunities",
+        "Academic Preparation",
+        "Mentorship Matters",
+        "Alumni Impact"
+      ]
+    },
+    {
+      id: 2,
+      title: "A Cloud Computing Security Assessment Framework for FINTECHs in Kenya - Cyber Carnival 2025",
+      type: "conference",
+      organization: "Africa Cyber Defense Forum, ACDF®",
+      location: "Nairobi Street Kitchen & Kalamata Restaurant, Nairobi, Kenya",
+      date: "2025-06-12",
+      audience: "Industry Leaders, Policymakers, Technologists, Business Leaders",
+      topic: "Cloud Security & FinTech",
+      image: image2,
+      description: `On June 12th, 2025, I had the incredible opportunity to present my research on \"A Cloud Computing Security Assessment Framework for FINTECHs in Kenya\" at the Cyber Carnival 2025, hosted by the Africa Cyber Defense Forum, ACDF®, at Nairobi Street Kitchen & Kalamata Restaurant. This framework addresses the critical gap in tailored cloud security standards for Kenyan FinTechs, integrating global 🌍 best practices with local regulatory requirements like Kenya’s Data Protection Act! 📜. Through surveys and experimental simulations using OwnCloud☁️, the study highlights key vulnerabilities, such as insider threats and data retention risks, and proposes actionable metrics to strengthen cloud security. The response from industry leaders and peers was overwhelmingly positive, reinforcing the urgent need for scalable, context-aware solutions in our rapidly evolving digital landscape...\n\nA heartfelt thank you to Africa Cyber Defense Forum, ACDF®, for this transformative platform, where policymakers, technologists, and business leaders collaborate to shape Africa’s cybersecurity future 💡. Special gratitude to the attendees whose insights enriched the discussion. As cyber threats in East Africa surge by 50 %+ 📈, frameworks like this are vital to safeguarding financial innovation while fostering trust 🛡️...\n\nLet’s keep the conversation going, reach out if you’d like to explore how this framework can empower your organization or collaborate on securing Africa’s digital economy🤝 ...`,
+      highlights: [
+        "Conference Speaker",
+        "Cloud Security Research",
+        "FinTech Innovation",
+        "Cybersecurity Frameworks",
+        "Industry Collaboration"
+      ]
+    },
+    {
+      id: 3,
+      title: "Kirinyaga University 8th Annual International Conference",
+      type: "conference",
+      organization: "Kirinyaga University",
+      location: "Virtual (Kenya)",
+      date: "2025-03-26",
+      audience: "Academics, Researchers, Industry Experts, Policy Makers",
+      topic: "Innovation & Technology",
+      image: image3,
+      description: `I’m thrilled to share my experience at the Kirinyaga University 8th Annual International Conference, held virtually on March 26-27, 2025, under the theme \"Integration of Innovation and Technology for Sustainable Interdisciplinary Collaboration.\"\n\nThe conference kicked off with an inspiring keynote by Benson MULEMI, PhD, who delved into \"Grants Mobilization as a Catalyst for Innovation: Leveraging Multidisciplinary Collaboration for Sustainable Research Impact.\" His insights underscored the transformative power of cross-disciplinary partnerships in securing grants and driving impactful research, a timely reminder of how collaboration fuels progress in our fast-evolving technological landscape.\n\nI was honored to present two research papers in the ICT and Digital Transformation category, addressing critical challenges and solutions in Kenya’s FinTech sector:\n\n👨🏽‍💻 Development and Evaluation of a Cloud Security Framework for Kenyan FinTechs (https://lnkd.in/e-6TxGSp)\n\n👨🏽‍💻 Cloud Security Challenges and Assessment Framework for Kenyan FinTechs (https://lnkd.in/eDGHc2gm)\n\nThese papers explore actionable frameworks to bolster cybersecurity resilience in FinTech, a sector pivotal to Kenya’s digital economy. The discussions that followed were incredibly enriching, with peers and experts sharing perspectives on scalability, regulatory alignment, and emerging threats like AI-driven fraud.\n\nBeyond my presentations, I had the privilege of engaging with groundbreaking work across diverse fields:\n\n🍎 AI in Agriculture: Innovative machine learning models aimed at boosting crop productivity and sustainability, showcasing how technology can revolutionize farming in Africa.\n\n🩺 Health Tech Breakthroughs: Researchers demonstrated how tech can bridge gaps in healthcare access and quality from low-cost malaria diagnostics to AI-driven nursing education advancements.\n\n💰 Sustainable Finance: Dynamic panel debates explored the intersection of green investments, regulatory frameworks, and ethical financial practices, which are critical topics for emerging economies.\n\nA huge thank you to Kirinyaga University for organizing such an insightful hybrid conference, proving that virtual platforms can foster deep, global collaboration.\n\nAs we navigate the Fourth Industrial Revolution, conferences like these are vital for bridging academia, industry, and policy, turning research into real-world solutions. Grateful for the chance to contribute and learn! ...`,
+      highlights: [
+        "Conference Speaker",
+        "Cloud Security Research",
+        "AI in Agriculture",
+        "Health Tech Breakthroughs",
+        "Sustainable Finance"
+      ]
+    },
+    {
+      id: 4,
+      title: "YPMP INFO SESSION",
+      type: "mentorship",
+      organization: "Young Professional Mentorship Program (YPMP)",
+      location: "Online",
+      date: "2024-12-27",
+      audience: "Young Professionals, Students",
+      topic: "Mentorship & Info Session",
+      image: image4,
+      description: `Participated as a speaker in the YPMP Info Session, sharing insights and guidance with young professionals and students on career development, mentorship, and opportunities within the YPMP community. The session fostered engagement, Q&A, and networking among attendees, supporting the next generation of leaders.`,
+      highlights: [
+        "Info Session Speaker",
+        "Mentorship Guidance",
+        "Career Development",
+        "Community Engagement",
+        "Q&A Session"
+      ]
+    },
+    {
+      id: 5,
+      title: "Is the YPMP Program Worth my Time?",
+      type: "mentorship",
+      organization: "Young Professional Mentorship Program (YPMP)",
+      location: "Online",
+      date: "2023-12-02",
+      audience: "Young Professionals, Students",
+      topic: "Mentorship Experience",
+      image: image5,
+      description: `Served as a panelist and mentor in the YPMP session titled 'Is the YPMP Program Worth my Time?', sharing personal experiences, program benefits, and answering questions from prospective and current members. The session provided valuable insights into the impact and opportunities offered by YPMP, helping attendees make informed decisions about their mentorship journey.`,
+      highlights: [
+        "Panelist & Mentor",
+        "Mentorship Experience",
+        "Program Impact",
+        "Q&A Session",
+        "Community Engagement"
+      ]
+    },
+    {
+      id: 6,
+      title: "Digital Literacy",
+      type: "training",
+      organization: "Ministry of Education, State Department for Basic Education",
+      location: "Kenya (Various Schools)",
+      date: "2023",
+      audience: "Teachers, Pupils, Training Participants",
+      topic: "ICT Training & Digital Literacy",
+      image: image6,
+      description: `In 2023, I offered transformative ICT training and Digital Literacy programs, empowering teachers, pupils, and training participants to navigate the ever-evolving landscape of technology with confidence and mastery. These initiatives enabled schools to improve their use of digital learning and helped participants unlock the limitless potential of the digital age.`,
+      highlights: [
+        "ICT Training Facilitator",
+        "Digital Literacy Program",
+        "Teacher Empowerment",
+        "Pupil Engagement",
+        "School Improvement"
+      ]
+    },
+    // --- Upcoming events (dynamic, will move to past when endDate/date is in the past) ---
+   
   ];
 
   // Split events into past, active, and upcoming based on today's date
