@@ -512,7 +512,7 @@ ${inviteForm.name}
           <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
             <CardContent sx={{ p: 4, textAlign: 'center' }}>
               <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
-                Speaking Statistics
+                Engagements Statistics
               </Typography>
               <Grid container spacing={2}>
                 <Grid item xs={4}>
@@ -634,7 +634,7 @@ ${inviteForm.name}
             {activeTab === 0 && (
               <Box sx={{ p: 3 }}>
                 <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
-                  Recent Speaking Engagements
+                  Recent Engagements
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   {pastEvents.map((event) => (
@@ -1019,7 +1019,7 @@ ${inviteForm.name}
               {activeTab === 0 && (
                 <Box>
                   <Typography variant="h6" fontWeight={600} sx={{ mb: 3 }}>
-                    Recent Speaking Engagements
+                    Recent Engagements
                   </Typography>
                   <Grid container spacing={3}>
                     {pastEvents.map((event) => (
@@ -1357,7 +1357,7 @@ ${inviteForm.name}
               <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
                 <CardContent sx={{ textAlign: 'center' }}>
                   <Typography variant="h6" fontWeight={600} sx={{ mb: 2 }}>
-                    Speaking Statistics
+                    Engagements Statistics
                   </Typography>
                   <Grid container spacing={2}>
                     <Grid item xs={6}>

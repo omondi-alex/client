@@ -357,6 +357,36 @@ const ProfileDashboard = () => {
                 </Typography>
               </Box>
 
+                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ 
+                      width: 32, 
+                      height: 32, 
+                      borderRadius: '50%', 
+                      background: '#2563eb',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'white'
+                    }}>
+                      <WorkIcon sx={{ fontSize: 16 }} />
+                    </Box>
+                    <Box>
+                      <Typography fontWeight={600}>Lecturer</Typography>
+                      <Typography variant="caption" color="text.secondary">Kirinyaga University • 2025-09 to date</Typography>
+                    </Box>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                    • Web Development<br/>
+                    • Object Oriented Analysis and Design
+                  
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+
                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -599,6 +629,36 @@ const ProfileDashboard = () => {
               </Box>
               
               <Box sx={{ maxHeight: 400, overflowY: 'auto', pr: 1 }}>
+
+                 <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                      <Box sx={{ 
+                        width: 32, 
+                        height: 32, 
+                        borderRadius: '50%', 
+                        background: '#f59e0b',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white'
+                      }}>
+                        <VerifiedIcon sx={{ fontSize: 16 }} />
+                      </Box>
+                      <Box>
+                        <Typography fontWeight={600}>Business Management</Typography>
+                        <Typography variant="caption" color="text.secondary">IIAfrica • 2025-08</Typography>
+                      </Box>
+                    </Box>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                      Skills in business and data analytics, leadership, and problem-solving, equipping me with the tools to bridge technology, business strategy, and innovation.
+
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+
                 <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
                   <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -1046,6 +1106,47 @@ const ProfileDashboard = () => {
                   InputProps={{ readOnly: true }}
                 />
                 <Box sx={{ maxHeight: 420, overflowY: 'auto', pr: 1 }}>
+
+                   {/* Experience -1: Kirinyaga University (current) */}
+
+                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
+                        <TextField fullWidth value="Lecturer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
+                        <TextField fullWidth value="Kirinyaga University" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
+                        <TextField fullWidth value="Part-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
+                        <TextField fullWidth value="Kirinyaga, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
+                        <TextField fullWidth value="2025-09" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
+                        <TextField fullWidth value="To date" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
+                        <Box sx={{ pl: 2 }}>
+                          <ul style={{ margin: 0, paddingLeft: 18 }}>
+                            <li>Web Development</li>
+                            <li>Object-Oriented Analysis and Design</li>
+                           
+                          </ul>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Box>
                   {/* Experience 0: Platforms Developer at Agriwatt Hub Limited (current) */}
 
                    <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
@@ -1342,6 +1443,54 @@ Framework for FINTECHs in Kenya." sx={{ mb: 2 }} InputProps={{ readOnly: true }}
                   </Box>
                 </Box>
                 <Box sx={{ maxHeight: 420, overflowY: 'auto', pr: 1 }}>
+                  {/* Certification 0 */}
+                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
+                        <TextField fullWidth value="Certificate in Business Management" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
+                        <TextField fullWidth value="Industry Immersion Africa (IIAfrica)" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
+                        <TextField fullWidth value="2025-08" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
+                        <TextField fullWidth value="Skills in business and data analytics, leadership, and problem-solving, equipping me with the tools to bridge technology, business strategy, and innovation." sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
+                        <TextField fullWidth value="N/A" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
+                        <TextField
+                          fullWidth
+                          value="https://drive.google.com/file/d/17VZcj5__krvtc4H54ratUZXlQwC0gOiB/view?usp=sharing"
+                          InputProps={{ readOnly: true }}
+                          sx={{ 
+                            cursor: 'pointer',
+                            mb: 2,
+                            '& .MuiInputBase-input': {
+                              color: '#2563eb',
+                              textDecoration: 'underline',
+                              cursor: 'pointer',
+                              '&:hover': {
+                                color: '#1d4ed8',
+                                textDecoration: 'underline',
+                              }
+                            }
+                          }}
+                          onClick={() => window.open('https://drive.google.com/file/d/17VZcj5__krvtc4H54ratUZXlQwC0gOiB/view?usp=sharing', '_blank', 'noopener,noreferrer')}
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+
                   {/* Certification 1 */}
                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
                     <Grid container spacing={2}>
