@@ -324,7 +324,7 @@ const ProfileDashboard = () => {
                 border: '1px solid #dbeafe'
               }}>
                 <Typography variant="body1" sx={{ lineHeight: 1.7, color: '#374151' }}>
-                  Hello, I'm Omondi Alex, a highly skilled and versatile ICT professional with a strong focus on cybersecurity and software development. I combine practical security solutions with a passion for education. My academic background includes an MSc in Computer Security from The African Institute for Mathematical Sciences Senegal (AIMS-SN), a Bachelor of Computer Science from Kirinyaga University, Kenya, and various certifications from ALX Africa and the Google Africa Developer Training Program.
+                  I am a dynamic technology professional who thrives at the intersection of innovation, security, and empowerment. Whether I'm architecting a secure cloud application, mentoring aspiring talent, publishing research, or streamlining operations, my core mission is to build robust, efficient, and impactful solutions. I bring a unique blend of deep technical expertise in software engineering and cybersecurity, a proven academic foundation, and a passionate, collaborative spirit to every project and team. Let's connect and create something remarkable together.
                 </Typography>
               </Box>
             </CardContent>
