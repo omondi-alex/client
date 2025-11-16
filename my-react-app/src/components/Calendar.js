@@ -367,7 +367,7 @@ ${bookingForm.name}
                             </ListItemIcon>
                             <ListItemText 
                               primary="Email" 
-                              secondary="alex.omondi@aims-senegal.org"
+                              secondary="omondialex3517@gmail.com"
                             />
                           </ListItem>
                           <ListItem>
