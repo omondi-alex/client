@@ -517,10 +517,32 @@ ${inviteForm.name}
   };
 
   return (
-    <Box sx={{ flexGrow: 1, minHeight: '90vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+    <Box sx={{ 
+      flexGrow: 1, 
+      minHeight: '90vh', 
+      display: 'flex', 
+      alignItems: 'flex-start', 
+      justifyContent: 'center', 
+      overflowX: 'hidden', 
+      width: '100%', 
+      maxWidth: '100vw',
+      boxSizing: 'border-box'
+    }}>
       {isMobile ? (
         // Mobile Layout
-        <Container maxWidth="sm" sx={{ px: 2, mt: 10 }}>
+        <Container 
+          maxWidth="sm" 
+          disableGutters={false}
+          sx={{ 
+            px: { xs: 1, sm: 2 }, 
+            mt: 10, 
+            width: '100%', 
+            maxWidth: '100%', 
+            boxSizing: 'border-box',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        >
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Typography variant="h4" fontWeight={700} sx={{ mb: 2, color: '#1f2937' }}>
@@ -546,65 +568,75 @@ ${inviteForm.name}
           </Box>
 
           {/* Quick Stats */}
-          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
-            <CardContent sx={{ p: 4, textAlign: 'center' }}>
-              <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
+          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
+            <CardContent sx={{ p: { xs: 2, sm: 4 }, textAlign: 'center', width: '100%', boxSizing: 'border-box' }}>
+              <Typography variant="h6" fontWeight={600} sx={{ mb: { xs: 2, sm: 3 }, color: '#1f2937', fontSize: { xs: '1rem', sm: '1.25rem' } }}>
                 Engagements Statistics
               </Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={4}>
+              <Grid container spacing={{ xs: 1, sm: 2 }} sx={{ width: '100%', margin: 0 }}>
+                <Grid item xs={4} sx={{ minWidth: 0 }}>
                   <Box sx={{ 
                     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
-                    borderRadius: 3, 
-                    p: 2, 
-                    color: 'white'
+                    borderRadius: { xs: 2, sm: 3 }, 
+                    p: { xs: 1, sm: 2 }, 
+                    color: 'white',
+                    width: '100%',
+                    boxSizing: 'border-box'
                   }}>
-                    <Typography variant="h5" fontWeight={700}>{pastEvents.length}</Typography>
-                    <Typography variant="caption">Past Events</Typography>
+                    <Typography variant="h5" fontWeight={700} sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>{pastEvents.length}</Typography>
+                    <Typography variant="caption" sx={{ fontSize: { xs: '0.65rem', sm: '0.75rem' }, display: 'block', mt: 0.5 }}>Past Events</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} sx={{ minWidth: 0 }}>
                   <Box sx={{ 
                     background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', 
-                    borderRadius: 3, 
-                    p: 2, 
-                    color: 'white'
+                    borderRadius: { xs: 2, sm: 3 }, 
+                    p: { xs: 1, sm: 2 }, 
+                    color: 'white',
+                    width: '100%',
+                    boxSizing: 'border-box'
                   }}>
-                    <Typography variant="h5" fontWeight={700}>{activeEvents.length}</Typography>
-                    <Typography variant="caption">Active Events</Typography>
+                    <Typography variant="h5" fontWeight={700} sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>{activeEvents.length}</Typography>
+                    <Typography variant="caption" sx={{ fontSize: { xs: '0.65rem', sm: '0.75rem' }, display: 'block', mt: 0.5 }}>Active Events</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} sx={{ minWidth: 0 }}>
                   <Box sx={{ 
                     background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)', 
-                    borderRadius: 3, 
-                    p: 2, 
-                    color: 'white'
+                    borderRadius: { xs: 2, sm: 3 }, 
+                    p: { xs: 1, sm: 2 }, 
+                    color: 'white',
+                    width: '100%',
+                    boxSizing: 'border-box'
                   }}>
-                    <Typography variant="h5" fontWeight={700}>{upcomingEvents.length}</Typography>
-                    <Typography variant="caption">Upcoming</Typography>
+                    <Typography variant="h5" fontWeight={700} sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>{upcomingEvents.length}</Typography>
+                    <Typography variant="caption" sx={{ fontSize: { xs: '0.65rem', sm: '0.75rem' }, display: 'block', mt: 0.5 }}>Upcoming</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={6} sx={{ minWidth: 0 }}>
                   <Box sx={{ 
                     background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', 
-                    borderRadius: 3, 
-                    p: 2, 
-                    color: 'white'
+                    borderRadius: { xs: 2, sm: 3 }, 
+                    p: { xs: 1, sm: 2 }, 
+                    color: 'white',
+                    width: '100%',
+                    boxSizing: 'border-box'
                   }}>
-                    <Typography variant="h5" fontWeight={700}>5+</Typography>
-                    <Typography variant="caption">Topics</Typography>
+                    <Typography variant="h5" fontWeight={700} sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>5+</Typography>
+                    <Typography variant="caption" sx={{ fontSize: { xs: '0.65rem', sm: '0.75rem' }, display: 'block', mt: 0.5 }}>Topics</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={6} sx={{ minWidth: 0 }}>
                   <Box sx={{ 
                     background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', 
-                    borderRadius: 3, 
-                    p: 2, 
-                    color: 'white'
+                    borderRadius: { xs: 2, sm: 3 }, 
+                    p: { xs: 1, sm: 2 }, 
+                    color: 'white',
+                    width: '100%',
+                    boxSizing: 'border-box'
                   }}>
-                    <Typography variant="h5" fontWeight={700}>5+</Typography>
-                    <Typography variant="caption">Event Types</Typography>
+                    <Typography variant="h5" fontWeight={700} sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>5+</Typography>
+                    <Typography variant="caption" sx={{ fontSize: { xs: '0.65rem', sm: '0.75rem' }, display: 'block', mt: 0.5 }}>Event Types</Typography>
                   </Box>
                 </Grid>
               </Grid>
@@ -612,8 +644,8 @@ ${inviteForm.name}
           </Card>
 
           {/* Speaking Topics */}
-          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
-            <CardContent sx={{ p: 4 }}>
+          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
+            <CardContent sx={{ p: 4, width: '100%' }}>
               <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
                 Speaking Topics
               </Typography>
@@ -643,8 +675,8 @@ ${inviteForm.name}
           </Card>
 
           {/* Event Types */}
-          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
-            <CardContent sx={{ p: 4 }}>
+          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
+            <CardContent sx={{ p: 4, width: '100%' }}>
               <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
                 Event Types
               </Typography>
@@ -660,8 +692,8 @@ ${inviteForm.name}
           </Card>
 
           {/* Tabs */}
-          <Paper elevation={3} sx={{ borderRadius: 4, overflow: 'hidden', mb: 3 }}>
-            <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)} variant="fullWidth">
+          <Paper elevation={3} sx={{ borderRadius: 4, overflow: 'hidden', mb: 3, width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
+            <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)} variant="fullWidth" sx={{ width: '100%', boxSizing: 'border-box' }}>
               <Tab label="Past Events" icon={<EventIcon />} />
               <Tab label="Active Events" icon={<ScheduleIcon />} />
               <Tab label="Upcoming Events" icon={<ScheduleIcon />} />
@@ -669,13 +701,13 @@ ${inviteForm.name}
 
             {/* Past Events Tab */}
             {activeTab === 0 && (
-              <Box sx={{ p: 3 }}>
+              <Box sx={{ p: { xs: 1.5, sm: 3 }, width: '100%', maxWidth: '100%', overflow: 'hidden', boxSizing: 'border-box' }}>
                 <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
                   Recent Engagements
                 </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, width: '100%', boxSizing: 'border-box' }}>
                   {pastEvents.map((event) => (
-                    <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+                    <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden', width: '100%', maxWidth: '100%', boxSizing: 'border-box', m: 0 }}>
                       {/* Event image */}
                       {getEventImage(event) && (
                         <Box sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #2563eb', cursor: 'pointer' }}
@@ -694,38 +726,38 @@ ${inviteForm.name}
                           />
                         </Box>
                       )}
-                      <CardContent sx={{ p: 3 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                          <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)), width: 40, height: 40 }}>
+                      <CardContent sx={{ p: { xs: 2, sm: 3 }, width: '100%', maxWidth: '100%', boxSizing: 'border-box', '&:last-child': { pb: { xs: 2, sm: 3 } } }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)), width: 40, height: 40, flexShrink: 0 }}>
                             {getEventTypeIcon(getEventType(event))}
                           </Avatar>
-                          <Box sx={{ flex: 1 }}>
-                            <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem' }}>
+                          <Box sx={{ flex: 1, minWidth: 0 }}>
+                            <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem', wordBreak: 'break-word' }}>
                               {getEventTitle(event)}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                               {getEventOrganization(event)}
                             </Typography>
                           </Box>
                         </Box>
                         
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                          <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <LocationIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                             {getEventLocation(event)}
                           </Typography>
                         </Box>
                         
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                          <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                             {renderEventDate(event)}
                           </Typography>
                         </Box>
                         
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                          <GroupIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <GroupIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                             {getEventAudience(event)}
                           </Typography>
                         </Box>
@@ -738,11 +770,11 @@ ${inviteForm.name}
                           sx={{ mb: 2 }}
                         />
                         
-                        <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151' }}>
+                        <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151', wordBreak: 'break-word' }}>
                           {getEventDescription(event).length > 200 ? `${getEventDescription(event).substring(0, 200)}...` : getEventDescription(event)}
                         </Typography>
                         
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, width: '100%', boxSizing: 'border-box' }}>
                           {getEventHighlights(event).slice(0, 3).map((highlight, index) => (
                             <Chip 
                               key={index} 
@@ -770,14 +802,14 @@ ${inviteForm.name}
 
             {/* Active Events Tab */}
             {activeTab === 1 && (
-              <Box sx={{ p: 3 }}>
+              <Box sx={{ p: { xs: 1.5, sm: 3 }, width: '100%', maxWidth: '100%', overflow: 'hidden', boxSizing: 'border-box' }}>
                 <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
                   Currently Active Events
                 </Typography>
                 {activeEvents.length > 0 ? (
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, width: '100%', boxSizing: 'border-box' }}>
                     {activeEvents.map((event) => (
-                      <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden', border: '3px solid #10b981' }}>
+                      <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden', border: '3px solid #10b981', width: '100%', maxWidth: '100%', boxSizing: 'border-box', m: 0 }}>
                         {/* Event image */}
                         {getEventImage(event) && (
                           <Box sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #10b981', cursor: 'pointer' }}
@@ -796,16 +828,16 @@ ${inviteForm.name}
                             />
                           </Box>
                         )}
-                        <CardContent sx={{ p: 3 }}>
-                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                            <Avatar sx={{ bgcolor: '#10b981', width: 40, height: 40 }}>
+                        <CardContent sx={{ p: { xs: 2, sm: 3 }, width: '100%', maxWidth: '100%', boxSizing: 'border-box', '&:last-child': { pb: { xs: 2, sm: 3 } } }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                            <Avatar sx={{ bgcolor: '#10b981', width: 40, height: 40, flexShrink: 0 }}>
                               <ScheduleIcon />
                             </Avatar>
-                            <Box sx={{ flex: 1 }}>
-                              <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem' }}>
+                            <Box sx={{ flex: 1, minWidth: 0 }}>
+                              <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem', wordBreak: 'break-word' }}>
                                 {getEventTitle(event)}
                               </Typography>
-                              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                                 {getEventOrganization(event)}
                               </Typography>
                             </Box>
@@ -813,36 +845,36 @@ ${inviteForm.name}
                               label="LIVE NOW" 
                               size="small"
                               color="success"
-                              sx={{ fontWeight: 700, fontSize: '0.7rem' }}
+                              sx={{ fontWeight: 700, fontSize: '0.7rem', flexShrink: 0 }}
                             />
                           </Box>
                           
-                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                            <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                            <LocationIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                               {getEventLocation(event)}
                             </Typography>
                           </Box>
                           
-                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                            <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                            <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                               {renderEventDate(event)}
                             </Typography>
                           </Box>
                           
-                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                            <GroupIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                            <GroupIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                               {getEventAudience(event)}
                             </Typography>
                           </Box>
                           
-                          <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151' }}>
-                            {getEventDescription(event)}
+                          <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151', wordBreak: 'break-word' }}>
+                            {getEventDescription(event).length > 200 ? `${getEventDescription(event).substring(0, 200)}...` : getEventDescription(event)}
                           </Typography>
                           
-                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, width: '100%', boxSizing: 'border-box' }}>
                             {getEventHighlights(event).slice(0, 3).map((highlight, index) => (
                               <Chip 
                                 key={index} 
@@ -881,11 +913,11 @@ ${inviteForm.name}
 
             {/* Upcoming Events Tab */}
             {activeTab === 2 && (
-              <Box sx={{ p: 3 }}>
+              <Box sx={{ p: { xs: 1.5, sm: 3 }, width: '100%', maxWidth: '100%', overflow: 'hidden', boxSizing: 'border-box' }}>
                 <Typography variant="h6" fontWeight={600} sx={{ mb: 3, color: '#1f2937' }}>
                   Upcoming Engagements
                 </Typography>
-                <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 4, minHeight: 80 }}>
+                <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 4, minHeight: 80, width: '100%', maxWidth: '100%' }}>
                   {/* Fireworks Animation */}
                   <Firework left={10} delay={0} color="#f59e0b" />
                   <Firework left={30} delay={0.3} color="#ef4444" />
@@ -920,9 +952,9 @@ ${inviteForm.name}
                     Invite Me to Speak
                   </Button>
                 </Box>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, width: '100%', boxSizing: 'border-box' }}>
                   {upcomingEvents.map((event) => (
-                    <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+                    <Card key={event.id} sx={{ borderRadius: 3, boxShadow: '0 8px 32px rgba(0,0,0,0.1)', overflow: 'hidden', width: '100%', maxWidth: '100%', boxSizing: 'border-box', m: 0 }}>
                       {getEventImage(event) && (
                         <Box
                           sx={{ width: '100%', height: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fff', borderBottom: '2px solid #2563eb', cursor: 'pointer' }}
@@ -941,45 +973,73 @@ ${inviteForm.name}
                           />
                         </Box>
                       )}
-                      <CardContent sx={{ p: 3 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                          <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)), width: 40, height: 40 }}>
+                      <CardContent sx={{ p: { xs: 2, sm: 3 }, width: '100%', maxWidth: '100%', boxSizing: 'border-box', '&:last-child': { pb: { xs: 2, sm: 3 } } }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <Avatar sx={{ bgcolor: getEventTypeColor(getEventType(event)), width: 40, height: 40, flexShrink: 0 }}>
                             {getEventTypeIcon(getEventType(event))}
                           </Avatar>
-                          <Box sx={{ flex: 1 }}>
-                            <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem' }}>
+                          <Box sx={{ flex: 1, minWidth: 0 }}>
+                            <Typography variant="h6" fontWeight={600} sx={{ mb: 0.5, fontSize: '1.1rem', wordBreak: 'break-word' }}>
                               {getEventTitle(event)}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                               {getEventOrganization(event)}
                             </Typography>
                           </Box>
                         </Box>
                         
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                          <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <LocationIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                             {getEventLocation(event)}
                           </Typography>
                         </Box>
                         
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                          <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                             {renderEventDate(event)}
                           </Typography>
                         </Box>
                         
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                          <GroupIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
-                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, width: '100%', boxSizing: 'border-box' }}>
+                          <GroupIcon sx={{ fontSize: 16, color: 'text.secondary', flexShrink: 0 }} />
+                          <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.9rem', wordBreak: 'break-word' }}>
                             {getEventAudience(event)}
                           </Typography>
                         </Box>
                         
-                        <Typography variant="body2" sx={{ lineHeight: 1.6, color: '#374151' }}>
-                          {getEventDescription(event)}
+                        <Chip 
+                          label={getEventTopic(event)} 
+                          size="small"
+                          color="primary"
+                          variant="outlined"
+                          sx={{ mb: 2 }}
+                        />
+                        
+                        <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.6, color: '#374151', wordBreak: 'break-word' }}>
+                          {getEventDescription(event).length > 200 ? `${getEventDescription(event).substring(0, 200)}...` : getEventDescription(event)}
                         </Typography>
+                        
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, width: '100%', boxSizing: 'border-box' }}>
+                          {getEventHighlights(event).slice(0, 3).map((highlight, index) => (
+                            <Chip 
+                              key={index} 
+                              label={highlight} 
+                              size="small" 
+                              variant="outlined"
+                              sx={{ fontSize: '0.7rem' }}
+                            />
+                          ))}
+                          {getEventHighlights(event).length > 3 && (
+                            <Chip 
+                              label={`+${getEventHighlights(event).length - 3} more`} 
+                              size="small" 
+                              variant="outlined"
+                              sx={{ fontSize: '0.7rem' }}
+                            />
+                          )}
+                        </Box>
                       </CardContent>
                     </Card>
                   ))}
@@ -989,8 +1049,8 @@ ${inviteForm.name}
           </Paper>
 
           {/* Contact for Speaking */}
-          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
-            <CardContent sx={{ p: 4, textAlign: 'center' }}>
+          <Card sx={{ borderRadius: 4, boxShadow: '0 20px 40px rgba(0,0,0,0.1)', mb: 3, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
+            <CardContent sx={{ p: 4, textAlign: 'center', width: '100%' }}>
               <Typography variant="h6" fontWeight={600} sx={{ mb: 2, color: '#1f2937' }}>
                 Invite Me to Speak
               </Typography>
