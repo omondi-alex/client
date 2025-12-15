@@ -5,6 +5,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import GoogleIcon from '@mui/icons-material/Google';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -1026,14 +1028,25 @@ const ProfileDashboard = () => {
                   <TextField label={<><b>Full Name</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="Omondi Alex Omieno" />
                   <TextField label="LinkedIn Link" fullWidth margin="normal" value="https://www.linkedin.com/in/omondi-alex/" InputProps={{ startAdornment: <InputAdornment position="start"><LinkedInIcon /></InputAdornment> }} />
                   <TextField label="Alternative Email" fullWidth margin="normal" value="alex.omondi@aims-senegal.org" InputProps={{ startAdornment: <InputAdornment position="start"><EmailIcon /></InputAdornment> }} />
-                  <TextField label="Facebook Link" fullWidth margin="normal" placeholder="Enter Facebook profile link" />
-                  <TextField label="Instagram Link" fullWidth margin="normal" placeholder="Enter Instagram profile link" />
+                  <TextField
+                    label="Google Scholar"
+                    fullWidth
+                    margin="normal"
+                    value="https://scholar.google.com/citations?user=9_d4Jo8AAAAJ&hl=en&authuser=4"
+                    InputProps={{ startAdornment: <InputAdornment position="start"><GoogleIcon /></InputAdornment> }}
+                  />
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <TextField label={<><b>Email</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="omondialex3517@gmail.com" />
                   <TextField label={<><b>WhatsApp Number</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="+254 707 750879" InputProps={{ startAdornment: <InputAdornment position="start"><WhatsAppIcon /></InputAdornment> }} />
                   <TextField label="Address" fullWidth margin="normal" value="Nairobi, Kenya" InputProps={{ startAdornment: <InputAdornment position="start"><LocationOnIcon /></InputAdornment> }} />
-                  <TextField label="Twitter Link" fullWidth margin="normal" placeholder="Enter Twitter profile link" />
+                  <TextField
+                    label="GitHub"
+                    fullWidth
+                    margin="normal"
+                    value="https://github.com/omondi-alex"
+                    InputProps={{ startAdornment: <InputAdornment position="start"><GitHubIcon /></InputAdornment> }}
+                  />
                 </Grid>
               </Grid>
             </TabPanel>
