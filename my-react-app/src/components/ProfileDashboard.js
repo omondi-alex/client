@@ -406,7 +406,7 @@ const ProfileDashboard = () => {
                     </Box>
                     <Box>
                       <Typography fontWeight={600}>Platforms Developer</Typography>
-                      <Typography variant="caption" color="text.secondary">Agriwatt Hub Limited • 2025-08 to date</Typography>
+                      <Typography variant="caption" color="text.secondary">Agriwatt Hub Limited • 2025-08 to 2025-11</Typography>
                     </Box>
                   </Box>
                 </AccordionSummary>
@@ -1160,51 +1160,8 @@ const ProfileDashboard = () => {
                       </Grid>
                     </Grid>
                   </Box>
-                  {/* Experience 0: Platforms Developer at Agriwatt Hub Limited (current) */}
 
-                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
-                        <TextField fullWidth value="Platforms Developer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
-                        <TextField fullWidth value="Agriwatt Hub Limited" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Part-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Nairobi, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2025-08" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="To date" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
-                        <Box sx={{ pl: 2 }}>
-                          <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Graphics Design</li>
-                            <li>Virtual Assistant</li>
-                            <li>Create data visualization dashboards for farm analytics</li>
-                            <li>Develop mobile data collection modules (online-first approach)</li>
-                            <li>Collaborate on website improvements and user experience enhancement</li>
-                            <li>Build farmer feedback systems (SMS/USSD platforms)</li>
-
-                          </ul>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  {/* Experience 1: ICT Support Volunteer (current) */}
+                   {/* Experience 1: ICT Support Volunteer (current) */}
                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
                     <Grid container spacing={2}>
                       <Grid item xs={12} md={6}>
@@ -1235,14 +1192,97 @@ const ProfileDashboard = () => {
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
                         <Box sx={{ pl: 2 }}>
                           <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Manage the website</li>
-                            <li>Design graphics</li>
-                            <li>Serve as a virtual assistant</li>
+                            <li>Website Management</li>
+                            <li>Graphics Design</li>
+                            <li>Virtual Assistant</li>
                           </ul>
                         </Box>
                       </Grid>
                     </Grid>
                   </Box>
+
+
+                  {/* Experience 0: Platforms Developer at Agriwatt Hub Limited (current) */}
+
+                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
+                        <TextField fullWidth value="Platforms Developer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
+                        <TextField fullWidth value="Agriwatt Hub Limited" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
+                        <TextField fullWidth value="Part-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
+                        <TextField fullWidth value="Nairobi, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
+                        <TextField fullWidth value="2025-08" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
+                        <TextField fullWidth value="2025-11" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                  {/* Experience 2: Software Security Engineer (recent ended) */}
+                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
+                        <TextField fullWidth value="Software Security Engineer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
+                        <TextField fullWidth value="Enovise Group" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
+                        <TextField fullWidth value="Full-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
+                        <TextField fullWidth value="Nairobi,Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
+                        <TextField fullWidth value="2024-03" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
+                        <TextField fullWidth value="2025-06" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
+                        <Box sx={{ pl: 2 }}>
+                          <ul style={{ margin: 0, paddingLeft: 18 }}>
+                            <li>Designed and implemented security solutions to monitor and protect cloud and on-prem infrastructure.</li>
+                            <li>Created software tools to simplify and speed incident investigation.</li>
+                            <li>Monitored security logs and responded to security incidents.</li>
+                            <li>Analyzed, designed, developed, and delivered solutions to stop adversaries.</li>
+                            <li>Identified and automated threat detection.</li>
+                            <li>Managed vulnerabilities.</li>
+                        
+                      <Grid item xs={12}>
+                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
+                        <Box sx={{ pl: 2 }}>
+                          <ul style={{ margin: 0, paddingLeft: 18 }}>
+                            <li>Graphics Design</li>
+                            <li>Virtual Assistant</li>
+                            <li>Social Media Management</li>
+                            <li>Collaborated on website improvements and user experience enhancement</li>
+
+                          </ul>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                 
                   {/* Experience 2: Software Security Engineer (recent ended) */}
                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
                     <Grid container spacing={2}>
