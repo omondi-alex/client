@@ -1230,6 +1230,8 @@ const ProfileDashboard = () => {
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
                         <TextField fullWidth value="2025-11" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
                       </Grid>
+                    </Grid>
+                  </Box>
                   {/* Experience 2: Software Security Engineer (recent ended) */}
                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
                     <Grid container spacing={2}>
@@ -1267,7 +1269,9 @@ const ProfileDashboard = () => {
                             <li>Analyzed, designed, developed, and delivered solutions to stop adversaries.</li>
                             <li>Identified and automated threat detection.</li>
                             <li>Managed vulnerabilities.</li>
-                        
+                          </ul>
+                        </Box>
+                      </Grid>
                       <Grid item xs={12}>
                         <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
                         <Box sx={{ pl: 2 }}>
