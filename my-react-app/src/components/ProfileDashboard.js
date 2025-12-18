@@ -945,15 +945,51 @@ const ProfileDashboard = () => {
                     </Grid>
                     <Grid item xs={7}>
                       {item.label === 'LinkedIn' ? (
-                        <IconButton
+                        <Box
+                          component="a"
                           href={item.value}
                           target="_blank"
                           rel="noopener noreferrer"
-                          size="small"
-                          sx={{ color: '#2563eb', p: 0.5, ml: 3 }}
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 1.5,
+                            py: 0.75,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 500,
+                            fontSize: isMobile ? '0.85rem' : '0.9rem',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0077b5 0%, #005885 100%)',
+                              borderColor: '#0077b5',
+                              transform: 'translateY(-1px)',
+                              boxShadow: '0 4px 12px rgba(0, 119, 181, 0.25)',
+                              color: '#fff',
+                              '& .link-icon': { 
+                                color: '#fff',
+                                transform: 'scale(1.1)'
+                              }
+                            }
+                          }}
                         >
-                          <LinkedInIcon fontSize="medium" />
-                        </IconButton>
+                          <LinkedInIcon 
+                            className="link-icon"
+                            fontSize="small" 
+                            sx={{ 
+                              transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                              fontSize: isMobile ? '18px' : '20px'
+                            }} 
+                          />
+                          <Typography component="span" sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
+                            View Profile
+                          </Typography>
+                        </Box>
                       ) : item.label === 'Email' ? (
                         <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 400, py: 0.5, fontSize: isMobile ? '0.85rem' : '1rem', wordBreak: 'break-all', overflowWrap: 'anywhere' }}>{item.value}</Typography>
                       ) : (
@@ -1026,27 +1062,313 @@ const ProfileDashboard = () => {
               <Grid container spacing={3} sx={{ mt: 0.5 }}>
                 <Grid item xs={12} md={6}>
                   <TextField label={<><b>Full Name</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="Omondi Alex Omieno" />
-                  <TextField label="LinkedIn Link" fullWidth margin="normal" value="https://www.linkedin.com/in/omondi-alex/" InputProps={{ startAdornment: <InputAdornment position="start"><LinkedInIcon /></InputAdornment> }} />
+                  
+                  {/* LinkedIn Link - Premium Clickable Card */}
+                  <Box sx={{ mt: 2.5, mb: 1 }}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      LinkedIn
+                    </Typography>
+                    <Box
+                      component="a"
+                      href="https://www.linkedin.com/in/omondi-alex/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        p: 2.5,
+                        borderRadius: 3,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        border: '2px solid #e2e8f0',
+                        textDecoration: 'none',
+                        color: '#1e293b',
+                        transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                        cursor: 'pointer',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        '&::before': {
+                          content: '""',
+                          position: 'absolute',
+                          top: 0,
+                          left: '-100%',
+                          width: '100%',
+                          height: '100%',
+                          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                          transition: 'left 0.5s ease',
+                        },
+                        '&:hover': {
+                          background: 'linear-gradient(135deg, #0077b5 0%, #005885 100%)',
+                          borderColor: '#0077b5',
+                          transform: 'translateY(-3px) scale(1.01)',
+                          boxShadow: '0 8px 24px rgba(0, 119, 181, 0.3)',
+                          '&::before': {
+                            left: '100%',
+                          },
+                          '& .link-icon-wrapper': { 
+                            background: 'rgba(255, 255, 255, 0.2)',
+                            transform: 'scale(1.1) rotate(5deg)'
+                          },
+                          '& .link-icon': { 
+                            color: '#fff',
+                            transform: 'scale(1.15)'
+                          },
+                          '& .link-text': { 
+                            color: '#fff', 
+                            fontWeight: 600 
+                          },
+                          '& .link-arrow': {
+                            opacity: 1,
+                            transform: 'translateX(4px)'
+                          }
+                        }
+                      }}
+                    >
+                      <Box
+                        className="link-icon-wrapper"
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #0077b5 0%, #005885 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                          boxShadow: '0 4px 12px rgba(0, 119, 181, 0.2)'
+                        }}
+                      >
+                        <LinkedInIcon className="link-icon" sx={{ fontSize: 24, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography className="link-text" sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                          Connect on LinkedIn
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem', transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                          Professional network
+                        </Typography>
+                      </Box>
+                      <Box 
+                        className="link-arrow"
+                        sx={{ 
+                          opacity: 0.4,
+                          transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                          color: 'inherit'
+                        }}
+                      >
+                        →
+                      </Box>
+                    </Box>
+                  </Box>
+
                   <TextField label="Alternative Email" fullWidth margin="normal" value="alex.omondi@aims-senegal.org" InputProps={{ startAdornment: <InputAdornment position="start"><EmailIcon /></InputAdornment> }} />
-                  <TextField
-                    label="Google Scholar"
-                    fullWidth
-                    margin="normal"
-                    value="https://scholar.google.com/citations?user=9_d4Jo8AAAAJ&hl=en&authuser=4"
-                    InputProps={{ startAdornment: <InputAdornment position="start"><GoogleIcon /></InputAdornment> }}
-                  />
+                  
+                  {/* Google Scholar Link - Premium Clickable Card */}
+                  <Box sx={{ mt: 2.5, mb: 1 }}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Google Scholar
+                    </Typography>
+                    <Box
+                      component="a"
+                      href="https://scholar.google.com/citations?user=9_d4Jo8AAAAJ&hl=en&authuser=4"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        p: 2.5,
+                        borderRadius: 3,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        border: '2px solid #e2e8f0',
+                        textDecoration: 'none',
+                        color: '#1e293b',
+                        transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                        cursor: 'pointer',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        '&::before': {
+                          content: '""',
+                          position: 'absolute',
+                          top: 0,
+                          left: '-100%',
+                          width: '100%',
+                          height: '100%',
+                          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                          transition: 'left 0.5s ease',
+                        },
+                        '&:hover': {
+                          background: 'linear-gradient(135deg, #4285f4 0%, #1a73e8 100%)',
+                          borderColor: '#4285f4',
+                          transform: 'translateY(-3px) scale(1.01)',
+                          boxShadow: '0 8px 24px rgba(66, 133, 244, 0.3)',
+                          '&::before': {
+                            left: '100%',
+                          },
+                          '& .link-icon-wrapper': { 
+                            background: 'rgba(255, 255, 255, 0.2)',
+                            transform: 'scale(1.1) rotate(-5deg)'
+                          },
+                          '& .link-icon': { 
+                            color: '#fff',
+                            transform: 'scale(1.15)'
+                          },
+                          '& .link-text': { 
+                            color: '#fff', 
+                            fontWeight: 600 
+                          },
+                          '& .link-arrow': {
+                            opacity: 1,
+                            transform: 'translateX(4px)'
+                          }
+                        }
+                      }}
+                    >
+                      <Box
+                        className="link-icon-wrapper"
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #4285f4 0%, #1a73e8 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                          boxShadow: '0 4px 12px rgba(66, 133, 244, 0.2)'
+                        }}
+                      >
+                        <GoogleIcon className="link-icon" sx={{ fontSize: 24, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography className="link-text" sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                          View Research Profile
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem', transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                          Academic publications
+                        </Typography>
+                      </Box>
+                      <Box 
+                        className="link-arrow"
+                        sx={{ 
+                          opacity: 0.4,
+                          transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                          color: 'inherit'
+                        }}
+                      >
+                        →
+                      </Box>
+                    </Box>
+                  </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <TextField label={<><b>Email</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="omondialex3517@gmail.com" />
                   <TextField label={<><b>WhatsApp Number</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="+254 707 750879" InputProps={{ startAdornment: <InputAdornment position="start"><WhatsAppIcon /></InputAdornment> }} />
                   <TextField label="Address" fullWidth margin="normal" value="Nairobi, Kenya" InputProps={{ startAdornment: <InputAdornment position="start"><LocationOnIcon /></InputAdornment> }} />
-                  <TextField
-                    label="GitHub"
-                    fullWidth
-                    margin="normal"
-                    value="https://github.com/omondi-alex"
-                    InputProps={{ startAdornment: <InputAdornment position="start"><GitHubIcon /></InputAdornment> }}
-                  />
+                  
+                  {/* GitHub Link - Premium Clickable Card */}
+                  <Box sx={{ mt: 2.5, mb: 1 }}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      GitHub
+                    </Typography>
+                    <Box
+                      component="a"
+                      href="https://github.com/omondi-alex"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        p: 2.5,
+                        borderRadius: 3,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        border: '2px solid #e2e8f0',
+                        textDecoration: 'none',
+                        color: '#1e293b',
+                        transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                        cursor: 'pointer',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        '&::before': {
+                          content: '""',
+                          position: 'absolute',
+                          top: 0,
+                          left: '-100%',
+                          width: '100%',
+                          height: '100%',
+                          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                          transition: 'left 0.5s ease',
+                        },
+                        '&:hover': {
+                          background: 'linear-gradient(135deg, #24292e 0%, #1a1e22 100%)',
+                          borderColor: '#24292e',
+                          transform: 'translateY(-3px) scale(1.01)',
+                          boxShadow: '0 8px 24px rgba(36, 41, 46, 0.3)',
+                          '&::before': {
+                            left: '100%',
+                          },
+                          '& .link-icon-wrapper': { 
+                            background: 'rgba(255, 255, 255, 0.2)',
+                            transform: 'scale(1.1) rotate(5deg)'
+                          },
+                          '& .link-icon': { 
+                            color: '#fff',
+                            transform: 'scale(1.15)'
+                          },
+                          '& .link-text': { 
+                            color: '#fff', 
+                            fontWeight: 600 
+                          },
+                          '& .link-arrow': {
+                            opacity: 1,
+                            transform: 'translateX(4px)'
+                          }
+                        }
+                      }}
+                    >
+                      <Box
+                        className="link-icon-wrapper"
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #24292e 0%, #1a1e22 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                          boxShadow: '0 4px 12px rgba(36, 41, 46, 0.2)'
+                        }}
+                      >
+                        <GitHubIcon className="link-icon" sx={{ fontSize: 24, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography className="link-text" sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                          Explore My Code
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem', transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                          Open source projects
+                        </Typography>
+                      </Box>
+                      <Box 
+                        className="link-arrow"
+                        sx={{ 
+                          opacity: 0.4,
+                          transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                          color: 'inherit'
+                        }}
+                      >
+                        →
+                      </Box>
+                    </Box>
+                  </Box>
                 </Grid>
               </Grid>
             </TabPanel>
