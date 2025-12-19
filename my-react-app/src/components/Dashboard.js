@@ -129,7 +129,7 @@ const Dashboard = () => {
                     fontWeight: 500,
                     textShadow: '0 1px 4px rgba(0,0,0,0.15)',
                   }}>
-                    Cybersecurity, GRC & Software Engineering Specialist
+                    Security & Software Engineer
                   </Typography>
                   <Typography variant="body1" sx={{ 
                     opacity: 0.9, 

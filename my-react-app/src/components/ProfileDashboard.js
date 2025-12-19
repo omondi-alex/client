@@ -105,7 +105,7 @@ const ProfileDashboard = () => {
                 Omondi Alex
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 3, fontSize: '1.1rem' }}>
-                Cybersecurity, GRC & Software Engineering Specialist
+                Security & Software Engineer
               </Typography>
               
               {/* Quick Stats */}
