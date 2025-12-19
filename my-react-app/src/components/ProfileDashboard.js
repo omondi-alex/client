@@ -138,7 +138,7 @@ const ProfileDashboard = () => {
                     }}>
                       <WorkIcon sx={{ fontSize: 22 }} />
                     </Box>
-                    <Typography variant="h5" fontWeight={700} sx={{ color: '#2563eb', mb: 0.5 }}>3+</Typography>
+                    <Typography variant="h5" fontWeight={700} sx={{ color: '#2563eb', mb: 0.5 }}>2+</Typography>
                     <Typography variant="caption" color="text.secondary">Years Experience</Typography>
                   </Box>
                 </Grid>
@@ -1714,7 +1714,7 @@ const ProfileDashboard = () => {
                     </Box>
                     <Box sx={{ flex: 1 }}>
                       <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', mb: 0.25, color: '#1e293b' }}>
-                        3+
+                        2+
                       </Typography>
                       <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.85rem' }}>
                         Years of professional experience

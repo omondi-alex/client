@@ -46,7 +46,7 @@ const Dashboard = () => {
   }, [isMobile]);
 
   const quickStats = [
-    { label: "Years Experience", value: "3+", icon: <WorkIcon />, color: "#2563eb" },
+    { label: "Years Experience", value: "2+", icon: <WorkIcon />, color: "#2563eb" },
     { label: "Education Level", value: "MSc", icon: <SchoolIcon />, color: "#10b981" },
     { label: "Certifications", value: "6", icon: <VerifiedIcon />, color: "#f59e0b" },
     { label: "Expertise Areas", value: services.length, icon: <StarIcon />, color: "#8b5cf6" },
