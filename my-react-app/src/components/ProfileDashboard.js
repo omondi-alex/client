@@ -342,7 +342,7 @@ const ProfileDashboard = () => {
                 border: '1px solid #dbeafe'
               }}>
                 <Typography variant="body1" sx={{ lineHeight: 1.7, color: '#374151' }}>
-                  I am a dynamic technology professional who thrives at the intersection of innovation, security, and empowerment. Whether I'm architecting a secure cloud application, mentoring aspiring talent, publishing research, or streamlining operations, my core mission is to build robust, efficient, and impactful solutions. I bring a unique blend of deep technical expertise in software engineering and cybersecurity, a proven academic foundation, and a passionate, collaborative spirit to every project and team. Let's connect and create something remarkable together.
+                Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design and GRC consulting. Beyond technical work, I'm passionate about education, lecturing at Kirinyaga University and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. Always open to collaborating on meaningful projects that make a difference.
                 </Typography>
               </Box>
             </CardContent>
@@ -1075,8 +1075,7 @@ const ProfileDashboard = () => {
                     letterSpacing: '0.01em',
                   }}
                 >
-                  I am a dynamic technology professional who thrives at the intersection of innovation, security, and empowerment. Whether I'm architecting a secure cloud application, mentoring aspiring talent, publishing research, or streamlining operations, my core mission is to build robust, efficient, and impactful solutions. I bring a unique blend of deep technical expertise in software engineering and cybersecurity, a proven academic foundation, and a passionate, collaborative spirit to every project and team. Let's connect and create something remarkable together.
-                </Typography>
+              Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design and GRC consulting. Beyond technical work, I'm passionate about education, lecturing at Kirinyaga University and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. Always open to collaborating on meaningful projects that make a difference.                </Typography>
               </Box>
             </Box>
           </Card>
