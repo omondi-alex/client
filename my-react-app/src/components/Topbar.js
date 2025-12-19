@@ -17,7 +17,7 @@ const Topbar = ({ isMobile, onMenuClick }) => (
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <Box sx={{ textAlign: 'right' }}>
           <Typography variant="subtitle1" sx={{ color: '#fff', fontWeight: 600, lineHeight: 1 }}>Omondi Alex</Typography>
-          <Typography variant="caption" sx={{ color: '#cfd8dc' }}>DevSecOps Engineer</Typography>
+          <Typography variant="caption" sx={{ color: '#cfd8dc' }}>Security & Software Engineer</Typography>
         </Box>
       </Box>
     </Toolbar>

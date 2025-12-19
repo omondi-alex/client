@@ -15,6 +15,14 @@ import SchoolIcon from '@mui/icons-material/School';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import StarIcon from '@mui/icons-material/Star';
 import PersonIcon from '@mui/icons-material/Person';
+import ComputerIcon from '@mui/icons-material/Computer';
+import CodeIcon from '@mui/icons-material/Code';
+import SecurityIcon from '@mui/icons-material/Security';
+import SupportIcon from '@mui/icons-material/Support';
+import BusinessIcon from '@mui/icons-material/Business';
+import GroupIcon from '@mui/icons-material/Group';
+import AssistantIcon from '@mui/icons-material/Assistant';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import fazitechImg from './imgs/fazitech.png';
 
 function TabPanel(props) {
@@ -42,7 +50,7 @@ const info = [
 ];
 
 const ProfileDashboard = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const initialTab = parseInt(searchParams.get('tab') || '0');
   const [tab, setTab] = React.useState(initialTab);
   const isMobile = useMediaQuery('(max-width:1280px)');
@@ -53,6 +61,14 @@ const ProfileDashboard = () => {
     const tabFromUrl = parseInt(searchParams.get('tab') || '0');
     setTab(tabFromUrl);
   }, [searchParams]);
+
+  // Handle tab change and update URL
+  const handleTabChange = (_, newValue) => {
+    setTab(newValue);
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set('tab', newValue.toString());
+    setSearchParams(newSearchParams, { replace: true });
+  };
 
   // Mobile Design (1280px and below)
   if (isMobile) {
@@ -920,85 +936,148 @@ const ProfileDashboard = () => {
         <Grid item xs={12} md={4}>
           <Card sx={{
             width: '100%',
-            borderRadius: 3,
-            boxShadow: 3,
+            borderRadius: 4,
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             height: '100%',
             p: { xs: 2, md: 3 },
             mb: { xs: 2, md: 0 },
+            background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+            border: '1px solid rgba(226, 232, 240, 0.8)',
+            position: 'relative',
+            overflow: 'hidden',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '4px',
+              background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+            }
           }}>
-            <Box sx={{ position: 'relative', mb: 2 }}>
-              <Avatar src={fazitechImg} sx={{ width: isMobile ? 70 : 100, height: isMobile ? 70 : 100, border: '3px solid #e5e7eb', boxShadow: 2 }} />
+            <Box sx={{ 
+              position: 'relative', 
+              mb: 2,
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: isMobile ? 80 : 110,
+                height: isMobile ? 80 : 110,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
+                zIndex: 0,
+              }
+            }}>
+              <Avatar 
+                src={fazitechImg} 
+                sx={{ 
+                  width: isMobile ? 70 : 100, 
+                  height: isMobile ? 70 : 100, 
+                  border: '4px solid #fff', 
+                  boxShadow: '0 8px 24px rgba(102, 126, 234, 0.2)',
+                  position: 'relative',
+                  zIndex: 1,
+                }} 
+              />
             </Box>
-            <Typography variant="h6" fontWeight={700} align="center" sx={{ mb: 0.5, fontSize: isMobile ? '1.1rem' : isMediumLarge ? '1.1rem' : '1.25rem' }}>Omondi Alex Omieno</Typography>
-            <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 2, fontSize: isMobile ? '0.85rem' : isMediumLarge ? '0.95rem' : '1rem' }}>omondialex3517@gmail.com</Typography>
-            <Divider sx={{ my: 2, width: '100%' }} />
-            <Typography variant="subtitle1" fontWeight={600} mb={2} align="left" sx={{ fontSize: isMobile ? '1rem' : isMediumLarge ? '1rem' : '1.1rem' }}>Personal Info</Typography>
+            <Typography 
+              variant="h6" 
+              fontWeight={700} 
+              align="center" 
+              sx={{ 
+                mb: 0.5, 
+                fontSize: isMobile ? '1.1rem' : isMediumLarge ? '1.1rem' : '1.25rem',
+                background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Omondi Alex Omieno
+            </Typography>
+            <Box sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 0.75,
+              px: 1.5,
+              py: 0.75,
+              mb: 2,
+              borderRadius: 2,
+              background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+              border: '1px solid #bae6fd',
+            }}>
+              <EmailIcon sx={{ fontSize: isMobile ? 14 : 16, color: '#3b82f6' }} />
+              <Typography 
+                variant="body2" 
+                align="center" 
+                sx={{ 
+                  mb: 0,
+                  fontSize: isMobile ? '0.85rem' : isMediumLarge ? '0.95rem' : '1rem',
+                  color: '#3b82f6',
+                  fontWeight: 500,
+                }}
+              >
+                omondialex3517@gmail.com
+              </Typography>
+            </Box>
+            <Divider sx={{ my: 2, width: '100%', borderColor: 'rgba(226, 232, 240, 0.6)' }} />
             <Box sx={{ width: '100%' }}>
-              <Grid container spacing={1.2}>
-                {info.map((item, i) => (
-                  <React.Fragment key={item.label}>
-                    <Grid item xs={5}>
-                      <Typography variant="body2" color="text.primary" sx={{ fontWeight: 600, py: 0.5, fontSize: isMobile ? '0.85rem' : '1rem' }}>{item.label}</Typography>
-                    </Grid>
-                    <Grid item xs={7}>
-                      {item.label === 'LinkedIn' ? (
-                        <Box
-                          component="a"
-                          href={item.value}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          sx={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: 0.75,
-                            px: 1.5,
-                            py: 0.75,
-                            borderRadius: 2,
-                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
-                            border: '1.5px solid #bae6fd',
-                            textDecoration: 'none',
-                            color: '#0369a1',
-                            transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                            cursor: 'pointer',
-                            fontWeight: 500,
-                            fontSize: isMobile ? '0.85rem' : '0.9rem',
-                            '&:hover': {
-                              background: 'linear-gradient(135deg, #0077b5 0%, #005885 100%)',
-                              borderColor: '#0077b5',
-                              transform: 'translateY(-1px)',
-                              boxShadow: '0 4px 12px rgba(0, 119, 181, 0.25)',
-                              color: '#fff',
-                              '& .link-icon': { 
-                                color: '#fff',
-                                transform: 'scale(1.1)'
-                              }
-                            }
-                          }}
-                        >
-                          <LinkedInIcon 
-                            className="link-icon"
-                            fontSize="small" 
-                            sx={{ 
-                              transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                              fontSize: isMobile ? '18px' : '20px'
-                            }} 
-                          />
-                          <Typography component="span" sx={{ fontSize: 'inherit', fontWeight: 'inherit' }}>
-                            View Profile
-                          </Typography>
-                        </Box>
-                      ) : item.label === 'Email' ? (
-                        <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 400, py: 0.5, fontSize: isMobile ? '0.85rem' : '1rem', wordBreak: 'break-all', overflowWrap: 'anywhere' }}>{item.value}</Typography>
-                      ) : (
-                        <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 400, py: 0.5, fontSize: isMobile ? '0.85rem' : '1rem' }}>{item.value}</Typography>
-                      )}
-                    </Grid>
-                  </React.Fragment>
-                ))}
-              </Grid>
+              <Typography 
+                variant="subtitle1" 
+                fontWeight={700} 
+                mb={2} 
+                align="left" 
+                sx={{ 
+                  fontSize: isMobile ? '1rem' : isMediumLarge ? '1rem' : '1.1rem',
+                  color: '#1e293b',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                }}
+              >
+                <Box sx={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: '8px',
+                  background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
+                }}>
+                  <InfoOutlinedIcon sx={{ fontSize: 16 }} />
+                </Box>
+                Bio
+              </Typography>
+              <Box sx={{
+                p: 2,
+                borderRadius: 2.5,
+                background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                border: '1.5px solid #bfdbfe',
+                minHeight: 'fit-content',
+                boxShadow: '0 2px 8px rgba(37, 99, 235, 0.08)',
+              }}>
+                <Typography 
+                  variant="body2" 
+                  sx={{ 
+                    fontSize: isMobile ? '0.85rem' : '0.9rem',
+                    lineHeight: 1.8,
+                    color: '#1e40af',
+                    fontWeight: 400,
+                    fontFamily: '"Inter", "Poppins", "Roboto", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif',
+                    letterSpacing: '0.01em',
+                  }}
+                >
+                  I am a dynamic technology professional who thrives at the intersection of innovation, security, and empowerment. Whether I'm architecting a secure cloud application, mentoring aspiring talent, publishing research, or streamlining operations, my core mission is to build robust, efficient, and impactful solutions. I bring a unique blend of deep technical expertise in software engineering and cybersecurity, a proven academic foundation, and a passionate, collaborative spirit to every project and team. Let's connect and create something remarkable together.
+                </Typography>
+              </Box>
             </Box>
           </Card>
         </Grid>
@@ -1013,46 +1092,59 @@ const ProfileDashboard = () => {
           }}>
             <Tabs
               value={tab}
-              onChange={(_, v) => setTab(v)}
+              onChange={handleTabChange}
               variant={isMobile ? 'scrollable' : 'standard'}
               scrollButtons={isMobile ? 'auto' : false}
               sx={{
-                borderBottom: 1,
-                borderColor: 'divider',
+                borderBottom: '2px solid #e2e8f0',
                 px: isMediumLarge ? 1 : 2,
                 pt: 2,
                 display: 'flex',
                 flexWrap: 'nowrap',
                 overflowX: isMobile ? 'auto' : 'visible',
+                background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
                 '& .MuiTabs-flexContainer': {
                   flexWrap: 'nowrap',
+                  gap: 0.5,
                 },
                 '& .MuiTabs-scroller': {
                   overflowX: isMobile ? 'auto' : 'visible',
                 },
+                '& .MuiTabs-indicator': {
+                  height: 3,
+                  borderRadius: '3px 3px 0 0',
+                  background: 'linear-gradient(90deg, #2563eb 0%, #1e40af 100%)',
+                },
                 '& .MuiTab-root': {
                   fontWeight: 600,
-                  color: '#94a3b8',
-                  opacity: 0.7,
+                  color: '#64748b',
                   minWidth: 80,
                   maxWidth: 140,
-                  px: 1,
-                  mx: 0.2,
-                  transition: 'color 0.2s, opacity 0.2s',
+                  px: 2,
+                  py: 1.5,
+                  mx: 0.5,
+                  borderRadius: '8px 8px 0 0',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   fontSize: isMobile ? '0.85rem' : isMediumLarge ? '0.92rem' : '0.98rem',
-                  lineHeight: 1.1,
+                  lineHeight: 1.2,
                   whiteSpace: 'nowrap',
                   textOverflow: 'ellipsis',
                   overflow: 'hidden',
+                  textTransform: 'none',
+                  position: 'relative',
+                  '&:hover': {
+                    color: '#2563eb',
+                    background: 'rgba(37, 99, 235, 0.05)',
+                  },
                 },
                 '& .Mui-selected': {
                   color: '#2563eb !important',
-                  opacity: 1,
+                  background: 'rgba(37, 99, 235, 0.08)',
+                  fontWeight: 700,
                 },
               }}
             >
               <Tab label="Profile" />
-              <Tab label="Bio" />
               <Tab label="Work-Exp" />
               <Tab label="Education" />
               <Tab label="Certifications" />
@@ -1061,10 +1153,96 @@ const ProfileDashboard = () => {
             <TabPanel value={tab} index={0}>
               <Grid container spacing={3} sx={{ mt: 0.5 }}>
                 <Grid item xs={12} md={6}>
-                  <TextField label={<><b>Full Name</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="Omondi Alex Omieno" />
+                  {/* Full Name - Premium Card */}
+                  <Box sx={{ mb: 2.5 }}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Full Name <span style={{color:'#2563eb'}}>*</span>
+                    </Typography>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        p: 2.5,
+                        borderRadius: 3,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        border: '2px solid #e2e8f0',
+                        color: '#1e293b',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          boxShadow: '0 4px 12px rgba(37, 99, 235, 0.2)'
+                        }}
+                      >
+                        <PersonIcon sx={{ fontSize: 24 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25 }}>
+                          Omondi Alex Omieno
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
+                          Personal identification
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  {/* Alternative Email - Premium Card */}
+                  <Box sx={{ mb: 2.5 }}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Alternative Email
+                    </Typography>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        p: 2.5,
+                        borderRadius: 3,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        border: '2px solid #e2e8f0',
+                        color: '#1e293b',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)'
+                        }}
+                      >
+                        <EmailIcon sx={{ fontSize: 24 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25 }}>
+                          alex.omondi@aims-senegal.org
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
+                          Secondary contact
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
                   
                   {/* LinkedIn Link - Premium Clickable Card */}
-                  <Box sx={{ mt: 2.5, mb: 1 }}>
+                  <Box sx={{ mb: 2.5 }}>
                     <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                       LinkedIn
                     </Typography>
@@ -1163,10 +1341,8 @@ const ProfileDashboard = () => {
                     </Box>
                   </Box>
 
-                  <TextField label="Alternative Email" fullWidth margin="normal" value="alex.omondi@aims-senegal.org" InputProps={{ startAdornment: <InputAdornment position="start"><EmailIcon /></InputAdornment> }} />
-                  
                   {/* Google Scholar Link - Premium Clickable Card */}
-                  <Box sx={{ mt: 2.5, mb: 1 }}>
+                  <Box sx={{ mb: 2.5 }}>
                     <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                       Google Scholar
                     </Typography>
@@ -1266,12 +1442,96 @@ const ProfileDashboard = () => {
                   </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <TextField label={<><b>Email</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="omondialex3517@gmail.com" />
-                  <TextField label={<><b>WhatsApp Number</b> <span style={{color:'#2563eb'}}>*</span></>} fullWidth margin="normal" value="+254 707 750879" InputProps={{ startAdornment: <InputAdornment position="start"><WhatsAppIcon /></InputAdornment> }} />
-                  <TextField label="Address" fullWidth margin="normal" value="Nairobi, Kenya" InputProps={{ startAdornment: <InputAdornment position="start"><LocationOnIcon /></InputAdornment> }} />
+                  {/* Email - Premium Card */}
+                  <Box sx={{ mb: 2.5 }}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Email <span style={{color:'#2563eb'}}>*</span>
+                    </Typography>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        p: 2.5,
+                        borderRadius: 3,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        border: '2px solid #e2e8f0',
+                        color: '#1e293b',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          boxShadow: '0 4px 12px rgba(59, 130, 246, 0.2)'
+                        }}
+                      >
+                        <EmailIcon sx={{ fontSize: 24 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25 }}>
+                          omondialex3517@gmail.com
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
+                          Primary contact
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  {/* Address - Premium Card */}
+                  <Box sx={{ mb: 2.5 }}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Address
+                    </Typography>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        p: 2.5,
+                        borderRadius: 3,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        border: '2px solid #e2e8f0',
+                        color: '#1e293b',
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          boxShadow: '0 4px 12px rgba(245, 158, 11, 0.2)'
+                        }}
+                      >
+                        <LocationOnIcon sx={{ fontSize: 24 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25 }}>
+                          Nairobi, Kenya
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
+                          Location
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
                   
                   {/* GitHub Link - Premium Clickable Card */}
-                  <Box sx={{ mt: 2.5, mb: 1 }}>
+                  <Box sx={{ mb: 2.5 }}>
                     <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1, display: 'block', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                       GitHub
                     </Typography>
@@ -1377,32 +1637,619 @@ const ProfileDashboard = () => {
                 <Box sx={{
                   display: 'flex',
                   alignItems: 'flex-start',
-                  background: '#f3f8ff',
-                  borderRadius: 2,
-                  p: 2,
+                  background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                  borderRadius: 3,
+                  p: 3,
                   mb: 3,
-                  borderLeft: '4px solid #2563eb',
+                  border: '1.5px solid #bfdbfe',
+                  boxShadow: '0 2px 8px rgba(37, 99, 235, 0.08)',
                 }}>
-                  <InfoOutlinedIcon sx={{ color: '#2563eb', fontSize: 28, mt: 0.5, mr: 1.5 }} />
-                  <Box>
-                    <Typography fontWeight={700} sx={{ color: '#2563eb', fontSize: 18 }}>Bio</Typography>
-                    <Typography variant="body2" sx={{ color: '#2563eb', opacity: 0.8, fontSize: 15 }}>
-                      A brief professional bio about Me.
+                  <Box sx={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: '12px',
+                    background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#fff',
+                    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
+                    mr: 2,
+                    flexShrink: 0,
+                  }}>
+                    <InfoOutlinedIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Box sx={{ flex: 1 }}>
+                    <Typography fontWeight={700} sx={{ color: '#1e40af', fontSize: 20, mb: 0.5 }}>
+                      Work Experience
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: '#1e40af', opacity: 0.85, fontSize: 15, lineHeight: 1.5 }}>
+                      My professional experience starting with my most recent role.
                     </Typography>
                   </Box>
                 </Box>
-                <Typography fontWeight={600} sx={{ mb: 1 }}>Bio</Typography>
-                <TextField
-                  fullWidth
-                  multiline
-                  minRows={4}
-                  maxRows={8}
-                  variant="outlined"
-                  value={
-                    "I am a dynamic technology professional who thrives at the intersection of innovation, security, and empowerment. Whether I'm architecting a secure cloud application, mentoring aspiring talent, publishing research, or streamlining operations, my core mission is to build robust, efficient, and impactful solutions. I bring a unique blend of deep technical expertise in software engineering and cybersecurity, a proven academic foundation, and a passionate, collaborative spirit to every project and team. Let's connect and create something remarkable together."
-                  }
-                  sx={{ mb: 3, background: '#fff' }}
-                />
+                
+                {/* Years of Experience - Premium Card */}
+                <Box sx={{ mb: 4 }}>
+                  <Typography 
+                    variant="caption" 
+                    sx={{ 
+                      color: 'text.secondary', 
+                      mb: 1, 
+                      display: 'block', 
+                      fontWeight: 600, 
+                      fontSize: '0.75rem', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '0.5px' 
+                    }}
+                  >
+                    Years of Work Experience
+                  </Typography>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                      p: 2.5,
+                      borderRadius: 3,
+                      background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                      border: '2px solid #e2e8f0',
+                      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <WorkIcon sx={{ fontSize: 28 }} />
+                    </Box>
+                    <Box sx={{ flex: 1 }}>
+                      <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', mb: 0.25, color: '#1e293b' }}>
+                        3+
+                      </Typography>
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.85rem' }}>
+                        Years of professional experience
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                <Box sx={{ maxHeight: 500, overflowY: 'auto', pr: 1 }}>
+                  {/* Experience -1: Kirinyaga University (current) */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <SchoolIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Lecturer
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Kirinyaga University
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Part-time" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Kirinyaga, Kenya
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2025-09 - To date
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1.5, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Key Responsibilities
+                      </Typography>
+                      <Box component="ul" sx={{ m: 0, pl: 2.5, listStyle: 'none' }}>
+                        <Box component="li" sx={{ 
+                          mb: 1, 
+                          position: 'relative',
+                          pl: 2,
+                          '&::before': {
+                            content: '"•"',
+                            position: 'absolute',
+                            left: 0,
+                            color: '#2563eb',
+                            fontWeight: 'bold',
+                            fontSize: '1.2rem',
+                          }
+                        }}>
+                          <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                            Web Development
+                          </Typography>
+                        </Box>
+                        <Box component="li" sx={{ 
+                          mb: 1, 
+                          position: 'relative',
+                          pl: 2,
+                          '&::before': {
+                            content: '"•"',
+                            position: 'absolute',
+                            left: 0,
+                            color: '#2563eb',
+                            fontWeight: 'bold',
+                            fontSize: '1.2rem',
+                          }
+                        }}>
+                          <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                            Object-Oriented Analysis and Design
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  {/* Experience 1: ICT Support Volunteer (current) */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <SupportIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          ICT Support Volunteer
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Young Professional Mentorship Program (YPMP)
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Volunteer" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Kampala, Uganda
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2024-01 - To date
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1.5, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Key Responsibilities
+                      </Typography>
+                      <Box component="ul" sx={{ m: 0, pl: 2.5, listStyle: 'none' }}>
+                        {['Website Management', 'Graphics Design', 'Virtual Assistant'].map((item, idx) => (
+                          <Box key={idx} component="li" sx={{ 
+                            mb: 1, 
+                            position: 'relative',
+                            pl: 2,
+                            '&::before': {
+                              content: '"•"',
+                              position: 'absolute',
+                              left: 0,
+                              color: '#2563eb',
+                              fontWeight: 'bold',
+                              fontSize: '1.2rem',
+                            }
+                          }}>
+                            <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                              {item}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  </Box>
+
+
+                  {/* Experience 0: Platforms Developer at Agriwatt Hub Limited (current) */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <CodeIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Platforms Developer
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Agriwatt Hub Limited
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Part-time" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Nairobi, Kenya
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2025-08 - 2025-11
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1.5, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Key Responsibilities
+                      </Typography>
+                      <Box component="ul" sx={{ m: 0, pl: 2.5, listStyle: 'none' }}>
+                        {[
+                          'Social Media Management',
+                          'Graphic Design',
+                          'Website Management',
+                          'Sales and Marketing'
+                        ].map((item, idx) => (
+                          <Box key={idx} component="li" sx={{ 
+                            mb: 1, 
+                            position: 'relative',
+                            pl: 2,
+                            '&::before': {
+                              content: '"•"',
+                              position: 'absolute',
+                              left: 0,
+                              color: '#2563eb',
+                              fontWeight: 'bold',
+                              fontSize: '1.2rem',
+                            }
+                          }}>
+                            <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                              {item}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  </Box>
+                  {/* Experience 2: Software Security Engineer */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <SecurityIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Software Security Engineer
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Enovise Group
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Full-time" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Nairobi, Kenya
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2024-03 - 2025-06
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1.5, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Key Responsibilities
+                      </Typography>
+                      <Box component="ul" sx={{ m: 0, pl: 2.5, listStyle: 'none' }}>
+                        {[
+                          'Designed and implemented security solutions to monitor and protect cloud and on-prem infrastructure',
+                          'Created software tools to simplify and speed incident investigation',
+                          'Monitored security logs and responded to security incidents',
+                          'Analyzed, designed, developed, and delivered solutions to stop adversaries',
+                          'Identified and automated threat detection',
+                          'Managed vulnerabilities',
+                          'Coordinated and conducted event collection, log management, event management, compliance automation, and identity monitoring activities',
+                          'Developed custom content based on threat intelligence',
+                          'Ensured SIEM technologies were integrated & utilized to protect cyber-related assets',
+                          'Worked with development and operations teams to ensure security best practices were followed',
+                          'Stayed up-to-date with the latest security trends and technologies'
+                        ].map((item, idx) => (
+                          <Box key={idx} component="li" sx={{ 
+                            mb: 1, 
+                            position: 'relative',
+                            pl: 2,
+                            '&::before': {
+                              content: '"•"',
+                              position: 'absolute',
+                              left: 0,
+                              color: '#2563eb',
+                              fontWeight: 'bold',
+                              fontSize: '1.2rem',
+                            }
+                          }}>
+                            <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                              {item}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  </Box>
+                  
+                  {/* Experience 3: ICT Officer (older) */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <ComputerIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          ICT Officer
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Ministry of Education, State Department for Basic Education
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Internship" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Kisumu, Kenya
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2023-01 - 2024-01
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1.5, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Key Responsibilities
+                      </Typography>
+                      <Box component="ul" sx={{ m: 0, pl: 2.5, listStyle: 'none' }}>
+                        {[
+                          'Supported E-Learning and content development in line with the schemes of work',
+                          'Provided classroom support and trained School teachers in the use of digital literacy devices',
+                          'Supported the implementation of the Digital Literacy Programme',
+                          'Carried out innovations to enable schools to improve the use of digital learning',
+                          'Provided support in the safe, secure, and ethical use of technology in learning',
+                          'Assisted teachers by integrating ICT in the delivery of teaching, learning, assessment, and reporting',
+                          'Supported school staff with the development and production of key school policies and procedures',
+                          'Provided first-line support and maintenance of ICT services in the schools'
+                        ].map((item, idx) => (
+                          <Box key={idx} component="li" sx={{ 
+                            mb: 1, 
+                            position: 'relative',
+                            pl: 2,
+                            '&::before': {
+                              content: '"•"',
+                              position: 'absolute',
+                              left: 0,
+                              color: '#2563eb',
+                              fontWeight: 'bold',
+                              fontSize: '1.2rem',
+                            }
+                          }}>
+                            <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                              {item}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
               </Box>
             </TabPanel>
             <TabPanel value={tab} index={2}>
@@ -1410,296 +2257,230 @@ const ProfileDashboard = () => {
                 <Box sx={{
                   display: 'flex',
                   alignItems: 'flex-start',
-                  background: '#f3f8ff',
-                  borderRadius: 2,
-                  p: 2,
+                  background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                  borderRadius: 3,
+                  p: 3,
                   mb: 3,
-                  borderLeft: '4px solid #2563eb',
+                  border: '1.5px solid #bfdbfe',
+                  boxShadow: '0 2px 8px rgba(37, 99, 235, 0.08)',
                 }}>
-                  <InfoOutlinedIcon sx={{ color: '#2563eb', fontSize: 28, mt: 0.5, mr: 1.5 }} />
-                  <Box>
-                    <Typography fontWeight={700} sx={{ color: '#2563eb', fontSize: 18 }}>Work Experience</Typography>
-                    <Typography variant="body2" sx={{ color: '#2563eb', opacity: 0.8, fontSize: 15 }}>
-                      My professional experience starting with my most recent role.
+                  <Box sx={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: '12px',
+                    background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#fff',
+                    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
+                    mr: 2,
+                    flexShrink: 0,
+                  }}>
+                    <InfoOutlinedIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Box sx={{ flex: 1 }}>
+                    <Typography fontWeight={700} sx={{ color: '#1e40af', fontSize: 20, mb: 0.5 }}>
+                      Educational Levels
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: '#1e40af', opacity: 0.85, fontSize: 15, lineHeight: 1.5 }}>
+                      My academic history from the highest level achieved to the lowest.
                     </Typography>
                   </Box>
                 </Box>
-                <Typography fontWeight={600} sx={{ mb: 1, mt: 2, ml: 1 }}>Years of Work Experience</Typography>
-                <TextField
-                  type="text"
-                  value="3+"
-                  inputProps={{ style: { textAlign: 'left' } }}
-                  fullWidth
-                  sx={{
+                <Box sx={{ maxHeight: 500, overflowY: 'auto', pr: 1 }}>
+                  {/* Education 1: Master's */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
                     mb: 3,
-                    background: '#fff',
-                    borderRadius: 2,
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: 2,
-                    },
-                  }}
-                  InputProps={{ readOnly: true }}
-                />
-                <Box sx={{ maxHeight: 420, overflowY: 'auto', pr: 1 }}>
-
-                   {/* Experience -1: Kirinyaga University (current) */}
-
-                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
-                        <TextField fullWidth value="Lecturer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
-                        <TextField fullWidth value="Kirinyaga University" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Part-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Kirinyaga, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2025-09" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="To date" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
-                        <Box sx={{ pl: 2 }}>
-                          <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Web Development</li>
-                            <li>Object-Oriented Analysis and Design</li>
-                           
-                          </ul>
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                        position: 'relative',
+                      }}>
+                        <SchoolIcon sx={{ fontSize: 24, position: 'absolute', top: '8px', left: '8px', zIndex: 1 }} />
+                        <SchoolIcon sx={{ fontSize: 24, position: 'absolute', bottom: '8px', right: '8px', zIndex: 0, opacity: 0.9 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Master's in Computer Security
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          African Institute for Mathematical Sciences
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Master's Degree" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Mbur, Senegal
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2023-10 - 2025-07
+                          </Typography>
                         </Box>
-                      </Grid>
-                    </Grid>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Honors / Awards
+                        </Typography>
+                        <Chip 
+                          label="Very Good Pass" 
+                          size="small" 
+                          sx={{ 
+                            background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+                            color: '#166534',
+                            fontWeight: 600,
+                            border: '1px solid #bbf7d0',
+                          }} 
+                        />
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Thesis / Project Title
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569', fontStyle: 'italic' }}>
+                          A Cloud Computing Security Assessment Framework for FINTECHs in Kenya.
+                        </Typography>
+                      </Box>
+                    </Box>
                   </Box>
-
-                   {/* Experience 1: ICT Support Volunteer (current) */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
-                        <TextField fullWidth value="ICT Support Volunteer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
-                        <TextField fullWidth value="Young Professional Mentorship Program(YPMP)" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Volunteer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Kampala, Uganda" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2024-01" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="To date" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
-                        <Box sx={{ pl: 2 }}>
-                          <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Website Management</li>
-                            <li>Graphics Design</li>
-                            <li>Virtual Assistant</li>
-                          </ul>
+                  
+                  {/* Education 2: Bachelor's */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <SchoolIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Bachelor's in Computer Science
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Kirinyaga University
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Bachelor's Degree" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Kerugoya, Kenya
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2018-09 - 2022-10
+                          </Typography>
                         </Box>
-                      </Grid>
-                    </Grid>
-                  </Box>
-
-
-                  {/* Experience 0: Platforms Developer at Agriwatt Hub Limited (current) */}
-
-                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
-                        <TextField fullWidth value="Platforms Developer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
-                        <TextField fullWidth value="Agriwatt Hub Limited" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Part-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Nairobi, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2025-08" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="2025-11" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  {/* Experience 2: Software Security Engineer (recent ended) */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
-                        <TextField fullWidth value="Software Security Engineer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
-                        <TextField fullWidth value="Enovise Group" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Full-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Nairobi,Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2024-03" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="2025-06" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
-                        <Box sx={{ pl: 2 }}>
-                          <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Designed and implemented security solutions to monitor and protect cloud and on-prem infrastructure.</li>
-                            <li>Created software tools to simplify and speed incident investigation.</li>
-                            <li>Monitored security logs and responded to security incidents.</li>
-                            <li>Analyzed, designed, developed, and delivered solutions to stop adversaries.</li>
-                            <li>Identified and automated threat detection.</li>
-                            <li>Managed vulnerabilities.</li>
-                          </ul>
-                        </Box>
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
-                        <Box sx={{ pl: 2 }}>
-                          <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Graphics Design</li>
-                            <li>Virtual Assistant</li>
-                            <li>Social Media Management</li>
-                            <li>Collaborated on website improvements and user experience enhancement</li>
-
-                          </ul>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                 
-                  {/* Experience 2: Software Security Engineer (recent ended) */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
-                        <TextField fullWidth value="Software Security Engineer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
-                        <TextField fullWidth value="Enovise Group" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Full-time" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Nairobi,Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2024-03" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="2025-06" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
-                        <Box sx={{ pl: 2 }}>
-                          <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Designed and implemented security solutions to monitor and protect cloud and on-prem infrastructure.</li>
-                            <li>Created software tools to simplify and speed incident investigation.</li>
-                            <li>Monitored security logs and responded to security incidents.</li>
-                            <li>Analyzed, designed, developed, and delivered solutions to stop adversaries.</li>
-                            <li>Identified and automated threat detection.</li>
-                            <li>Managed vulnerabilities.</li>
-                            <li>Coordinated and conducted event collection, log management, event management, compliance automation, and identity monitoring activities.</li>
-                            <li>Developed custom content based on threat intelligence.</li>
-                            <li>Ensured SIEM technologies were integrated & utilized to protect cyber-related assets.</li>
-                            <li>Worked with development and operations teams to ensure security best practices were followed.</li>
-                            <li>Stayed up-to-date with the latest security trends and technologies.</li>
-                            
-                          </ul>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  {/* Experience 3: ICT Officer (older) */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Job Title</Typography>
-                        <TextField fullWidth value="ICT Officer" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employer</Typography>
-                        <TextField fullWidth value="Ministry of Education, State Department for Basic Education" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Employment Type</Typography>
-                        <TextField fullWidth value="Internship" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Kisumu, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2023-01" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="2024-01" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Key Responsibilities</Typography>
-                        <Box sx={{ pl: 2 }}>
-                          <ul style={{ margin: 0, paddingLeft: 18 }}>
-                            <li>Supported E-Learning and content development in line with the schemes of work.</li>
-                            <li>Provided classroom support and trained School teachers in the use of digital literacy devices.</li>
-                            <li>Supported the implementation of the Digital Literacy Programme.</li>
-                            <li>Carryied out innovations to enable schools to improve the use of digital learning</li>
-                            <li>Provided support in the safe, secure, and ethical use of technology in learning.</li>
-                            <li>Assisted teachers by integrating ICT in the delivery of teaching, learning, assessment, and reporting.</li>
-                            <li>Supported school staff with the development and production of key school policies and procedures.</li>
-                            <li>Provided first-line support and maintenance of ICT services in the schools.</li>
-                          </ul>
-                        </Box>
-                      </Grid>
-                    </Grid>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Honors / Awards
+                        </Typography>
+                        <Chip 
+                          label="Second Class Honours (Upper Division)" 
+                          size="small" 
+                          sx={{ 
+                            background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+                            color: '#166534',
+                            fontWeight: 600,
+                            border: '1px solid #bbf7d0',
+                          }} 
+                        />
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Thesis / Project Title
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569', fontStyle: 'italic' }}>
+                          Garbage Management System
+                        </Typography>
+                      </Box>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -1709,454 +2490,809 @@ const ProfileDashboard = () => {
                 <Box sx={{
                   display: 'flex',
                   alignItems: 'flex-start',
-                  background: '#f3f8ff',
-                  borderRadius: 2,
-                  p: 2,
+                  background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                  borderRadius: 3,
+                  p: 3,
                   mb: 3,
-                  borderLeft: '4px solid #2563eb',
+                  border: '1.5px solid #bfdbfe',
+                  boxShadow: '0 2px 8px rgba(37, 99, 235, 0.08)',
                 }}>
-                  <InfoOutlinedIcon sx={{ color: '#2563eb', fontSize: 28, mt: 0.5, mr: 1.5 }} />
-                  <Box>
-                    <Typography fontWeight={700} sx={{ color: '#2563eb', fontSize: 18 }}>Educational Levels</Typography>
-                    <Typography variant="body2" sx={{ color: '#2563eb', opacity: 0.8, fontSize: 15 }}>
-                      My academic history from the highest level achieved to the lowest.
+                  <Box sx={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: '12px',
+                    background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#fff',
+                    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
+                    mr: 2,
+                    flexShrink: 0,
+                  }}>
+                    <InfoOutlinedIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Box sx={{ flex: 1 }}>
+                    <Typography fontWeight={700} sx={{ color: '#1e40af', fontSize: 20, mb: 0.5 }}>
+                      Certifications
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: '#1e40af', opacity: 0.85, fontSize: 15, lineHeight: 1.5 }}>
+                      All My relevant certifications from the most recent to the oldest.
                     </Typography>
                   </Box>
                 </Box>
-                <Box sx={{ maxHeight: 420, overflowY: 'auto', pr: 1 }}>
-                  {/* Education 1 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Degree / Qualification</Typography>
-                        <TextField fullWidth value="Master's" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Field of Study / Major</Typography>
-                        <TextField fullWidth value="Computer Security" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Institution Name</Typography>
-                        <TextField fullWidth value="African Institute for Mathematical Sciences" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Mbur, Senegal" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2023-10" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="2025-07" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Honors / Awards</Typography>
-                        <TextField fullWidth value="Very Good Pass" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Thesis / Project Title</Typography>
-                        <TextField fullWidth value="A Cloud Computing Security Assessment
-Framework for FINTECHs in Kenya." sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                    </Grid>
+                <Box sx={{ maxHeight: 500, overflowY: 'auto', pr: 1 }}>
+                  {/* Certification 0 */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <BusinessIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Certificate in Business Management
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Industry Immersion Africa (IIAfrica)
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            Issued: 2025-08
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Description / Scope
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                          Skills in business and data analytics, leadership, and problem-solving, equipping me with the tools to bridge technology, business strategy, and innovation.
+                        </Typography>
+                      </Box>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Credential ID
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#64748b' }}>
+                          N/A
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Verification Link
+                        </Typography>
+                        <Box
+                          component="a"
+                          href="https://drive.google.com/file/d/17VZcj5__krvtc4H54ratUZXlQwC0gOiB/view?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 2,
+                            py: 1,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            boxShadow: '0 2px 4px rgba(3, 105, 161, 0.1)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0369a1 0%, #075985 100%)',
+                              borderColor: '#0369a1',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 6px 16px rgba(3, 105, 161, 0.3)',
+                              color: '#fff',
+                            }
+                          }}
+                        >
+                          View Certificate
+                        </Box>
+                      </Box>
+                    </Box>
                   </Box>
-                  {/* Education 2 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Degree / Qualification</Typography>
-                        <TextField fullWidth value="Bachelor's" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Field of Study / Major</Typography>
-                        <TextField fullWidth value="Computer Science" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Institution Name</Typography>
-                        <TextField fullWidth value="Kirinyaga University" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Location</Typography>
-                        <TextField fullWidth value="Kerugoya, Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Start Date</Typography>
-                        <TextField fullWidth value="2018-09" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>End Date</Typography>
-                        <TextField fullWidth value="2022-10" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Honors / Awards</Typography>
-                        <TextField fullWidth value="Second Class Honours(Upper Division)" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Thesis / Project Title</Typography>
-                        <TextField fullWidth value="Gabage Management System " sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                    </Grid>
+
+                  {/* Certification 1 */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <GroupIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Mentor in the Young Professionals Mentorship Program
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Igoye Young Professional Mentorship Institute (IYPMI)
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            Issued: 2024-11
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Description / Scope
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                          Supporting Young People to Rethink, Refocus, and Succeed
+                        </Typography>
+                      </Box>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Credential ID
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#64748b' }}>
+                          N/A
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Verification Link
+                        </Typography>
+                        <Box
+                          component="a"
+                          href="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/OmondiAlex_MentorshipCert.png?alt=media&token=9d13a363-e60a-4385-bc84-4ee569bb65f7"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 2,
+                            py: 1,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            boxShadow: '0 2px 4px rgba(3, 105, 161, 0.1)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0369a1 0%, #075985 100%)',
+                              borderColor: '#0369a1',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 6px 16px rgba(3, 105, 161, 0.3)',
+                              color: '#fff',
+                            }
+                          }}
+                        >
+                          View Certificate
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  {/* Certification 2 */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <AssistantIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Virtual Assistant
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          ALX - The Room
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            Issued: 2024-08
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Description / Scope
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                          Designed to develop and practice professional skills that are most needed to be a successful Virtual Assistant
+                        </Typography>
+                      </Box>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Credential ID
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#64748b', fontFamily: 'monospace' }}>
+                          cer-4845ee55-b8bd-4fcb-81a6-46dedea7
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Verification Link
+                        </Typography>
+                        <Box
+                          component="a"
+                          href="https://www.virtualbadge.io/certificate-validator?credential=cer-4845ee55-b8bd-4fcb-81a6-46dedea7"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 2,
+                            py: 1,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            boxShadow: '0 2px 4px rgba(3, 105, 161, 0.1)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0369a1 0%, #075985 100%)',
+                              borderColor: '#0369a1',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 6px 16px rgba(3, 105, 161, 0.3)',
+                              color: '#fff',
+                            }
+                          }}
+                        >
+                          View Certificate
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                  {/* Certification 3 */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <SecurityIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Cyber Security
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Scratch and Script Limited, in Collaboration with ISACA and Data Privacy and Governance Society of Kenya
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            Issued: 2024-04
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Description / Scope
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                          Cybersecurity Fundamentals, Threat Analysis, and Incident Response
+                        </Typography>
+                      </Box>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Credential ID
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#64748b', fontFamily: 'monospace' }}>
+                          IGN-8533838908-4209
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Verification Link
+                        </Typography>
+                        <Box
+                          component="a"
+                          href="https://certificate-verification.scratchandscript.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 2,
+                            py: 1,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            boxShadow: '0 2px 4px rgba(3, 105, 161, 0.1)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0369a1 0%, #075985 100%)',
+                              borderColor: '#0369a1',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 6px 16px rgba(3, 105, 161, 0.3)',
+                              color: '#fff',
+                            }
+                          }}
+                        >
+                          View Certificate
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                  
+                  {/* Certification 4 */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <PersonIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Mentorship Training
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Igoye Young Professional Mentorship Institute (IYPMI)
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            Issued: 2023-11
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Description / Scope
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                          Supporting Young People to Rethink, Refocus, and Succeed
+                        </Typography>
+                      </Box>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Credential ID
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#64748b' }}>
+                          N/A
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Verification Link
+                        </Typography>
+                        <Box
+                          component="a"
+                          href="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/YPMP.png?alt=media&token=bc46ed54-69bd-4c9a-a025-cf7af8027330"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 2,
+                            py: 1,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            boxShadow: '0 2px 4px rgba(3, 105, 161, 0.1)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0369a1 0%, #075985 100%)',
+                              borderColor: '#0369a1',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 6px 16px rgba(3, 105, 161, 0.3)',
+                              color: '#fff',
+                            }
+                          }}
+                        >
+                          View Certificate
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                  {/* Certification 5 */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <CodeIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Full Stack Software Engineering Program
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          ALX Africa
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            Issued: 2023-11
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Description / Scope
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                          A 12 month Software Engineering Programme with a specialization in Front-end.
+                        </Typography>
+                      </Box>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Credential ID
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#64748b' }}>
+                          N/A
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Verification Link
+                        </Typography>
+                        <Box
+                          component="a"
+                          href="https://savanna.alxafrica.com/certificates/pERFn8XCsc"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 2,
+                            py: 1,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            boxShadow: '0 2px 4px rgba(3, 105, 161, 0.1)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0369a1 0%, #075985 100%)',
+                              borderColor: '#0369a1',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 6px 16px rgba(3, 105, 161, 0.3)',
+                              color: '#fff',
+                            }
+                          }}
+                        >
+                          View Certificate
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Box>
+                  
+                  {/* Certification 6 */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <PhoneAndroidIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Android Development
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Google Africa Developer Training Program
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            Issued: 2023-06
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Description / Scope
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                          Mobile Apps development using Kotlin
+                        </Typography>
+                      </Box>
+                      <Box sx={{ mb: 2 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Credential ID
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#64748b', fontFamily: 'monospace' }}>
+                          CA3CEBA0F7F36E1
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          Verification Link
+                        </Typography>
+                        <Box
+                          component="a"
+                          href="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/Android.png?alt=media&token=1bc27f22-c596-4120-9c07-f586bf7d282a"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.75,
+                            px: 2,
+                            py: 1,
+                            borderRadius: 2,
+                            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                            border: '1.5px solid #bae6fd',
+                            textDecoration: 'none',
+                            color: '#0369a1',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            fontSize: '0.9rem',
+                            boxShadow: '0 2px 4px rgba(3, 105, 161, 0.1)',
+                            '&:hover': {
+                              background: 'linear-gradient(135deg, #0369a1 0%, #075985 100%)',
+                              borderColor: '#0369a1',
+                              transform: 'translateY(-2px)',
+                              boxShadow: '0 6px 16px rgba(3, 105, 161, 0.3)',
+                              color: '#fff',
+                            }
+                          }}
+                        >
+                          View Certificate
+                        </Box>
+                      </Box>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
             </TabPanel>
             <TabPanel value={tab} index={4}>
-              <Box sx={{ mb: 3 }}>
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  background: '#f3f8ff',
-                  borderRadius: 2,
-                  p: 2,
-                  mb: 3,
-                  borderLeft: '4px solid #2563eb',
-                }}>
-                  <InfoOutlinedIcon sx={{ color: '#2563eb', fontSize: 28, mt: 0.5, mr: 1.5 }} />
-                  <Box>
-                    <Typography fontWeight={700} sx={{ color: '#2563eb', fontSize: 18 }}>Certifications</Typography>
-                    <Typography variant="body2" sx={{ color: '#2563eb', opacity: 0.8, fontSize: 15 }}>
-                      All My relevant certifications from the most recent to the oldest.
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box sx={{ maxHeight: 420, overflowY: 'auto', pr: 1 }}>
-                  {/* Certification 0 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
-                        <TextField fullWidth value="Certificate in Business Management" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
-                        <TextField fullWidth value="Industry Immersion Africa (IIAfrica)" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
-                        <TextField fullWidth value="2025-08" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
-                        <TextField fullWidth value="Skills in business and data analytics, leadership, and problem-solving, equipping me with the tools to bridge technology, business strategy, and innovation." sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
-                        <TextField fullWidth value="N/A" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
-                        <TextField
-                          fullWidth
-                          value="https://drive.google.com/file/d/17VZcj5__krvtc4H54ratUZXlQwC0gOiB/view?usp=sharing"
-                          InputProps={{ readOnly: true }}
-                          sx={{ 
-                            cursor: 'pointer',
-                            mb: 2,
-                            '& .MuiInputBase-input': {
-                              color: '#2563eb',
-                              textDecoration: 'underline',
-                              cursor: 'pointer',
-                              '&:hover': {
-                                color: '#1d4ed8',
-                                textDecoration: 'underline',
-                              }
-                            }
-                          }}
-                          onClick={() => window.open('https://drive.google.com/file/d/17VZcj5__krvtc4H54ratUZXlQwC0gOiB/view?usp=sharing', '_blank', 'noopener,noreferrer')}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-
-                  {/* Certification 1 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
-                        <TextField fullWidth value="Mentor in the Young Professionals Mentorship Program" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
-                        <TextField fullWidth value="Igoye Young Professional Mentorship Institute (IYPMI)" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
-                        <TextField fullWidth value="2024-11" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
-                        <TextField fullWidth value="Supporting Young People to Rethink, Refocus, and Succeed" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
-                        <TextField fullWidth value="N/A" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
-                        <TextField
-                          fullWidth
-                          value="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/OmondiAlex_MentorshipCert.png?alt=media&token=9d13a363-e60a-4385-bc84-4ee569bb65f7"
-                          InputProps={{ readOnly: true }}
-                          sx={{ 
-                            cursor: 'pointer',
-                            mb: 2,
-                            '& .MuiInputBase-input': {
-                              color: '#2563eb',
-                              textDecoration: 'underline',
-                              cursor: 'pointer',
-                              '&:hover': {
-                                color: '#1d4ed8',
-                                textDecoration: 'underline',
-                              }
-                            }
-                          }}
-                          onClick={() => window.open('https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/OmondiAlex_MentorshipCert.png?alt=media&token=9d13a363-e60a-4385-bc84-4ee569bb65f7', '_blank', 'noopener,noreferrer')}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-
-                   {/* Certification 2 */}
-                   <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
-                        <TextField fullWidth value="Virtual Assistant" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
-                        <TextField fullWidth value="ALX - The Room" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
-                        <TextField fullWidth value="2024-08" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
-                        <TextField fullWidth value="Designed to develop and practice professional skills that are most needed to be a successful Virtual Assistant" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
-                        <TextField fullWidth value="cer-4845ee55-b8bd-4fcb-81a6-46dedea7" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
-                        <TextField
-                          fullWidth
-                          value="https://www.virtualbadge.io/certificate-validator?credential=cer-4845ee55-b8bd-4fcb-81a6-46dedea7"
-                          InputProps={{ readOnly: true }}
-                          sx={{ 
-                            cursor: 'pointer',
-                            mb: 2,
-                            '& .MuiInputBase-input': {
-                              color: '#2563eb',
-                              textDecoration: 'underline',
-                              cursor: 'pointer',
-                              '&:hover': {
-                                color: '#1d4ed8',
-                                textDecoration: 'underline',
-                              }
-                            }
-                          }}
-                          onClick={() => window.open('https://www.virtualbadge.io/certificate-validator?credential=cer-4845ee55-b8bd-4fcb-81a6-46dedea7', '_blank', 'noopener,noreferrer')}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  {/* Certification 3 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
-                        <TextField fullWidth value="Cyber Security" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
-                        <TextField fullWidth value="Scratch and Script Limited, in Collaboration with ISACA  and Data Privacy and Governance Society of Kenya" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
-                        <TextField fullWidth value="2024-04" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
-                        <TextField fullWidth value="Cybersecurity Fundamentals, Threat Analysis, and Incident Response" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
-                        <TextField fullWidth value="IGN-8533838908-4209" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
-                        <TextField
-                          fullWidth
-                          value="https://certificate-verification.scratchandscript.com/"
-                          InputProps={{ readOnly: true }}
-                          sx={{ 
-                            cursor: 'pointer',
-                            mb: 2,
-                            '& .MuiInputBase-input': {
-                              color: '#2563eb',
-                              textDecoration: 'underline',
-                              cursor: 'pointer',
-                              '&:hover': {
-                                color: '#1d4ed8',
-                                textDecoration: 'underline',
-                              }
-                            }
-                          }}
-                          onClick={() => window.open('https://certificate-verification.scratchandscript.com/', '_blank', 'noopener,noreferrer')}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  {/* Certification 4 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
-                        <TextField fullWidth value="Mentorship Training" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
-                        <TextField fullWidth value="Igoye Young Professional Mentorship Institute(IYPMI)" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
-                        <TextField fullWidth value="2023-11" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
-                        <TextField fullWidth value="Supporting Young People to Rethink, Refocus, and Succed." sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
-                        <TextField fullWidth value="N/A" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
-                        <TextField
-                          fullWidth
-                          value="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/YPMP.png?alt=media&token=bc46ed54-69bd-4c9a-a025-cf7af8027330"
-                          InputProps={{ readOnly: true }}
-                          sx={{ 
-                            cursor: 'pointer',
-                            mb: 2,
-                            '& .MuiInputBase-input': {
-                              color: '#2563eb',
-                              textDecoration: 'underline',
-                              cursor: 'pointer',
-                              '&:hover': {
-                                color: '#1d4ed8',
-                                textDecoration: 'underline',
-                              }
-                            }
-                          }}
-                          onClick={() => window.open('https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/YPMP.png?alt=media&token=bc46ed54-69bd-4c9a-a025-cf7af8027330', '_blank', 'noopener,noreferrer')}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  {/* Certification 5 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
-                        <TextField fullWidth value="Full Stack Software Engineering Program" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
-                        <TextField fullWidth value="ALX Africa" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
-                        <TextField fullWidth value="2023-11" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
-                        <TextField fullWidth value="A 12 month Software Engineering Programme with a specialization in Front-end." sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
-                        <TextField fullWidth value="N/A" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
-                        <TextField
-                          fullWidth
-                          value="https://savanna.alxafrica.com/certificates/pERFn8XCsc"
-                          InputProps={{ readOnly: true }}
-                          sx={{ 
-                            cursor: 'pointer',
-                            mb: 2,
-                            '& .MuiInputBase-input': {
-                              color: '#2563eb',
-                              textDecoration: 'underline',
-                              cursor: 'pointer',
-                              '&:hover': {
-                                color: '#1d4ed8',
-                                textDecoration: 'underline',
-                              }
-                            }
-                          }}
-                          onClick={() => window.open('https://savanna.alxafrica.com/certificates/pERFn8XCsc', '_blank', 'noopener,noreferrer')}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  {/* Certification 6 */}
-                  <Box sx={{ border: '1.5px solid #cbd5e1', borderRadius: 2, p: 3, mb: 4 }}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Certification Title</Typography>
-                        <TextField fullWidth value="Android Development" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issuing Organization</Typography>
-                        <TextField fullWidth value="Google Africa Developer Training Program" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Issue Date</Typography>
-                        <TextField fullWidth value="2023-06" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Description / Scope</Typography>
-                        <TextField fullWidth value="Mobile Apps development using Kotling" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential ID / License Number</Typography>
-                        <TextField fullWidth value="CA3CEBA0F7F36E1" sx={{ mb: 2 }} InputProps={{ readOnly: true }} />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Typography fontWeight={600} sx={{ mb: 0.5 }}>Credential URL/Verification Link</Typography>
-                        <TextField
-                          fullWidth
-                          value="https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/Android.png?alt=media&token=1bc27f22-c596-4120-9c07-f586bf7d282a"
-                          InputProps={{ readOnly: true }}
-                          sx={{ 
-                            cursor: 'pointer',
-                            mb: 2,
-                            '& .MuiInputBase-input': {
-                              color: '#2563eb',
-                              textDecoration: 'underline',
-                              cursor: 'pointer',
-                              '&:hover': {
-                                color: '#1d4ed8',
-                                textDecoration: 'underline',
-                              }
-                            }
-                          }}
-                          onClick={() => window.open('https://firebasestorage.googleapis.com/v0/b/portfolio-95467.appspot.com/o/Android.png?alt=media&token=1bc27f22-c596-4120-9c07-f586bf7d282a', '_blank', 'noopener,noreferrer')}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                </Box>
-              </Box>
-            </TabPanel>
-            <TabPanel value={tab} index={5}>
               <Box sx={{ mb: 3 }}>
                 <Box sx={{
                   display: 'flex',
