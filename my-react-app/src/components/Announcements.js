@@ -18,13 +18,8 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Alert,
   Snackbar,
-  Badge,
   List,
   ListItem,
   ListItemText,
@@ -32,30 +27,19 @@ import {
   ListItemAvatar
 } from "@mui/material";
 import {
-  Announcement as AnnouncementIcon,
   Article as ArticleIcon,
   Event as EventIcon,
   Info as InfoIcon,
   TrendingUp as TrendingIcon,
   Star as StarIcon,
-  CalendarToday as CalendarIcon,
-  Person as PersonIcon,
-  Category as CategoryIcon,
-  Add as AddIcon,
-  Edit as EditIcon,
-  Delete as DeleteIcon,
-  Visibility as ViewIcon,
   Share as ShareIcon,
-  Bookmark as BookmarkIcon,
   BookmarkBorder as BookmarkBorderIcon,
   Close as CloseIcon,
   Send as SendIcon,
   Security as SecurityIcon,
   Code as CodeIcon,
-  Business as BusinessIcon,
   School as SchoolIcon,
-  Work as WorkIcon,
-  EmojiEvents as AwardIcon
+  Work as WorkIcon
 } from "@mui/icons-material";
 
 const Announcements = () => {

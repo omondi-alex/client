@@ -7,8 +7,6 @@ import {
   Grid,
   Button,
   TextField,
-  IconButton,
-  Chip,
   Paper,
   List,
   ListItem,
@@ -20,14 +18,12 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Avatar,
   Tabs,
   Tab,
   Container,
   useMediaQuery
 } from "@mui/material";
 import {
-  CalendarToday as CalendarIcon,
   Schedule as ScheduleIcon,
   Email as EmailIcon,
   Phone as PhoneIcon,
@@ -137,14 +133,6 @@ ${bookingForm.name}
       name: "", email: "", phone: "", company: "", meetingType: "video",
       duration: "30", date: "", time: "", subject: "", description: ""
     });
-  };
-
-  const getMeetingTypeIcon = (type) => {
-    return meetingTypes.find(t => t.value === type)?.icon || <ScheduleIcon />;
-  };
-
-  const getMeetingTypeColor = (type) => {
-    return meetingTypes.find(t => t.value === type)?.color || "#6b7280";
   };
 
   return (

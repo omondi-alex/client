@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, CardContent, Avatar, Typography, Grid, Tabs, Tab, TextField, InputAdornment, Paper, Divider, IconButton, Chip, useMediaQuery, Accordion, AccordionSummary, AccordionDetails, Container } from "@mui/material";
+import { Box, Card, CardContent, Avatar, Typography, Grid, Tabs, Tab, Paper, Divider, IconButton, Chip, useMediaQuery, Accordion, AccordionSummary, AccordionDetails, Container } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -7,7 +7,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import WorkIcon from '@mui/icons-material/Work';
@@ -39,15 +38,6 @@ function TabPanel(props) {
     </div>
   );
 }
-
-const info = [
-  { label: 'Full Name', value: 'Omondi Alex Omieno' },
-  { label: 'Email', value: 'omondialex3517@gmail.com ' },
-  { label: 'Alternate Email', value: 'alex.omondi@aims-senegal.org' },
-  { label: 'Address', value: 'Nairobi, Kenya' },
-  { label: 'WhatsApp', value: '+254 707 750879' },
-  { label: 'LinkedIn', value: 'https://www.linkedin.com/in/omondi-alex/' },
-];
 
 const ProfileDashboard = () => {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -7,7 +7,6 @@ import FolderIcon from '@mui/icons-material/Folder';
 import ClassIcon from '@mui/icons-material/Class';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MicIcon from '@mui/icons-material/Mic';
-import AnnouncementIcon from '@mui/icons-material/Announcement';
 
 const navItems = [
   { text: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },

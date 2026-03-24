@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Card, CardContent, Typography, Grid, Chip, Button, useMediaQuery, Container } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Box, Card, CardContent, Typography, Grid, Button, useMediaQuery, Container } from "@mui/material";
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
 import VerifiedIcon from '@mui/icons-material/Verified';
@@ -11,7 +10,6 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import fazitechImg from './imgs/fazitech.png';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width:1280px)');
 
   const services = [

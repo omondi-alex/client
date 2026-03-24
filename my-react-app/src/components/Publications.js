@@ -7,7 +7,6 @@ import {
   Grid, 
   Chip, 
   Button, 
-  Avatar,
   CardMedia,
   IconButton,
   Dialog,
@@ -19,7 +18,6 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
-  Paper,
   TextField,
   Snackbar,
   Alert,
@@ -30,7 +28,6 @@ import {
 import { 
   Article as ArticleIcon,
   Download as DownloadIcon,
-  Visibility as ViewIcon,
   Close as CloseIcon,
   School as SchoolIcon,
   CalendarToday as CalendarIcon,
@@ -39,7 +36,6 @@ import {
   Star as StarIcon,
   TrendingUp as TrendingIcon,
   Security as SecurityIcon,
-  Cloud as CloudIcon,
   CheckCircle as CheckCircleIcon,
   ArrowForward as ArrowForwardIcon,
   Send as SendIcon

@@ -7,16 +7,13 @@ import {
   Grid, 
   Chip, 
   Button, 
-  Avatar,
   Tabs,
   Tab,
   CardMedia,
-  CardActions,
   IconButton,
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogActions,
   List,
   ListItem,
   ListItemIcon,
@@ -25,16 +22,13 @@ import {
   Container
 } from "@mui/material";
 import { 
-  GitHub as GitHubIcon,
   Language as LanguageIcon,
   Security as SecurityIcon,
   Code as CodeIcon,
   Storage as StorageIcon,
-  PhoneAndroid as MobileIcon,
   Web as WebIcon,
   Close as CloseIcon,
   CheckCircle as CheckCircleIcon,
-  Star as StarIcon,
   People as PeopleIcon,
   Download as DownloadIcon
 } from "@mui/icons-material";

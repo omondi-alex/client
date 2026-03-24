@@ -9,10 +9,6 @@ import {
   TextField,
   Chip,
   Paper,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
   Alert,
   Snackbar,
   FormControl,
@@ -22,7 +18,6 @@ import {
   Avatar,
   Tabs,
   Tab,
-  Divider,
   IconButton,
   Dialog,
   DialogTitle,
@@ -42,19 +37,15 @@ import {
   Close as CloseIcon,
   Add as AddIcon,
   VideoCall as VideoCallIcon,
-  MeetingRoom as MeetingRoomIcon,
-  Online as OnlineIcon,
   Security as SecurityIcon,
   Code as CodeIcon,
   Business as BusinessIcon,
   TrendingUp as TrendingIcon,
-  Star as StarIcon,
   People as PeopleIcon,
   Schedule as ScheduleIcon,
   Email as EmailIcon
 } from "@mui/icons-material";
 import iyqnaImg from './imgs/image.png';
-import ieeeImg from './imgs/ieee.png';
 import indabaImg from './imgs/DLI.jpg';
 import image2 from './imgs/image2.png';
 import image3 from './imgs/image3.png';
@@ -193,7 +184,7 @@ const SpeakingEvents = () => {
       audience: "Industry Leaders, Policymakers, Technologists, Business Leaders",
       topic: "Cloud Security & FinTech",
       image: image2,
-      description: `On June 12th, 2025, I had the incredible opportunity to present my research on \"A Cloud Computing Security Assessment Framework for FINTECHs in Kenya\" at the Cyber Carnival 2025, hosted by the Africa Cyber Defense Forum, ACDF®, at Nairobi Street Kitchen & Kalamata Restaurant. This framework addresses the critical gap in tailored cloud security standards for Kenyan FinTechs, integrating global 🌍 best practices with local regulatory requirements like Kenya's Data Protection Act! 📜. Through surveys and experimental simulations using OwnCloud☁️, the study highlights key vulnerabilities, such as insider threats and data retention risks, and proposes actionable metrics to strengthen cloud security. The response from industry leaders and peers was overwhelmingly positive, reinforcing the urgent need for scalable, context-aware solutions in our rapidly evolving digital landscape...\n\nA heartfelt thank you to Africa Cyber Defense Forum, ACDF®, for this transformative platform, where policymakers, technologists, and business leaders collaborate to shape Africa's cybersecurity future 💡. Special gratitude to the attendees whose insights enriched the discussion. As cyber threats in East Africa surge by 50 %+ 📈, frameworks like this are vital to safeguarding financial innovation while fostering trust 🛡️...\n\nLet's keep the conversation going, reach out if you'd like to explore how this framework can empower your organization or collaborate on securing Africa's digital economy🤝 ...`,
+      description: `On June 12th, 2025, I had the incredible opportunity to present my research on "A Cloud Computing Security Assessment Framework for FINTECHs in Kenya" at the Cyber Carnival 2025, hosted by the Africa Cyber Defense Forum, ACDF®, at Nairobi Street Kitchen & Kalamata Restaurant. This framework addresses the critical gap in tailored cloud security standards for Kenyan FinTechs, integrating global 🌍 best practices with local regulatory requirements like Kenya's Data Protection Act! 📜. Through surveys and experimental simulations using OwnCloud☁️, the study highlights key vulnerabilities, such as insider threats and data retention risks, and proposes actionable metrics to strengthen cloud security. The response from industry leaders and peers was overwhelmingly positive, reinforcing the urgent need for scalable, context-aware solutions in our rapidly evolving digital landscape...\n\nA heartfelt thank you to Africa Cyber Defense Forum, ACDF®, for this transformative platform, where policymakers, technologists, and business leaders collaborate to shape Africa's cybersecurity future 💡. Special gratitude to the attendees whose insights enriched the discussion. As cyber threats in East Africa surge by 50 %+ 📈, frameworks like this are vital to safeguarding financial innovation while fostering trust 🛡️...\n\nLet's keep the conversation going, reach out if you'd like to explore how this framework can empower your organization or collaborate on securing Africa's digital economy🤝 ...`,
       highlights: [
         "Conference Speaker",
         "Cloud Security Research",
@@ -212,7 +203,7 @@ const SpeakingEvents = () => {
       audience: "Academics, Researchers, Industry Experts, Policy Makers",
       topic: "Innovation & Technology",
       image: image3,
-      description: `I'm thrilled to share my experience at the Kirinyaga University 8th Annual International Conference, held virtually on March 26-27, 2025, under the theme \"Integration of Innovation and Technology for Sustainable Interdisciplinary Collaboration.\"\n\nThe conference kicked off with an inspiring keynote by Benson MULEMI, PhD, who delved into \"Grants Mobilization as a Catalyst for Innovation: Leveraging Multidisciplinary Collaboration for Sustainable Research Impact.\" His insights underscored the transformative power of cross-disciplinary partnerships in securing grants and driving impactful research, a timely reminder of how collaboration fuels progress in our fast-evolving technological landscape.\n\nI was honored to present two research papers in the ICT and Digital Transformation category, addressing critical challenges and solutions in Kenya's FinTech sector:\n\n👨🏽‍💻 Development and Evaluation of a Cloud Security Framework for Kenyan FinTechs (https://lnkd.in/e-6TxGSp)\n\n👨🏽‍💻 Cloud Security Challenges and Assessment Framework for Kenyan FinTechs (https://lnkd.in/eDGHc2gm)\n\nThese papers explore actionable frameworks to bolster cybersecurity resilience in FinTech, a sector pivotal to Kenya's digital economy. The discussions that followed were incredibly enriching, with peers and experts sharing perspectives on scalability, regulatory alignment, and emerging threats like AI-driven fraud.\n\nBeyond my presentations, I had the privilege of engaging with groundbreaking work across diverse fields:\n\n🍎 AI in Agriculture: Innovative machine learning models aimed at boosting crop productivity and sustainability, showcasing how technology can revolutionize farming in Africa.\n\n🩺 Health Tech Breakthroughs: Researchers demonstrated how tech can bridge gaps in healthcare access and quality from low-cost malaria diagnostics to AI-driven nursing education advancements.\n\n💰 Sustainable Finance: Dynamic panel debates explored the intersection of green investments, regulatory frameworks, and ethical financial practices, which are critical topics for emerging economies.\n\nA huge thank you to Kirinyaga University for organizing such an insightful hybrid conference, proving that virtual platforms can foster deep, global collaboration.\n\nAs we navigate the Fourth Industrial Revolution, conferences like these are vital for bridging academia, industry, and policy, turning research into real-world solutions. Grateful for the chance to contribute and learn! ...`,
+      description: `I'm thrilled to share my experience at the Kirinyaga University 8th Annual International Conference, held virtually on March 26-27, 2025, under the theme "Integration of Innovation and Technology for Sustainable Interdisciplinary Collaboration."\n\nThe conference kicked off with an inspiring keynote by Benson MULEMI, PhD, who delved into "Grants Mobilization as a Catalyst for Innovation: Leveraging Multidisciplinary Collaboration for Sustainable Research Impact." His insights underscored the transformative power of cross-disciplinary partnerships in securing grants and driving impactful research, a timely reminder of how collaboration fuels progress in our fast-evolving technological landscape.\n\nI was honored to present two research papers in the ICT and Digital Transformation category, addressing critical challenges and solutions in Kenya's FinTech sector:\n\n👨🏽‍💻 Development and Evaluation of a Cloud Security Framework for Kenyan FinTechs (https://lnkd.in/e-6TxGSp)\n\n👨🏽‍💻 Cloud Security Challenges and Assessment Framework for Kenyan FinTechs (https://lnkd.in/eDGHc2gm)\n\nThese papers explore actionable frameworks to bolster cybersecurity resilience in FinTech, a sector pivotal to Kenya's digital economy. The discussions that followed were incredibly enriching, with peers and experts sharing perspectives on scalability, regulatory alignment, and emerging threats like AI-driven fraud.\n\nBeyond my presentations, I had the privilege of engaging with groundbreaking work across diverse fields:\n\n🍎 AI in Agriculture: Innovative machine learning models aimed at boosting crop productivity and sustainability, showcasing how technology can revolutionize farming in Africa.\n\n🩺 Health Tech Breakthroughs: Researchers demonstrated how tech can bridge gaps in healthcare access and quality from low-cost malaria diagnostics to AI-driven nursing education advancements.\n\n💰 Sustainable Finance: Dynamic panel debates explored the intersection of green investments, regulatory frameworks, and ethical financial practices, which are critical topics for emerging economies.\n\nA huge thank you to Kirinyaga University for organizing such an insightful hybrid conference, proving that virtual platforms can foster deep, global collaboration.\n\nAs we navigate the Fourth Industrial Revolution, conferences like these are vital for bridging academia, industry, and policy, turning research into real-world solutions. Grateful for the chance to contribute and learn! ...`,
       highlights: [
         "Conference Speaker",
         "Cloud Security Research",
@@ -506,14 +497,6 @@ ${inviteForm.name}
 
   const getEventTypeColor = (type) => {
     return eventTypes.find(t => t.value === type)?.color || "#6b7280";
-  };
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "confirmed": return "success";
-      case "pending": return "warning";
-      default: return "default";
-    }
   };
 
   return (
