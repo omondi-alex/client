@@ -342,7 +342,7 @@ const ProfileDashboard = () => {
                 border: '1px solid #dbeafe'
               }}>
                 <Typography variant="body1" sx={{ lineHeight: 1.7, color: '#374151' }}>
-                Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design and GRC consulting. Beyond technical work, I'm passionate about education, lecturing at Kirinyaga University and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. Always open to collaborating on meaningful projects that make a difference.
+                Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design, and GRC consulting. Beyond technical work, I'm passionate about education, lecturing at Kirinyaga University and Zetech University, and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. Always open to collaborating on meaningful projects that make a difference.
                 </Typography>
               </Box>
             </CardContent>
@@ -1075,7 +1075,7 @@ const ProfileDashboard = () => {
                     letterSpacing: '0.01em',
                   }}
                 >
-              Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design and GRC consulting. Beyond technical work, I'm passionate about education, lecturing at Kirinyaga University and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. Always open to collaborating on meaningful projects that make a difference.                </Typography>
+              Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design, and GRC consulting. Beyond technical work, I'm passionate about education, lecturing at Kirinyaga University and Zetech University, and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. Always open to collaborating on meaningful projects that make a difference.                </Typography>
               </Box>
             </Box>
           </Card>
@@ -1723,6 +1723,110 @@ const ProfileDashboard = () => {
                   </Box>
                 </Box>
                 <Box sx={{ maxHeight: 500, overflowY: 'auto', pr: 1 }}>
+                  {/* Experience -2: Tutorial Fellow (current) */}
+                  <Box sx={{ 
+                    borderRadius: 4, 
+                    p: 3.5, 
+                    mb: 3,
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '4px',
+                      height: '100%',
+                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
+                    }
+                  }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 3 }}>
+                      <Box sx={{
+                        width: 56,
+                        height: 56,
+                        borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
+                        flexShrink: 0,
+                      }}>
+                        <SchoolIcon sx={{ fontSize: 28 }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.25rem', mb: 0.5, color: '#1e293b' }}>
+                          Tutorial Fellow - Information Technology
+                        </Typography>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1rem', mb: 1, color: '#2563eb' }}>
+                          Zetech University
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, alignItems: 'center' }}>
+                          <Chip 
+                            label="Full-time" 
+                            size="small" 
+                            sx={{ 
+                              background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                              color: '#1e40af',
+                              fontWeight: 600,
+                              border: '1px solid #bfdbfe',
+                            }} 
+                          />
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#64748b' }}>
+                            <LocationOnIcon sx={{ fontSize: 16 }} />
+                            <Typography variant="caption" sx={{ fontSize: '0.85rem', fontWeight: 500 }}>
+                              Kenya
+                            </Typography>
+                          </Box>
+                          <Typography variant="caption" sx={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>
+                            2026-02 - To date
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ 
+                      pl: 1,
+                      borderLeft: '2px solid #e2e8f0',
+                      ml: 2,
+                    }}>
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1.5, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Allocated Units
+                      </Typography>
+                      <Box component="ul" sx={{ m: 0, pl: 2.5, listStyle: 'none' }}>
+                        {[
+                          'Cyber Security',
+                          'Network Design and Administration',
+                          'Database Systems',
+                          'Cyber Law',
+                          'Routing and Switching',
+                          'Ethical Hacking'
+                        ].map((item, idx) => (
+                          <Box key={idx} component="li" sx={{ 
+                            mb: 1, 
+                            position: 'relative',
+                            pl: 2,
+                            '&::before': {
+                              content: '"•"',
+                              position: 'absolute',
+                              left: 0,
+                              color: '#2563eb',
+                              fontWeight: 'bold',
+                              fontSize: '1.2rem',
+                            }
+                          }}>
+                            <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                              {item}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  </Box>
+
                   {/* Experience -1: Kirinyaga University (current) */}
                   <Box sx={{ 
                     borderRadius: 4, 
