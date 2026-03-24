@@ -159,6 +159,147 @@ const ProfileDashboard = () => {
       ],
     },
   ];
+  const mobileEducation = [
+    {
+      title: "Master's in Computer Security",
+      institution: "AIMS",
+      period: "2023-10 - 2025-07",
+      status: "Completed",
+      accent: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+      badgeBg: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)",
+      badgeColor: "#065f46",
+      details: [
+        "Thesis: A Cloud Computing Security Assessment Framework for FINTECHs in Kenya",
+        "Focus: Applied cloud security, risk assessment, and fintech resilience",
+      ],
+    },
+    {
+      title: "Bachelor's in Computer Science",
+      institution: "Kirinyaga University",
+      period: "2018-09 - 2022-10",
+      status: "Upper Division",
+      accent: "linear-gradient(135deg, #14b8a6 0%, #0f766e 100%)",
+      badgeBg: "linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%)",
+      badgeColor: "#115e59",
+      details: [
+        "Project: Garbage Management System",
+        "Award: Second Class Honours (Upper Division)",
+      ],
+    },
+  ];
+  const mobileCertifications = [
+    {
+      title: "Business Management",
+      issuer: "IIAfrica",
+      date: "2025-08",
+      focus: "Business and data analytics, leadership, and problem-solving for innovation.",
+    },
+    {
+      title: "Mentor in YPMP",
+      issuer: "IYPMI",
+      date: "2024-11",
+      focus: "Supporting young people to rethink, refocus, and succeed.",
+    },
+    {
+      title: "Virtual Assistant",
+      issuer: "ALX - The Room",
+      date: "2024-08",
+      focus: "Professional skills development for virtual assistant practice.",
+    },
+    {
+      title: "Cyber Security",
+      issuer: "Scratch and Script",
+      date: "2024-04",
+      focus: "Cybersecurity fundamentals, threat analysis, and incident response.",
+    },
+    {
+      title: "Mentorship Training",
+      issuer: "IYPMI",
+      date: "2023-11",
+      focus: "Practical mentorship support for young professionals.",
+    },
+    {
+      title: "Full Stack Software Engineering Program",
+      issuer: "ALX Africa",
+      date: "2023-11",
+      focus: "A 12-month software engineering program with front-end specialization.",
+    },
+    {
+      title: "Android Development",
+      issuer: "Google Africa Developer Training Program",
+      date: "2023-06",
+      focus: "Mobile application development using Kotlin.",
+    },
+  ];
+  const mobileExpertiseGroups = [
+    {
+      title: "Industry Expertise",
+      accent: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)",
+      border: "#bfdbfe",
+      titleColor: "#1d4ed8",
+      chips: [
+        "Software Security",
+        "Software Development",
+        "IT Support",
+        "Virtual Assistant",
+        "Graphics Design",
+        "GRC",
+      ],
+    },
+    {
+      title: "Software Expertise",
+      accent: "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)",
+      border: "#bbf7d0",
+      titleColor: "#047857",
+      chips: [
+        "React Js",
+        "Next Js",
+        "Python",
+        "Microsoft Office",
+        "Kotlin",
+      ],
+    },
+    {
+      title: "Security & Delivery Focus",
+      accent: "linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%)",
+      border: "#ddd6fe",
+      titleColor: "#6d28d9",
+      chips: [
+        "Threat Detection",
+        "Incident Response",
+        "Cloud Security",
+        "API Security",
+        "UI Delivery",
+        "Mentorship",
+      ],
+    },
+  ];
+  const mobilePersonalInfo = [
+    {
+      label: "Full Name",
+      value: "Omondi Alex Omieno",
+      icon: PersonIcon,
+      accent: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
+    },
+    {
+      label: "Primary Email",
+      value: "omondialex3517@gmail.com",
+      icon: EmailIcon,
+      accent: "linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)",
+    },
+    {
+      label: "WhatsApp",
+      value: "+254 707 750879",
+      icon: WhatsAppIcon,
+      accent: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
+    },
+    {
+      label: "Location",
+      value: "Nairobi, Kenya",
+      icon: LocationOnIcon,
+      accent: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)",
+    },
+  ];
 
   // Update tab when URL params change
   React.useEffect(() => {
@@ -182,9 +323,12 @@ const ProfileDashboard = () => {
         minHeight: '100vh', 
         background: 'radial-gradient(900px 400px at 10% -20%, rgba(14, 165, 233, 0.25), transparent 60%), linear-gradient(135deg, #0b1120 0%, #0f172a 55%, #111827 100%)',
         pt: 8,
-        pb: 4
+        pb: 4,
+        width: '100%',
+        maxWidth: '100vw',
+        overflowX: 'hidden'
       }}>
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" sx={{ width: '100%', maxWidth: '100%', overflowX: 'hidden' }}>
           {/* Hero Profile Section */}
           <Card sx={{ 
             borderRadius: 4, 
@@ -359,73 +503,81 @@ const ProfileDashboard = () => {
                   Personal Information
                 </Typography>
               </Box>
-              
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
-                  <Box sx={{ 
-                    background: '#f8fafc', 
-                    borderRadius: 2, 
-                    p: 3, 
-                    mb: 2,
-                    border: '1px solid #e2e8f0'
-                  }}>
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 0.5 }}>
-                      Full Name
-                    </Typography>
-                    <Typography variant="body1" fontWeight={500}>
-                      Omondi Alex Omieno
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box sx={{ 
-                    background: '#f8fafc', 
-                    borderRadius: 2, 
-                    p: 3, 
-                    mb: 2,
-                    border: '1px solid #e2e8f0'
-                  }}>
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 0.5 }}>
-                      Email
-                    </Typography>
-                    <Typography variant="body1" fontWeight={500}>
-                      omondialex3517@gmail.com
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box sx={{ 
-                    background: '#f8fafc', 
-                    borderRadius: 2, 
-                    p: 3, 
-                    mb: 2,
-                    border: '1px solid #e2e8f0'
-                  }}>
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 0.5 }}>
-                      WhatsApp
-                    </Typography>
-                    <Typography variant="body1" fontWeight={500}>
-                      +254 707 750879
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box sx={{ 
-                    background: '#f8fafc', 
-                    borderRadius: 2, 
-                    p: 3, 
-                    mb: 2,
-                    border: '1px solid #e2e8f0'
-                  }}>
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 0.5 }}>
-                      Address
-                    </Typography>
-                    <Typography variant="body1" fontWeight={500}>
-                      Nairobi, Kenya
-                    </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
+
+              <Box sx={{ display: 'grid', gap: 1.4 }}>
+                {mobilePersonalInfo.map((item) => {
+                  const ItemIcon = item.icon;
+                  const isEmail = item.label === "Primary Email";
+                  return (
+                    <Box
+                      key={item.label}
+                      sx={{
+                        width: '100%',
+                        maxWidth: 280,
+                        mx: 'auto',
+                        borderRadius: 4,
+                        px: 2,
+                        py: 0,
+                        minHeight: 86,
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.96) 100%)',
+                        border: '1px solid rgba(148, 163, 184, 0.18)',
+                        boxShadow: '0 10px 24px rgba(15, 23, 42, 0.06)',
+                        display: 'flex',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Box sx={{ display: 'flex', gap: 1.3, alignItems: 'center', minWidth: 0, width: '100%' }}>
+                        <Box
+                          sx={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: '12px',
+                            background: item.accent,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: '#fff',
+                            flexShrink: 0,
+                            boxShadow: '0 8px 18px rgba(37, 99, 235, 0.18)',
+                          }}
+                        >
+                          <ItemIcon sx={{ fontSize: 19 }} />
+                        </Box>
+                        <Box
+                          sx={{
+                            minWidth: 0,
+                            flex: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            gap: 0.35,
+                            py: 1.15,
+                          }}
+                        >
+                          <Typography sx={{ fontSize: '0.74rem', lineHeight: 1.1, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#64748b', mb: 0 }}>
+                            {item.label}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: isEmail ? '0.9rem' : '0.98rem',
+                              lineHeight: 1.2,
+                              fontWeight: 700,
+                              color: '#0f172a',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                              pr: 0.25,
+                              mb: 0,
+                            }}
+                          >
+                            {item.value}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                  );
+                })}
+              </Box>
             </CardContent>
           </Card>
 
@@ -455,16 +607,21 @@ const ProfileDashboard = () => {
                   Professional Bio
                 </Typography>
               </Box>
-              
-              <Box sx={{ 
-                background: 'linear-gradient(135deg, #f3f8ff 0%, #e0f2fe 100%)', 
-                borderRadius: 3,
-                p: 3,
-                border: '1px solid #dbeafe'
-              }}>
-                <Typography variant="body1" sx={{ lineHeight: 1.7, color: '#374151' }}>
-                Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design, and GRC consulting. Beyond technical work, I'm passionate about education, lecturing at Kirinyaga University and Zetech University, and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. Always open to collaborating on meaningful projects that make a difference.
-                </Typography>
+
+              <Box
+                sx={{
+                  borderRadius: 4,
+                  overflow: 'hidden',
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.96) 100%)',
+                  border: '1px solid rgba(14, 165, 233, 0.16)',
+                  boxShadow: '0 14px 28px rgba(15, 23, 42, 0.07)',
+                }}
+              >
+                <Box sx={{ p: 2.25 }}>
+                  <Typography variant="body1" sx={{ lineHeight: 1.85, color: '#334155', fontSize: '0.97rem' }}>
+                    Security & Software Engineer with over 2 years of experience building secure, scalable solutions. I specialize in cloud security frameworks, full-stack development, graphic design, and GRC consulting. Beyond technical work, I am passionate about education, lecturing at Kirinyaga University and Zetech University, and mentoring young professionals. My approach combines rigorous security practices with innovative software engineering to deliver solutions that are both robust and user-friendly. I am always open to collaborating on meaningful projects that make a difference.
+                  </Typography>
+                </Box>
               </Box>
             </CardContent>
           </Card>
@@ -664,64 +821,82 @@ const ProfileDashboard = () => {
                   Education
                 </Typography>
               </Box>
-              
-              <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#10b981',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <SchoolIcon sx={{ fontSize: 16 }} />
+              <Box sx={{ display: 'grid', gap: 2 }}>
+                {mobileEducation.map((education) => (
+                  <Box
+                    key={`${education.institution}-${education.title}`}
+                    sx={{
+                      borderRadius: 4,
+                      p: 2.25,
+                      background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%)',
+                      border: '1px solid rgba(16, 185, 129, 0.16)',
+                      boxShadow: '0 14px 28px rgba(15, 23, 42, 0.08)',
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'flex-start', mb: 1.75 }}>
+                      <Box
+                        sx={{
+                          width: 42,
+                          height: 42,
+                          borderRadius: '14px',
+                          background: education.accent,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          flexShrink: 0,
+                          boxShadow: '0 8px 20px rgba(16, 185, 129, 0.18)',
+                        }}
+                      >
+                        <SchoolIcon sx={{ fontSize: 20 }} />
+                      </Box>
+                      <Box sx={{ minWidth: 0, flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, color: '#0f172a', lineHeight: 1.35, mb: 0.35 }}>
+                          {education.title}
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.92rem', fontWeight: 600, color: '#0f766e', mb: 1 }}>
+                          {education.institution}
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.8 }}>
+                          <Chip
+                            label={education.status}
+                            size="small"
+                            sx={{
+                              height: 24,
+                              background: education.badgeBg,
+                              color: education.badgeColor,
+                              fontWeight: 700,
+                            }}
+                          />
+                        </Box>
+                        <Typography variant="caption" sx={{ display: 'block', mt: 1.1, color: '#64748b', fontWeight: 600 }}>
+                          {education.period}
+                        </Typography>
+                      </Box>
                     </Box>
-                    <Box>
-                      <Typography fontWeight={600}>Master's in Computer Security</Typography>
-                      <Typography variant="caption" color="text.secondary">AIMS • 2023-10 to 2025-07</Typography>
+                    <Box
+                      sx={{
+                        borderRadius: 3,
+                        p: 1.7,
+                        background: 'linear-gradient(135deg, #f8fafc 0%, #f0fdf4 100%)',
+                        border: '1px solid #dcfce7',
+                      }}
+                    >
+                      <Typography sx={{ fontWeight: 700, fontSize: '0.76rem', mb: 1.2, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                        Highlights
+                      </Typography>
+                      <Box component="ul" sx={{ m: 0, pl: 0, listStyle: 'none' }}>
+                        {education.details.map((detail, idx) => (
+                          <Box key={idx} component="li" sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, mb: idx === education.details.length - 1 ? 0 : 1.1 }}>
+                            <Box sx={{ width: 8, height: 8, mt: '8px', borderRadius: '50%', background: education.badgeColor, flexShrink: 0 }} />
+                            <Typography sx={{ fontSize: '0.92rem', lineHeight: 1.6, color: '#334155' }}>{detail}</Typography>
+                          </Box>
+                        ))}
+                      </Box>
                     </Box>
                   </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    <strong>Thesis:</strong> A Cloud Computing Security Assessment Framework for FINTECHs in Kenya<br/>
-                    <strong>Status:</strong> 2025-07 <br/>
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#10b981',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <SchoolIcon sx={{ fontSize: 16 }} />
-                    </Box>
-                    <Box>
-                      <Typography fontWeight={600}>Bachelor's in Computer Science</Typography>
-                      <Typography variant="caption" color="text.secondary">Kirinyaga University • 2018-09 to 2022-10</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    <strong>Project:</strong> Garbage Management System<br/>
-                    <strong>Award:</strong> Second Class Honours (Upper Division)
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
+                ))}
+              </Box>
             </CardContent>
           </Card>
 
@@ -751,205 +926,51 @@ const ProfileDashboard = () => {
                   Certifications
                 </Typography>
               </Box>
-              
-              <Box sx={{ maxHeight: 400, overflowY: 'auto', pr: 1 }}>
-
-                 <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box sx={{ 
-                        width: 32, 
-                        height: 32, 
-                        borderRadius: '50%', 
-                        background: '#f59e0b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white'
-                      }}>
-                        <VerifiedIcon sx={{ fontSize: 16 }} />
+              <Box sx={{ display: 'grid', gap: 1.4, maxHeight: 460, overflowY: 'auto', pr: 0.5 }}>
+                {mobileCertifications.map((certification) => (
+                  <Box
+                    key={`${certification.issuer}-${certification.title}`}
+                    sx={{
+                      borderRadius: 4,
+                      p: 2,
+                      background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,251,235,0.95) 100%)',
+                      border: '1px solid rgba(245, 158, 11, 0.18)',
+                      boxShadow: '0 10px 24px rgba(15, 23, 42, 0.06)',
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', gap: 1.3, alignItems: 'flex-start' }}>
+                      <Box
+                        sx={{
+                          width: 38,
+                          height: 38,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#fff',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <VerifiedIcon sx={{ fontSize: 18 }} />
                       </Box>
-                      <Box>
-                        <Typography fontWeight={600}>Business Management</Typography>
-                        <Typography variant="caption" color="text.secondary">IIAfrica • 2025-08</Typography>
-                      </Box>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                      Skills in business and data analytics, leadership, and problem-solving, equipping me with the tools to bridge technology, business strategy, and innovation.
-
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box sx={{ 
-                        width: 32, 
-                        height: 32, 
-                        borderRadius: '50%', 
-                        background: '#f59e0b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white'
-                      }}>
-                        <VerifiedIcon sx={{ fontSize: 16 }} />
-                      </Box>
-                      <Box>
-                        <Typography fontWeight={600}>Mentor in YPMP</Typography>
-                        <Typography variant="caption" color="text.secondary">IYPMI • 2024-11</Typography>
+                      <Box sx={{ minWidth: 0, flex: 1 }}>
+                        <Typography sx={{ fontWeight: 700, color: '#0f172a', lineHeight: 1.35, mb: 0.35 }}>
+                          {certification.title}
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#b45309', fontWeight: 600 }}>
+                          {certification.issuer}
+                        </Typography>
+                        <Typography variant="caption" sx={{ display: 'block', mt: 0.75, mb: 1.1, color: '#78716c', fontWeight: 600 }}>
+                          {certification.date}
+                        </Typography>
+                        <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#44403c' }}>
+                          {certification.focus}
+                        </Typography>
                       </Box>
                     </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                      Supporting Young People to Rethink, Refocus, and Succeed
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box sx={{ 
-                        width: 32, 
-                        height: 32, 
-                        borderRadius: '50%', 
-                        background: '#f59e0b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white'
-                      }}>
-                        <VerifiedIcon sx={{ fontSize: 16 }} />
-                      </Box>
-                      <Box>
-                        <Typography fontWeight={600}>Virtual Assistant</Typography>
-                        <Typography variant="caption" color="text.secondary">ALX - The Room • 2024-08</Typography>
-                      </Box>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                      Professional skills development for Virtual Assistant role
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box sx={{ 
-                        width: 32, 
-                        height: 32, 
-                        borderRadius: '50%', 
-                        background: '#f59e0b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white'
-                      }}>
-                        <VerifiedIcon sx={{ fontSize: 16 }} />
-                      </Box>
-                      <Box>
-                        <Typography fontWeight={600}>Cyber Security</Typography>
-                        <Typography variant="caption" color="text.secondary">Scratch and Script • 2024-04</Typography>
-                      </Box>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                      Cybersecurity Fundamentals, Threat Analysis, and Incident Response
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box sx={{ 
-                        width: 32, 
-                        height: 32, 
-                        borderRadius: '50%', 
-                        background: '#f59e0b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white'
-                      }}>
-                        <VerifiedIcon sx={{ fontSize: 16 }} />
-                      </Box>
-                      <Box>
-                        <Typography fontWeight={600}>Mentorship Training</Typography>
-                        <Typography variant="caption" color="text.secondary">IYPMI • 2023-11</Typography>
-                      </Box>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                      Supporting Young People to Rethink, Refocus, and Succeed
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box sx={{ 
-                        width: 32, 
-                        height: 32, 
-                        borderRadius: '50%', 
-                        background: '#f59e0b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white'
-                      }}>
-                        <VerifiedIcon sx={{ fontSize: 16 }} />
-                      </Box>
-                      <Box>
-                        <Typography fontWeight={600}>Full Stack Software Engineering Program</Typography>
-                        <Typography variant="caption" color="text.secondary">ALX Africa • 2023-11</Typography>
-                      </Box>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                      A 12 month Software Engineering Programme with a specialization in Front-end
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box sx={{ 
-                        width: 32, 
-                        height: 32, 
-                        borderRadius: '50%', 
-                        background: '#f59e0b',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white'
-                      }}>
-                        <VerifiedIcon sx={{ fontSize: 16 }} />
-                      </Box>
-                      <Box>
-                        <Typography fontWeight={600}>Android Development</Typography>
-                        <Typography variant="caption" color="text.secondary">Google Africa Developer Training Program • 2023-06</Typography>
-                      </Box>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                      Mobile Apps development using Kotlin
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
+                  </Box>
+                ))}
               </Box>
             </CardContent>
           </Card>
@@ -980,48 +1001,40 @@ const ProfileDashboard = () => {
                   Areas of Expertise
                 </Typography>
               </Box>
-              
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
-                  <Box sx={{ 
-                    background: 'linear-gradient(135deg, #f3f8ff 0%, #e0f2fe 100%)', 
-                    borderRadius: 3,
-                    p: 3,
-                    border: '1px solid #dbeafe'
-                  }}>
-                    <Typography variant="subtitle1" fontWeight={600} sx={{ mb: 2, color: '#2563eb' }}>
-                      Industry Expertise
+              <Box sx={{ display: 'grid', gap: 2 }}>
+                {mobileExpertiseGroups.map((group) => (
+                  <Box
+                    key={group.title}
+                    sx={{
+                      borderRadius: 4,
+                      p: 2.3,
+                      background: group.accent,
+                      border: `1px solid ${group.border}`,
+                      boxShadow: '0 10px 24px rgba(15, 23, 42, 0.05)',
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 700, fontSize: '0.98rem', mb: 1.5, color: group.titleColor }}>
+                      {group.title}
                     </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      <Chip label="Software Security" size="small" sx={{ background: '#2563eb', color: 'white' }} />
-                      <Chip label="Software Development" size="small" sx={{ background: '#2563eb', color: 'white' }} />
-                      <Chip label="IT Support" size="small" sx={{ background: '#2563eb', color: 'white' }} />
-                      <Chip label="Virtual Assistant" size="small" sx={{ background: '#2563eb', color: 'white' }} />
-                      <Chip label="Graphics Design" size="small" sx={{ background: '#2563eb', color: 'white' }} />
-                      <Chip label="GRC" size="small" sx={{ background: '#2563eb', color: 'white' }} />
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.9 }}>
+                      {group.chips.map((chip) => (
+                        <Chip
+                          key={chip}
+                          label={chip}
+                          size="small"
+                          sx={{
+                            background: 'rgba(255,255,255,0.8)',
+                            color: '#1e293b',
+                            fontWeight: 700,
+                            border: '1px solid rgba(255,255,255,0.65)',
+                            backdropFilter: 'blur(8px)',
+                          }}
+                        />
+                      ))}
                     </Box>
                   </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box sx={{ 
-                    background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', 
-                    borderRadius: 3,
-                    p: 3,
-                    border: '1px solid #bbf7d0'
-                  }}>
-                    <Typography variant="subtitle1" fontWeight={600} sx={{ mb: 2, color: '#10b981' }}>
-                      Software Expertise
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      <Chip label="React Js" size="small" sx={{ background: '#10b981', color: 'white' }} />
-                      <Chip label="Next Js" size="small" sx={{ background: '#10b981', color: 'white' }} />
-                      <Chip label="Python" size="small" sx={{ background: '#10b981', color: 'white' }} />
-                      <Chip label="Microsoft Office" size="small" sx={{ background: '#10b981', color: 'white' }} />
-                      <Chip label="Kotlin" size="small" sx={{ background: '#10b981', color: 'white' }} />
-                    </Box>
-                  </Box>
-                </Grid>
-              </Grid>
+                ))}
+              </Box>
             </CardContent>
           </Card>
 
@@ -1130,6 +1143,8 @@ const ProfileDashboard = () => {
               borderRadius: 2,
               background: 'rgba(14, 165, 233, 0.12)',
               border: '1px solid rgba(14, 165, 233, 0.45)',
+              maxWidth: '100%',
+              minWidth: 0,
             }}>
               <EmailIcon sx={{ fontSize: isMobile ? 14 : 16, color: '#7dd3fc' }} />
               <Typography 
@@ -1140,6 +1155,11 @@ const ProfileDashboard = () => {
                   fontSize: isMobile ? '0.85rem' : isMediumLarge ? '0.95rem' : '1rem',
                   color: '#7dd3fc',
                   fontWeight: 500,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  minWidth: 0,
+                  maxWidth: '100%',
                 }}
               >
                 omondialex3517@gmail.com
@@ -1304,8 +1324,8 @@ const ProfileDashboard = () => {
                       >
                         <PersonIcon sx={{ fontSize: 24 }} />
                       </Box>
-                      <Box sx={{ flex: 1 }}>
-                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25 }}>
+                      <Box sx={{ flex: 1, minWidth: 0 }}>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           Omondi Alex Omieno
                         </Typography>
                         <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
@@ -1348,8 +1368,8 @@ const ProfileDashboard = () => {
                       >
                         <EmailIcon sx={{ fontSize: 24 }} />
                       </Box>
-                      <Box sx={{ flex: 1 }}>
-                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25 }}>
+                      <Box sx={{ flex: 1, minWidth: 0 }}>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           alex.omondi@aims-senegal.org
                         </Typography>
                         <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
@@ -1593,8 +1613,8 @@ const ProfileDashboard = () => {
                       >
                         <EmailIcon sx={{ fontSize: 24 }} />
                       </Box>
-                      <Box sx={{ flex: 1 }}>
-                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25 }}>
+                      <Box sx={{ flex: 1, minWidth: 0 }}>
+                        <Typography sx={{ fontWeight: 600, fontSize: '0.95rem', mb: 0.25, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           omondialex3517@gmail.com
                         </Typography>
                         <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
