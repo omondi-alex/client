@@ -75,7 +75,7 @@ const ProfileDashboard = () => {
     return (
       <Box sx={{ 
         minHeight: '100vh', 
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'radial-gradient(900px 400px at 10% -20%, rgba(14, 165, 233, 0.25), transparent 60%), linear-gradient(135deg, #0b1120 0%, #0f172a 55%, #111827 100%)',
         pt: 8,
         pb: 4
       }}>
@@ -85,8 +85,24 @@ const ProfileDashboard = () => {
             borderRadius: 4, 
             boxShadow: '0 20px 40px rgba(0,0,0,0.1)', 
             mb: 3,
-            background: 'rgba(255,255,255,0.95)',
-            backdropFilter: 'blur(10px)'
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(14, 165, 233, 0.25)',
+            position: 'relative',
+            overflow: 'hidden',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: 'linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px)',
+              backgroundSize: '22px 22px',
+              opacity: 0.35,
+              pointerEvents: 'none',
+            },
+            '& > *': {
+              position: 'relative',
+              zIndex: 1,
+            }
           }}>
             <CardContent sx={{ p: 4, textAlign: 'center' }}>
               <Box sx={{ position: 'relative', display: 'inline-block', mb: 3 }}>
@@ -95,16 +111,16 @@ const ProfileDashboard = () => {
                   sx={{ 
                     width: 120, 
                     height: 120, 
-                    border: '4px solid #fff', 
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+                    border: '3px solid rgba(14, 165, 233, 0.6)', 
+                    boxShadow: '0 8px 32px rgba(14, 165, 233, 0.25)',
                     mx: 'auto'
                   }} 
                 />
               </Box>
-              <Typography variant="h4" fontWeight={700} sx={{ mb: 1, color: '#1f2937' }}>
+              <Typography variant="h4" fontWeight={700} sx={{ mb: 1, color: '#e2e8f0', fontFamily: '"Space Grotesk", "Sora", "Montserrat", sans-serif' }}>
                 Omondi Alex
               </Typography>
-              <Typography variant="body1" color="text.secondary" sx={{ mb: 3, fontSize: '1.1rem' }}>
+              <Typography variant="body1" sx={{ mb: 3, fontSize: '1.1rem', color: '#94a3b8' }}>
                 Security & Software Engineer
               </Typography>
               
@@ -937,15 +953,15 @@ const ProfileDashboard = () => {
           <Card sx={{
             width: '100%',
             borderRadius: 4,
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
+            boxShadow: '0 12px 40px rgba(15, 23, 42, 0.45)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             height: '100%',
             p: { xs: 2, md: 3 },
             mb: { xs: 2, md: 0 },
-            background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
-            border: '1px solid rgba(226, 232, 240, 0.8)',
+            background: 'linear-gradient(180deg, #0b1120 0%, #0f172a 100%)',
+            border: '1px solid rgba(14, 165, 233, 0.3)',
             position: 'relative',
             overflow: 'hidden',
             '&::before': {
@@ -955,8 +971,21 @@ const ProfileDashboard = () => {
               left: 0,
               right: 0,
               height: '4px',
-              background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
-            }
+              background: 'linear-gradient(90deg, #22c55e 0%, #0ea5e9 100%)',
+            },
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: 'linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+              opacity: 0.35,
+              pointerEvents: 'none',
+            },
+            '& > *': {
+              position: 'relative',
+              zIndex: 1,
+            },
           }}>
             <Box sx={{ 
               position: 'relative', 
@@ -970,7 +999,7 @@ const ProfileDashboard = () => {
                 width: isMobile ? 80 : 110,
                 height: isMobile ? 80 : 110,
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
+                background: 'radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(34, 197, 94, 0.1) 60%, transparent 70%)',
                 zIndex: 0,
               }
             }}>
@@ -979,8 +1008,8 @@ const ProfileDashboard = () => {
                 sx={{ 
                   width: isMobile ? 70 : 100, 
                   height: isMobile ? 70 : 100, 
-                  border: '4px solid #fff', 
-                  boxShadow: '0 8px 24px rgba(102, 126, 234, 0.2)',
+                  border: '3px solid rgba(14, 165, 233, 0.7)', 
+                  boxShadow: '0 10px 28px rgba(14, 165, 233, 0.25)',
                   position: 'relative',
                   zIndex: 1,
                 }} 
@@ -993,10 +1022,9 @@ const ProfileDashboard = () => {
               sx={{ 
                 mb: 0.5, 
                 fontSize: isMobile ? '1.1rem' : isMediumLarge ? '1.1rem' : '1.25rem',
-                background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: '#e2e8f0',
+                fontFamily: '"Space Grotesk", "Sora", "Montserrat", sans-serif',
+                letterSpacing: '0.02em',
               }}
             >
               Omondi Alex Omieno
@@ -1009,24 +1037,24 @@ const ProfileDashboard = () => {
               py: 0.75,
               mb: 2,
               borderRadius: 2,
-              background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
-              border: '1px solid #bae6fd',
+              background: 'rgba(14, 165, 233, 0.12)',
+              border: '1px solid rgba(14, 165, 233, 0.45)',
             }}>
-              <EmailIcon sx={{ fontSize: isMobile ? 14 : 16, color: '#3b82f6' }} />
+              <EmailIcon sx={{ fontSize: isMobile ? 14 : 16, color: '#7dd3fc' }} />
               <Typography 
                 variant="body2" 
                 align="center" 
                 sx={{ 
                   mb: 0,
                   fontSize: isMobile ? '0.85rem' : isMediumLarge ? '0.95rem' : '1rem',
-                  color: '#3b82f6',
+                  color: '#7dd3fc',
                   fontWeight: 500,
                 }}
               >
                 omondialex3517@gmail.com
               </Typography>
             </Box>
-            <Divider sx={{ my: 2, width: '100%', borderColor: 'rgba(226, 232, 240, 0.6)' }} />
+            <Divider sx={{ my: 2, width: '100%', borderColor: 'rgba(148, 163, 184, 0.35)' }} />
             <Box sx={{ width: '100%' }}>
               <Typography 
                 variant="subtitle1" 
@@ -1035,7 +1063,7 @@ const ProfileDashboard = () => {
                 align="left" 
                 sx={{ 
                   fontSize: isMobile ? '1rem' : isMediumLarge ? '1rem' : '1.1rem',
-                  color: '#1e293b',
+                  color: '#e2e8f0',
                   display: 'flex',
                   alignItems: 'center',
                   gap: 1,
@@ -1045,12 +1073,12 @@ const ProfileDashboard = () => {
                   width: 28,
                   height: 28,
                   borderRadius: '8px',
-                  background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                  background: 'linear-gradient(135deg, #22c55e 0%, #0ea5e9 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#fff',
-                  boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
+                  boxShadow: '0 4px 12px rgba(34, 197, 94, 0.3)',
                 }}>
                   <InfoOutlinedIcon sx={{ fontSize: 16 }} />
                 </Box>
@@ -1059,19 +1087,19 @@ const ProfileDashboard = () => {
               <Box sx={{
                 p: 2,
                 borderRadius: 2.5,
-                background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
-                border: '1.5px solid #bfdbfe',
+                background: 'rgba(15, 23, 42, 0.7)',
+                border: '1.5px solid rgba(14, 165, 233, 0.35)',
                 minHeight: 'fit-content',
-                boxShadow: '0 2px 8px rgba(37, 99, 235, 0.08)',
+                boxShadow: '0 2px 12px rgba(14, 165, 233, 0.12)',
               }}>
                 <Typography 
                   variant="body2" 
                   sx={{ 
                     fontSize: isMobile ? '0.85rem' : '0.9rem',
                     lineHeight: 1.8,
-                    color: '#1e40af',
+                    color: '#cbd5f5',
                     fontWeight: 400,
-                    fontFamily: '"Inter", "Poppins", "Roboto", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif',
+                    fontFamily: '"IBM Plex Sans", "Space Grotesk", "Sora", sans-serif',
                     letterSpacing: '0.01em',
                   }}
                 >
