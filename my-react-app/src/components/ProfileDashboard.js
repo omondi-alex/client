@@ -1794,7 +1794,7 @@ const ProfileDashboard = () => {
                       ml: 2,
                     }}>
                       <Typography sx={{ fontWeight: 700, fontSize: '0.875rem', mb: 1.5, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                        Key Responsibilities
+                        Allocated Units
                       </Typography>
                       <Box component="ul" sx={{ m: 0, pl: 2.5, listStyle: 'none' }}>
                         <Box component="li" sx={{ 
@@ -1811,7 +1811,7 @@ const ProfileDashboard = () => {
                           }
                         }}>
                           <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
-                            Web Development
+                            Computer System Engineering Project Management
                           </Typography>
                         </Box>
                         <Box component="li" sx={{ 
@@ -1829,6 +1829,57 @@ const ProfileDashboard = () => {
                         }}>
                           <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
                             Object-Oriented Analysis and Design
+                          </Typography>
+                        </Box>
+                           <Box component="li" sx={{ 
+                          mb: 1, 
+                          position: 'relative',
+                          pl: 2,
+                          '&::before': {
+                            content: '"•"',
+                            position: 'absolute',
+                            left: 0,
+                            color: '#2563eb',
+                            fontWeight: 'bold',
+                            fontSize: '1.2rem',
+                          }
+                        }}>
+                          <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                            Computer System Security
+                          </Typography>
+                        </Box>
+                         <Box component="li" sx={{ 
+                          mb: 1, 
+                          position: 'relative',
+                          pl: 2,
+                          '&::before': {
+                            content: '"•"',
+                            position: 'absolute',
+                            left: 0,
+                            color: '#2563eb',
+                            fontWeight: 'bold',
+                            fontSize: '1.2rem',
+                          }
+                        }}>
+                          <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                            Computer Architecture
+                          </Typography>
+                        </Box>
+                         <Box component="li" sx={{ 
+                          mb: 1, 
+                          position: 'relative',
+                          pl: 2,
+                          '&::before': {
+                            content: '"•"',
+                            position: 'absolute',
+                            left: 0,
+                            color: '#2563eb',
+                            fontWeight: 'bold',
+                            fontSize: '1.2rem',
+                          }
+                        }}>
+                          <Typography sx={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#475569' }}>
+                            Web Development
                           </Typography>
                         </Box>
                       </Box>
