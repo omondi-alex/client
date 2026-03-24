@@ -1722,6 +1722,62 @@ const ProfileDashboard = () => {
                     </Box>
                   </Box>
                 </Box>
+
+                {/* Hiring-Ready Highlights */}
+                <Box sx={{ mb: 4 }}>
+                  <Typography 
+                    variant="caption" 
+                    sx={{ 
+                      color: 'text.secondary', 
+                      mb: 1, 
+                      display: 'block', 
+                      fontWeight: 600, 
+                      fontSize: '0.75rem', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '0.5px' 
+                    }}
+                  >
+                    Core Security & Software Skills
+                  </Typography>
+                  <Box
+                    sx={{
+                      p: 2.5,
+                      borderRadius: 3,
+                      background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                      border: '2px solid #e2e8f0',
+                      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: 1,
+                    }}
+                  >
+                    {[
+                      'Cloud Security',
+                      'SIEM & Log Analysis',
+                      'Threat Detection',
+                      'Vulnerability Management',
+                      'Incident Response',
+                      'Secure SDLC',
+                      'API Security',
+                      'Network Security',
+                      'Full-Stack Development',
+                      'GRC & Compliance'
+                    ].map((skill, idx) => (
+                      <Chip
+                        key={idx}
+                        label={skill}
+                        size="small"
+                        sx={{
+                          background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+                          color: '#1e40af',
+                          fontWeight: 600,
+                          border: '1px solid #bfdbfe',
+                        }}
+                      />
+                    ))}
+                  </Box>
+                </Box>
+
                 <Box sx={{ maxHeight: 500, overflowY: 'auto', pr: 1 }}>
                   {/* Experience -2: Tutorial Fellow (current) */}
                   <Box sx={{ 
