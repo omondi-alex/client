@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CssBaseline from '@mui/material/CssBaseline';
+import Fab from '@mui/material/Fab';
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 import ProfileDashboard from "./components/ProfileDashboard";
@@ -12,6 +13,7 @@ import Announcements from "./components/Announcements";
 import { Box, useMediaQuery, Drawer } from '@mui/material';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const theme = createTheme();
 
@@ -22,6 +24,44 @@ function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
+}
+
+function ScrollTopFab() {
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [show, setShow] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShow(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <Fab
+      size={isMobile ? "small" : "medium"}
+      aria-label="scroll back to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      sx={{
+        position: 'fixed',
+        right: 16,
+        bottom: 24,
+        zIndex: 1300,
+        background: 'linear-gradient(135deg, #22c55e 0%, #0ea5e9 100%)',
+        color: '#06121d',
+        boxShadow: '0 10px 24px rgba(14, 165, 233, 0.35)',
+        '&:hover': {
+          background: 'linear-gradient(135deg, #16a34a 0%, #0ea5e9 100%)',
+        }
+      }}
+    >
+      <KeyboardArrowUpIcon />
+    </Fab>
+  );
 }
 
 function App() {
@@ -84,6 +124,7 @@ function App() {
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </Box>
+          <ScrollTopFab />
         </div>
       </BrowserRouter>
     </ThemeProvider>
