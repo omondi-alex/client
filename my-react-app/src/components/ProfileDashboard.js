@@ -45,6 +45,120 @@ const ProfileDashboard = () => {
   const [tab, setTab] = React.useState(initialTab);
   const isMobile = useMediaQuery('(max-width:1280px)');
   const isMediumLarge = useMediaQuery('(max-width:1440px)');
+  const mobileWorkExperience = [
+    {
+      title: "Tutorial Fellow - Information Technology",
+      company: "Zetech University",
+      roleType: "Full-time",
+      location: "Kenya",
+      period: "2026-02 - To date",
+      sectionTitle: "Allocated Units",
+      icon: SchoolIcon,
+      accent: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
+      badgeBg: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)",
+      badgeColor: "#1e40af",
+      items: [
+        "Cyber Security",
+        "Network Design and Administration",
+        "Database Systems",
+        "Cyber Law",
+        "Routing and Switching",
+        "Ethical Hacking",
+      ],
+    },
+    {
+      title: "Lecturer",
+      company: "Kirinyaga University",
+      roleType: "Part-time",
+      location: "Kirinyaga, Kenya",
+      period: "2025-09 - To date",
+      sectionTitle: "Allocated Units",
+      icon: SchoolIcon,
+      accent: "linear-gradient(135deg, #0f766e 0%, #0d9488 100%)",
+      badgeBg: "linear-gradient(135deg, #ecfeff 0%, #ccfbf1 100%)",
+      badgeColor: "#115e59",
+      items: [
+        "Computer System Engineering Project Management",
+        "Object-Oriented Analysis and Design",
+        "Computer System Security",
+        "Computer Architecture",
+        "Web Development",
+      ],
+    },
+    {
+      title: "Platforms Developer",
+      company: "Agriwatt Hub Limited",
+      roleType: "Part-time",
+      location: "Nairobi, Kenya",
+      period: "2025-08 - 2025-11",
+      sectionTitle: "Key Contributions",
+      icon: CodeIcon,
+      accent: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)",
+      badgeBg: "linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)",
+      badgeColor: "#5b21b6",
+      items: [
+        "Graphics Design",
+        "Virtual Assistant",
+        "Create data visualization dashboards for farm analytics",
+        "Develop mobile data collection modules (online-first approach)",
+        "Build farmer feedback systems (SMS/USSD platforms)",
+        "Collaborate on website improvements and user experience enhancements",
+      ],
+    },
+    {
+      title: "ICT Support Volunteer",
+      company: "Young Professional Mentorship Program (YPMP)",
+      roleType: "Volunteer",
+      location: "Kampala, Uganda",
+      period: "2024-01 - To date",
+      sectionTitle: "Key Responsibilities",
+      icon: SupportIcon,
+      accent: "linear-gradient(135deg, #ea580c 0%, #f97316 100%)",
+      badgeBg: "linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%)",
+      badgeColor: "#9a3412",
+      items: [
+        "Website Management",
+        "Graphics Design",
+        "Virtual Assistant",
+      ],
+    },
+    {
+      title: "Software Security Engineer",
+      company: "Enovise Group",
+      roleType: "Full-time",
+      location: "Kenya",
+      period: "2024-03 - 2025-06",
+      sectionTitle: "Key Responsibilities",
+      icon: SecurityIcon,
+      accent: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)",
+      badgeBg: "linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%)",
+      badgeColor: "#991b1b",
+      items: [
+        "Designed and implemented security solutions",
+        "Created software tools for incident investigation",
+        "Monitored security logs and responded to incidents",
+        "Managed vulnerabilities and threat detection",
+      ],
+    },
+    {
+      title: "ICT Officer",
+      company: "Ministry of Education",
+      roleType: "Full-time",
+      location: "Kenya",
+      period: "2023-01 - 2024-01",
+      sectionTitle: "Key Responsibilities",
+      icon: ComputerIcon,
+      accent: "linear-gradient(135deg, #475569 0%, #334155 100%)",
+      badgeBg: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+      badgeColor: "#334155",
+      items: [
+        "Supported E-Learning and content development",
+        "Trained teachers in digital literacy",
+        "Provided technical support and maintenance",
+        "Assisted with ICT integration in education",
+      ],
+    },
+  ];
 
   // Update tab when URL params change
   React.useEffect(() => {
@@ -382,195 +496,145 @@ const ProfileDashboard = () => {
                 </Typography>
               </Box>
 
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#2563eb',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <WorkIcon sx={{ fontSize: 16 }} />
-                    </Box>
-                    <Box>
-                      <Typography fontWeight={600}>Tutorial Fellow - Information Technology</Typography>
-                      <Typography variant="caption" color="text.secondary">Zetech University • 2026-02 to date</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    • Cyber Security<br/>
-                    • Network Design and Administration<br/>
-                    • Database Systems<br/>
-                    • Cyber Law<br/>
-                    • Routing and Switching<br/>
-                    • Ethical Hacking
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-
-                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#2563eb',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <WorkIcon sx={{ fontSize: 16 }} />
-                    </Box>
-                    <Box>
-                      <Typography fontWeight={600}>Lecturer</Typography>
-                      <Typography variant="caption" color="text.secondary">Kirinyaga University • 2025-09 to date</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    • Computer System Engineering Project Management<br/>
-                    • Object-Oriented Analysis and Design<br/>
-                    • Computer System Security<br/>
-                    • Computer Architecture<br/>
-                    • Web Development
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-
-               <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#2563eb',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <WorkIcon sx={{ fontSize: 16 }} />
-                    </Box>
-                    <Box>
-                      <Typography fontWeight={600}>Platforms Developer</Typography>
-                      <Typography variant="caption" color="text.secondary">Agriwatt Hub Limited • 2025-08 to 2025-11</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    • Graphics Design<br/>
-                    • Virtual Assistant<br/>
-                    • Create data visualization dashboards for farm analytics<br/>
-                    • Develop mobile data collection modules (online-first approach)<br/>
-                    • Build farmer feedback systems (SMS/USSD platforms)<br/>
-                    • Collaborate on website improvements and user experience enhancements
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-              
-              <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#2563eb',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <WorkIcon sx={{ fontSize: 16 }} />
-                    </Box>
-                    <Box>
-                      <Typography fontWeight={600}>ICT Support Volunteer</Typography>
-                      <Typography variant="caption" color="text.secondary">YPMP • 2024-01 to date</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    • Manage the website<br/>
-                    • Design graphics<br/>
-                    • Serve as a virtual assistant
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#2563eb',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <WorkIcon sx={{ fontSize: 16 }} />
-                    </Box>
-                    <Box>
-                      <Typography fontWeight={600}>Software Security Engineer</Typography>
-                      <Typography variant="caption" color="text.secondary">Enovise Group • 2024-03 to 2025-06</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    • Designed and implemented security solutions<br/>
-                    • Created software tools for incident investigation<br/>
-                    • Monitored security logs and responded to incidents<br/>
-                    • Managed vulnerabilities and threat detection
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Box sx={{ 
-                      width: 32, 
-                      height: 32, 
-                      borderRadius: '50%', 
-                      background: '#2563eb',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white'
-                    }}>
-                      <WorkIcon sx={{ fontSize: 16 }} />
-                    </Box>
-                    <Box>
-                      <Typography fontWeight={600}>ICT Officer</Typography>
-                      <Typography variant="caption" color="text.secondary">Ministry of Education • 2023-01 to 2024-01</Typography>
-                    </Box>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    • Supported E-Learning and content development<br/>
-                    • Trained teachers in digital literacy<br/>
-                    • Provided technical support and maintenance<br/>
-                    • Assisted with ICT integration in education
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
+              {mobileWorkExperience.map((experience) => {
+                const ExperienceIcon = experience.icon;
+                return (
+                  <Accordion
+                    key={`${experience.company}-${experience.title}`}
+                    disableGutters
+                    sx={{
+                      mb: 2,
+                      borderRadius: '22px !important',
+                      overflow: 'hidden',
+                      border: '1px solid rgba(148, 163, 184, 0.18)',
+                      background: 'linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.96) 100%)',
+                      boxShadow: '0 14px 28px rgba(15, 23, 42, 0.08)',
+                      '&::before': { display: 'none' },
+                    }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon sx={{ color: '#475569' }} />}
+                      sx={{
+                        px: 2.25,
+                        py: 1.25,
+                        alignItems: 'flex-start',
+                        '& .MuiAccordionSummary-content': {
+                          my: 0,
+                        },
+                      }}
+                    >
+                      <Box sx={{ display: 'flex', gap: 1.5, width: '100%', alignItems: 'flex-start' }}>
+                        <Box
+                          sx={{
+                            width: 42,
+                            height: 42,
+                            borderRadius: '14px',
+                            background: experience.accent,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: '#fff',
+                            boxShadow: '0 8px 18px rgba(37, 99, 235, 0.2)',
+                            flexShrink: 0,
+                          }}
+                        >
+                          <ExperienceIcon sx={{ fontSize: 20 }} />
+                        </Box>
+                        <Box sx={{ minWidth: 0, flex: 1 }}>
+                          <Typography sx={{ fontWeight: 700, color: '#0f172a', lineHeight: 1.35, mb: 0.4 }}>
+                            {experience.title}
+                          </Typography>
+                          <Typography sx={{ fontSize: '0.92rem', fontWeight: 600, color: '#2563eb', mb: 1 }}>
+                            {experience.company}
+                          </Typography>
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.8, alignItems: 'center' }}>
+                            <Chip
+                              label={experience.roleType}
+                              size="small"
+                              sx={{
+                                height: 24,
+                                background: experience.badgeBg,
+                                color: experience.badgeColor,
+                                fontWeight: 700,
+                                border: '1px solid rgba(148, 163, 184, 0.18)',
+                              }}
+                            />
+                            <Chip
+                              icon={<LocationOnIcon sx={{ fontSize: '0.9rem !important', color: '#64748b !important' }} />}
+                              label={experience.location}
+                              size="small"
+                              variant="outlined"
+                              sx={{
+                                height: 24,
+                                color: '#475569',
+                                borderColor: '#cbd5e1',
+                                '& .MuiChip-label': {
+                                  px: 1,
+                                  fontWeight: 500,
+                                },
+                              }}
+                            />
+                          </Box>
+                          <Typography variant="caption" sx={{ display: 'block', mt: 1.1, color: '#64748b', fontWeight: 600 }}>
+                            {experience.period}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ px: 2.25, pt: 0, pb: 2.25 }}>
+                      <Box
+                        sx={{
+                          borderRadius: 3,
+                          p: 1.8,
+                          background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                          border: '1px solid #e2e8f0',
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontWeight: 700,
+                            fontSize: '0.76rem',
+                            mb: 1.2,
+                            color: '#475569',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.08em',
+                          }}
+                        >
+                          {experience.sectionTitle}
+                        </Typography>
+                        <Box component="ul" sx={{ m: 0, pl: 0, listStyle: 'none' }}>
+                          {experience.items.map((item, idx) => (
+                            <Box
+                              key={idx}
+                              component="li"
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                gap: 1,
+                                mb: idx === experience.items.length - 1 ? 0 : 1.1,
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  width: 8,
+                                  height: 8,
+                                  mt: '8px',
+                                  borderRadius: '50%',
+                                  background: experience.badgeColor,
+                                  flexShrink: 0,
+                                }}
+                              />
+                              <Typography sx={{ fontSize: '0.92rem', lineHeight: 1.6, color: '#334155' }}>
+                                {item}
+                              </Typography>
+                            </Box>
+                          ))}
+                        </Box>
+                      </Box>
+                    </AccordionDetails>
+                  </Accordion>
+                );
+              })}
             </CardContent>
           </Card>
 
