@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, CardContent, Avatar, Typography, Grid, Tabs, Tab, TextField, InputAdornment, Paper, Divider, IconButton, Chip, useMediaQuery, Accordion, AccordionSummary, AccordionDetails, Container } from "@mui/material";
+import { Box, Card, CardContent, Avatar, Typography, Grid, Tabs, Tab, TextField, InputAdornment, Paper, Divider, IconButton, Chip, useMediaQuery, Accordion, AccordionSummary, AccordionDetails, Container, Fab } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -23,6 +23,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import GroupIcon from '@mui/icons-material/Group';
 import AssistantIcon from '@mui/icons-material/Assistant';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import fazitechImg from './imgs/fazitech.png';
 
 function TabPanel(props) {
@@ -55,12 +56,28 @@ const ProfileDashboard = () => {
   const [tab, setTab] = React.useState(initialTab);
   const isMobile = useMediaQuery('(max-width:1280px)');
   const isMediumLarge = useMediaQuery('(max-width:1440px)');
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
 
   // Update tab when URL params change
   React.useEffect(() => {
     const tabFromUrl = parseInt(searchParams.get('tab') || '0');
     setTab(tabFromUrl);
   }, [searchParams]);
+
+  // Show scroll-to-top button on mobile after some scrolling
+  React.useEffect(() => {
+    if (!isMobile) return;
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
+
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Handle tab change and update URL
   const handleTabChange = (_, newValue) => {
@@ -969,6 +986,28 @@ const ProfileDashboard = () => {
               </Grid>
             </CardContent>
           </Card>
+
+          {showScrollTop && (
+            <Fab
+              size="small"
+              aria-label="scroll back to top"
+              onClick={handleScrollTop}
+              sx={{
+                position: 'fixed',
+                right: 16,
+                bottom: 24,
+                zIndex: 1300,
+                background: 'linear-gradient(135deg, #22c55e 0%, #0ea5e9 100%)',
+                color: '#06121d',
+                boxShadow: '0 10px 24px rgba(14, 165, 233, 0.35)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #16a34a 0%, #0ea5e9 100%)',
+                }
+              }}
+            >
+              <KeyboardArrowUpIcon />
+            </Fab>
+          )}
         </Container>
       </Box>
     );
