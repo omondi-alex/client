@@ -407,6 +407,39 @@ const ProfileDashboard = () => {
                       <WorkIcon sx={{ fontSize: 16 }} />
                     </Box>
                     <Box>
+                      <Typography fontWeight={600}>Tutorial Fellow - Information Technology</Typography>
+                      <Typography variant="caption" color="text.secondary">Zetech University • 2026-02 to date</Typography>
+                    </Box>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                    • Cyber Security<br/>
+                    • Network Design and Administration<br/>
+                    • Database Systems<br/>
+                    • Cyber Law<br/>
+                    • Routing and Switching<br/>
+                    • Ethical Hacking
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+
+                <Accordion sx={{ mb: 2, borderRadius: 3, boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ 
+                      width: 32, 
+                      height: 32, 
+                      borderRadius: '50%', 
+                      background: '#2563eb',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'white'
+                    }}>
+                      <WorkIcon sx={{ fontSize: 16 }} />
+                    </Box>
+                    <Box>
                       <Typography fontWeight={600}>Lecturer</Typography>
                       <Typography variant="caption" color="text.secondary">Kirinyaga University • 2025-09 to date</Typography>
                     </Box>
@@ -414,9 +447,11 @@ const ProfileDashboard = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    • Web Development<br/>
-                    • Object Oriented Analysis and Design
-                  
+                    • Computer System Engineering Project Management<br/>
+                    • Object-Oriented Analysis and Design<br/>
+                    • Computer System Security<br/>
+                    • Computer Architecture<br/>
+                    • Web Development
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -501,7 +536,7 @@ const ProfileDashboard = () => {
                     </Box>
                     <Box>
                       <Typography fontWeight={600}>Software Security Engineer</Typography>
-                      <Typography variant="caption" color="text.secondary">Enovise Group • 2024-02 to 2025-06</Typography>
+                      <Typography variant="caption" color="text.secondary">Enovise Group • 2024-03 to 2025-06</Typography>
                     </Box>
                   </Box>
                 </AccordionSummary>

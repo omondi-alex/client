@@ -1,12 +1,10 @@
 import React from "react";
 import { Box, Card, CardContent, Typography, Grid, Chip, Button, useMediaQuery, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import PersonIcon from '@mui/icons-material/Person';
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import StarIcon from '@mui/icons-material/Star';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -50,13 +48,6 @@ const Dashboard = () => {
     { label: "Education Level", value: "MSc", icon: <SchoolIcon />, color: "#10b981" },
     { label: "Certifications", value: "6", icon: <VerifiedIcon />, color: "#f59e0b" },
     { label: "Expertise Areas", value: services.length, icon: <StarIcon />, color: "#8b5cf6" },
-  ];
-
-  const quickActions = [
-    { title: "View Full Profile", description: "Explore complete professional background", path: "/profile", icon: <PersonIcon />, tab: 0 },
-    { title: "Work Experience", description: "See proven track record", path: "/profile", icon: <WorkIcon />, tab: 1 },
-    { title: "Education", description: "Review academic credentials", path: "/profile", icon: <SchoolIcon />, tab: 2 },
-    { title: "Expertise", description: "Discover my skills and areas of expertise", path: "/profile", icon: <StarIcon />, tab: 4 },
   ];
 
   return (
@@ -515,123 +506,6 @@ const Dashboard = () => {
               </Box>
             </Box>
           )}
-        </Grid>
-
-        {/* Quick Actions */}
-        <Grid item xs={12}>
-          <Typography variant="h5" fontWeight={700} sx={{ 
-            mb: 3, 
-            color: '#1e293b', 
-            fontSize: { xs: '1.5rem', md: '1.75rem' },
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1.5,
-          }}>
-            <Box sx={{
-              width: 4,
-              height: 32,
-              borderRadius: 2,
-              background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
-            }} />
-            Learn More About Me
-          </Typography>
-          <Grid container spacing={3}>
-            {quickActions.map((action, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <Card 
-                  sx={{ 
-                    borderRadius: 4, 
-                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)', 
-                    height: '100%', 
-                    cursor: 'pointer',
-                    background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
-                    border: '2px solid #e2e8f0',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '4px',
-                      height: '100%',
-                      background: 'linear-gradient(180deg, #2563eb 0%, #1e40af 100%)',
-                    },
-                    '&:hover': {
-                      transform: 'translateY(-6px)',
-                      boxShadow: '0 12px 32px rgba(37, 99, 235, 0.15)',
-                      borderColor: '#2563eb',
-                    }
-                  }}
-                  onClick={() => navigate(`${action.path}?tab=${action.tab}`)}
-                >
-                  <CardContent sx={{ 
-                    p: { xs: 2.5, md: 3.5 }, 
-                    textAlign: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: '100%',
-                  }}>
-                    {!isMobile && (
-                      <Box sx={{ 
-                        width: 64, 
-                        height: 64, 
-                        borderRadius: '16px', 
-                        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)', 
-                        color: 'white', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        justifyContent: 'center', 
-                        mx: 'auto', 
-                        mb: 2.5,
-                        boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)',
-                      }}>
-                        {action.icon}
-                      </Box>
-                    )}
-                    <Typography variant="h6" fontWeight={700} sx={{ 
-                      mb: 1, 
-                      color: '#1e293b', 
-                      fontSize: { xs: '1.1rem', md: '1.25rem' } 
-                    }}>
-                      {action.title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ 
-                      mb: 2.5, 
-                      fontSize: { xs: '0.875rem', md: '0.95rem' },
-                      color: '#64748b',
-                      lineHeight: 1.6,
-                      flex: 1,
-                    }}>
-                      {action.description}
-                    </Typography>
-                    <Button 
-                      variant="outlined" 
-                      endIcon={<ArrowForwardIcon />}
-                      size={isMobile ? "small" : "medium"}
-                      sx={{ 
-                        borderColor: '#2563eb', 
-                        borderWidth: 2,
-                        color: '#2563eb',
-                        fontWeight: 600,
-                        px: 2.5,
-                        mt: 'auto',
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          borderColor: '#1d4ed8',
-                          background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
-                          transform: 'translateX(4px)',
-                        }
-                      }}
-                    >
-                      Explore
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
         </Grid>
 
         {/* Current Status */}
